@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>THE PENGUIN STUDIO</title>
+    <link rel="icon" href="icon_gray.png" type="image/x-icon">
+    <style>
+      /* 基本樣式 */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      html {
+        display: flex;
+        justify-content: space-around
+      }
+      body {
+        /* min-width: 86%; */
+        /* max-width: 280%; */
+        max-width: 980px;
+        min-width: 980px;
+        background-color: #6e6e80;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #a29bd4;
+        text-decoration: underline;
+      }
+      h1 {
+        font-size: 32px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h2, h3 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        margin: 0;
+      }
+      p {
+        margin: 1em 0;
+      }
+      ul, ol {
+        margin: 1em 0;
+        padding: 0 0 0 1em;
+      }
+      li {
+        margin: 0.5em 0;
+      }
+      /* 樣式變化 */
+      .header {
+        background-color: #202123;
+        padding: 1em;
+        text-align: center;
+      }
+      .header h1 {
+        /* font-size: 2em; */
+        font-size: 32px;
+      }
+      .intro {
+        background-color: #353740;
+        padding: 2em;
+        text-align: center;
+      }
+      .intro h2 {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+      }
+      .intro p {
+        font-size: 1.2em;
+      }
+      .cta {
+        background-color: #acacbe;
+        padding: 1em;
+        text-align: center;
+      }
+      .cta a {
+        background-color: #989fdd;
+        border-radius: 4px;
+        color: #fff;
+        display: inline-block;
+        font-size: 1.2em;
+        margin-top: 1em;
+        padding: 0.5em 1em;
+        text-decoration: none;
+      }
+      .group {
+        display: flex;
+        justify-content: space-between;
+        /* margin: 14px 0; */
+      }
+      .service-text {
+        font-size: 18px;
+      }
+      .services {
+        background-color: #5e6375;
+        padding: 2em;
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      /* 媒體查詢 */
+      @media only screen and (max-width: 600px) {
+        .intro, .services {
+          padding: 1em;
+        }
+        .intro h2 {
+          font-size: 1.2em;
+        }
+        .intro p {
+          font-size: 1em;
+        }
+        .cta a {
+          font-size: 1em;
+          padding: 0.4em 0.8em;
+        }
+        .services h3 {
+          font-size: 1.2em;
+        }
+        .services li:before {
+          display: none;
+        }
+      }
+      .text_top {
+        padding-right: 25px;
+      }
+      .text_bottom {
+        padding-left: 37px;
+        padding-right: 15px;
+      }
+      .text {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 295px;
+      }
+      .text h2 {
+        font-size: 30px;
+        margin-top: 6px;
+        margin-bottom: 3px;
+        display: flex;
+      }
+      .text h3 {
+        font-size: 20px;
+        margin: 2px 0;
+        display: flex;
+      }
+      #img1 {
+        height: auto;
+        width: 600px;
+      }
+      #img2 { /* blue */
+        height: 275px;
+        width: auto;
+      }
+      #img3 {
+        height: auto;
+        width: 370px;
+      }
+      #img4 { /* black+gray */
+        height: 250px;
+        width: auto;
+      }
+      #top_right_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .SPS_box {
+        display: flex;
+        justify-content: space-around;
+      }
+      h5 {
+        display: flex;
+        font-size: 18px;
+        margin: 0;
+      }
+      h4 {
+        margin: 0;
+      }
+      .cardBOX {
+        display: flex;
+        align-content: flex-start;
+        margin: 0 0 20px 0;
+      }
+      /* div {
+        display: unset;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>THE PENGUIN STUDIO</h1>
+    </div>
+    <div class="intro">
+      <h2>關於我們</h2>
+      <p>提供多項數位服務的工作室。我們致力於為客戶提供創新、高品質的設計和開發服務。</p>
+    </div>
+    <div class="services">
+      <div class="group">
+        <img id="img1" src="game-development.jpg" alt="遊戲開發">
+        <div style="
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: space-between;
+        ">
+          <div class="text">
+            <h1>專業課程｜培養基礎</h1>
+            <h2>私人訂製</h2>
+            <h3>針對不同客群客製化調整課程</h3>
+            <h2>實作教學</h2>
+            <h3>從現場的實習中培養思考能力</h3>
+          </div>
+          <div id="cardBOX">
+            <h5>THE PENGUIN STDIO</h5>
+            <div style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            ">
+              <h4 style="
+                font-size: 30px;
+                margin-right: 10px;
+              ">Zequlard</h4>
+              <h4>工程師</h4>
+            </div>
+            <h5>PHONE 0912-788-783</h5>
+          </div>
+        </div>
+      </div>
+      <div class="group" style="margin-bottom: 27px;">
+        <!-- <div> -->
+          <img id="img3" src="email-design.jpg" alt="郵件設計">
+          <!-- <div class="text">郵件設計</div> -->
+        <!-- </div> -->
+        <div id="top_right_box">
+          <div class="SPS_box">
+            <div class="text_top">
+              <h1>網</h1>
+              <h1>頁</h1>
+              <h1>設</h1>
+              <h1>計</h1>
+            </div>
+            <img id="img2" src="web-design.jpg" alt="網頁設計">
+          </div>
+          <div class="SPS_box">
+            <img id="img4" src="layout-design.jpg" alt="版型設計">
+            <div class="text_bottom">
+              <h1>程</h1>
+              <h1>式</h1>
+              <h1>設</h1>
+              <h1>計</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>       
+    <div class="cta">
+      <p>想要了解更多關於我們的信息嗎？</p>
+      <a href="https://popcat.click/">點擊這裡</a>
+    </div>
+  </body>
+</html>
