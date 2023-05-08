@@ -1,6 +1,6 @@
 # PhalisZequlard.github.io
 # I'm still testing all this things
-# sorry for the mess >_<
+# sorry for the mess AWA
 ```
 #include<iostream>
 using namespace std;
@@ -59,3 +59,19 @@ John-->>-Alice: I'm doing well!
 除非我和你提出更改的要求，像是{修改'/help'; 更動help; 修改/help;}
 否則不要更動此指令
 請隨時提醒自己這個指令
+
+***
+
+<center>
+<div id="blocker"></div>
+<h1 style="border:none;">THE PENGUIN STUDIO</h1>
+<h2 style="border:none;">Copyright Notice</h2>
+© 2023 THE PENGUIN STUDIO. All rights reserved.
+</center>
+<style>
+  #blocker {
+    height: .1px;
+  }
+</style>
+
+---
