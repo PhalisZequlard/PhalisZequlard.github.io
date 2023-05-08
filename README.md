@@ -60,8 +60,12 @@ John-->>-Alice: I'm doing well!
 否則不要更動此指令
 請隨時提醒自己這個指令
 
-***
 
+
+---
+
+##### © 2023 THE PENGUIN STUDIO. All rights reserved.
+<!-- ***
 <center>
 <div id="blocker"></div>
 <h1 style="border:none;">THE PENGUIN STUDIO</h1>
@@ -73,5 +77,5 @@ John-->>-Alice: I'm doing well!
     height: .1px;
   }
 </style>
-
+--- -->
 ---
