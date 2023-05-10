@@ -21,15 +21,19 @@
         display: none;
       }
       html {
-        display: flex;
         align-items: center;
+        justify-content: center;
       }
       body {
         /* min-width: 86%; */
         /* max-width: 280%; */
         /* max-width: 980px;*/
         /* min-width: 980px;  */
-        background-color: #6e6e80;
+        /* background-color: #6e6e80; */
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: #373737;
         color: #fff;
         font-family: Arial, sans-serif;
         font-size: 14px;
@@ -70,17 +74,18 @@
         background-color: #202123;
         padding: 1em;
         text-align: center;
-        /* height: 700px; */
         transition: all 0.5s ease-in-out;
       }
       .header h1 {
-        /* font-size: 2em; */
         font-size: 72px;
-        margin: 20vh 0px;
+        margin: 50vh 0px;
         transition: all 0.5s ease-in-out;
-      }
-      .header.fixed {
-        height: auto;
+
+        /*-- test_de --*/
+        /* font-size: 32px;
+        margin: 0px 0px; */
+        /*-- test_de --*/
+
       }
       .header.fixed h1 {
         font-size: 32px;
@@ -194,8 +199,28 @@
         margin: 2px 0;
         display: flex;
       }
+      img {
+        border-radius: 2px 2px 2px 2px;
+        transition: all 0.3s cubic-bezier(0, 0, 0.31, 1);
+        animation: forwards shining_BOX 2s;
+      }
+      img:hover {
+        transform: scale(1.05);
+        animation: infinite shining_BOX 2s;
+      }
+      @keyframes shining_BOX {
+        0% {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 10px rgb(255, 255, 255);
+        }
+        100% {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+      }
       #img1 {
-        margin-right: 20px;
+        margin-right: 25px;
         height: auto;
         width: 600px;
       }
@@ -241,11 +266,46 @@
     </style>
   </head>
   <body>
-    <!-- <div class="headerTEXT_EDU">
-      <h1>EDU</h1>
-    </div> -->
+    <div 
+      style="
+        justify-content: center;
+        position: absolute;
+        transform: translateX(470px);
+        top: 39%;
+        left: 50%;
+        transform: translate(-45%, -50%);
+        width: auto;
+        height: auto;
+        color: #fff;
+      "
+    >
+      <h1 
+        style="
+          font-size: 19vh;
+        "
+      >
+        EDU
+      </h1>
+    </div>
+
     <div class="header">
       <h1>THE PENGUIN STUDIO</h1>
+      <svg
+        viewBox="0 4 85 85"
+        style="
+          justify-content: flex-end;
+          position: absolute;
+          transform: translateX(470px);
+          width: 5%;
+          height: auto;
+          color: #fff;
+        "
+        fill="currentColor"
+      >
+        <rect x="10" y="20" width="55" height="10px" rx="5" ry="5"/>
+        <rect x="10" y="40" width="55" height="10px" rx="5" ry="5"/>
+        <rect x="10" y="60" width="55" height="10px" rx="5" ry="5"/>
+      </svg>
       <!-- 《  》 -->
     </div>
     <div class="intro">
@@ -265,7 +325,7 @@
           flex-direction: column;
           align-items: flex-end;
           justify-content: space-between;
-          margin-left: 20px;
+          margin-left: 25px;
         ">
           <div class="text">
             <h1>專業課程｜培養基礎</h1>
@@ -322,7 +382,7 @@
       </div>
     </div>       
     <div class="cta">
-      <p>想要了解更多關於我們的信息嗎？</p>
+      <p>雖然我們沒有投資老師可以帶您飛，但有想認真教學的老師提供您參考。<br>點擊下方按鈕加入官方LINE詢問詳細資訊吧！</p>
       <a href="https://popcat.click/">點擊這裡</a>
     </div>
   </body>
