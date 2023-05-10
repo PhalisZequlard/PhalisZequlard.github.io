@@ -1,5 +1,9 @@
 # PhalisZequlard.github.io
-#### about the penguin education
+this project isn't finish yet .w.
+## The Penguin Education
+提供家教課程
+## The Penguin Studio
+資訊相關委託/外聘服務
 ```
 #include<iostream>
 using namespace std;
@@ -7,9 +11,9 @@ int main() {
   return 0;
 }
 ```
-| Coding | Thinker | Post |
+| Coding | Thinker | Posting |
 | --- | --- | --- |
-| Zequlard | PCovered | Athor |
+| **Zequlard** | **Penguin** | **Athor** |
 
 
 
@@ -55,7 +59,7 @@ John-->>-Alice: I'm doing well!
 
 ---
 
-##### © 2023 THE PENGUIN STUDIO. All rights reserved.
+<h5 style="left: 50%;">© 2023 THE PENGUIN STUDIO. All rights reserved.</h5>
 <!-- ***
 <center>
 <div id="blocker"></div>
@@ -68,5 +72,4 @@ John-->>-Alice: I'm doing well!
     height: .1px;
   }
 </style>
---- -->
----
+-->
