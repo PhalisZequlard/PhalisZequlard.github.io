@@ -2,18 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <title>THE PENGUIN STUDIO</title>
     <link href="img/icon_gray.png" rel="icon" type="image/png">
     <script>
-      // window.addEventListener('scroll', function() {
-      //   var header = document.querySelector('.header');
-      //   if (window.scrollY > 30) {
-      //     header.classList.add('fixed');
-      //   }
-      // });
+      var HeadClick = false;
       window.addEventListener('click', function() {
         var header = document.querySelector('.header');
+        var EDU_txt = document.querySelector('#EDU_txt');
         header.classList.add('fixed');
+        EDU_txt.classList.add('fixed');
+        HeadClick = true;
+      });
+      window.addEventListener('scroll', function() {
+        var ICON_list = document.querySelector('#list_icon');
+        if (window.scrollY > 1 && HeadClick == true) {
+          ICON_list.classList.add('fixed');
+        }
       });
     </script>
     <style>
@@ -66,6 +71,18 @@
       }
       li {
         margin: 0.5em 0;
+      }
+      #list_icon {
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+      }
+      #list_icon.fixed {
+        opacity: 1;
+      }
+      #EDU_txt.fixed {
+        top: -20%;
+        transform: translate(50vh, 40vh);
+        opacity: 0;
       }
       .header {
         display: flex;
@@ -266,30 +283,34 @@
   </head>
   <body>
     <div 
+      id="EDU_txt"
       style="
-        justify-content: center;
         position: absolute;
-        transform: translateX(470px);
-        top: 39%;
-        left: 50%;
-        transform: translate(-45%, -50%);
+        /* transform: translateX(470px); */
+        /* top: 39%;
+        left: 50%; */
+        /* transform: translate(-45%, -50%); */
         width: auto;
         height: auto;
         color: #fff;
+        transition: all 0.3s ease-in-out;
       "
     >
-      <h1 
-        style="
-          font-size: 19vh;
-        "
-      >
-        EDU
-      </h1>
+      <h1 id="EDU_txt"
+      style="
+        font-size: 19vh;
+        opacity: 1;
+        /* top: 50%; */
+        /* left: 50%; */
+        transform: translate(50vh, 40vh);
+        transition: all 0.3s ease-in-out;
+      ">EDU</h1>
     </div>
 
     <div class="header">
       <h1>THE PENGUIN STUDIO</h1>
       <svg
+        id="list_icon"
         viewBox="0 4 85 85"
         style="
           justify-content: flex-end;
