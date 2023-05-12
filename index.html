@@ -12,6 +12,7 @@
         var EDU_txt = document.querySelector('#EDU_txt');
         header.classList.add('fixed');
         EDU_txt.classList.add('fixed');
+        document.body.style.overflow = "auto";
         HeadClick = true;
       });
       window.addEventListener('scroll', function() {
@@ -31,12 +32,13 @@
         justify-content: center;
       }
       body {
-        /* min-width: 86%; */
-        /* max-width: 280%; */
-        /* max-width: 980px;*/
-        /* min-width: 980px;  */
+        /* min-width: 86%;   */
+        /* max-width: 280%;  */
+        /* max-width: 980px; */
+        /* min-width: 980px; */
         /* background-color: #6e6e80; */
         /* width: 100vh; */
+        overflow: hidden;
         display: flex;
         align-items: stretch;
         flex-direction: column;
@@ -346,29 +348,23 @@
           this.removeEventListener('load', handleImgLoad);
           this.src = this.dataset.highRes;
         };
-        
         const handleImgError = function() {
           this.removeEventListener('error', handleImgError);
           this.src = `img_pre/${this.alt}.jpg`;
         };
-
           const img1 = document.getElementById('img1');
           img1.addEventListener('load', handleImgLoad);
           img1.addEventListener('error', handleImgError);
-
           const img2 = document.getElementById('img2');
           img2.addEventListener('load', handleImgLoad);
           img2.addEventListener('error', handleImgError);
-
           const img3 = document.getElementById('img3');
           img3.addEventListener('load', handleImgLoad);
           img3.addEventListener('error', handleImgError);
-  
           const img4 = document.getElementById('img4');
           img4.addEventListener('load', handleImgLoad);
           img4.addEventListener('error', handleImgError);
         </script>
-
         <img 
           id="img1"
           src="img_pre/game-development.jpg"
@@ -486,7 +482,9 @@
     </div>
     <div class="cta">
       <p>雖然我們沒有投資老師可以帶您飛，但有想認真教學的老師提供您參考。<br>點擊下方按鈕加入官方LINE詢問詳細資訊吧！</p>
-      <a href="https://popcat.click/">點擊這裡</a>
+      <a href="https://lin.ee/OYzAT1n">點擊這裡</a>
+      <!-- https://lin.ee/OYzAT1n -->
+      <!-- https://popcat.click/ -->
     </div>
   </body>
 </html>
