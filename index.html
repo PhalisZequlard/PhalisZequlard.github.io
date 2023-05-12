@@ -6,6 +6,11 @@
     <title>THE PENGUIN STUDIO</title>
     <link href="img/icon_gray.png" rel="icon" type="image/png">
     <script>
+      window.onload = function() {
+        if (window.innerWidth < 585 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+          document.body.innerHTML = "<h1>請使用電腦瀏覽，手機頁面施工中</h1><div style='position: fixed; bottom: 0; right: 0; width: 15vh; height: 17vh; background-color: #ccc; margin: 0; border: 0px solid #999; border-radius: 10px 10px 0px 10px; z-index: 10; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); padding: 10px;'><img src='img/under_construction_meow.png' alt='MEOW!' style='width: 15vh; height: auto; border-radius: 10px 10px 10px 10px; margin: 1px 0 0 0;'><p style='font-size: 1vh; font-weight: bold; text-align: center; color: #000; margin: 0; padding: 0; overflow: hidden;'>UNDER CONSTRUCTION</p></div>";
+        }
+      }
       var HeadClick = false;
       window.addEventListener('click', function() {
         var header = document.querySelector('.header');
@@ -13,6 +18,9 @@
         header.classList.add('fixed');
         EDU_txt.classList.add('fixed');
         document.body.style.overflow = "auto";
+        setTimeout(function() {
+          EDU_txt.parentNode.removeChild(EDU_txt);
+        }, 1000);
         HeadClick = true;
       });
       window.addEventListener('scroll', function() {
