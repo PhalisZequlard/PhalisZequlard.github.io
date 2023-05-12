@@ -26,6 +26,7 @@
         display: none;
       }
       html {
+        /* display: flex; */
         align-items: center;
         justify-content: center;
       }
@@ -35,7 +36,9 @@
         /* max-width: 980px;*/
         /* min-width: 980px;  */
         /* background-color: #6e6e80; */
+        /* width: 100vh; */
         display: flex;
+        align-items: stretch;
         flex-direction: column;
         flex-wrap: wrap;
         background-color: #373737;
@@ -46,6 +49,7 @@
         margin: 0;
         padding: 0;
         transition: all 0.5s ease-in-out;
+        /* overflow-x:hidden; */
       }
       a {
         color: #a29bd4;
@@ -80,8 +84,6 @@
         opacity: 1;
       }
       #EDU_txt.fixed {
-        top: -20%;
-        transform: translate(50vh, 40vh);
         opacity: 0;
       }
       .header {
@@ -95,7 +97,7 @@
       }
       .header h1 {
         font-size: 72px;
-        margin: 50vh 0px;
+        margin: 60vh 0vh 35vh 0vh;
         transition: all 0.5s ease-in-out;
 
         /*-- test_de --*/
@@ -285,30 +287,33 @@
     <div 
       id="EDU_txt"
       style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
-        /* transform: translateX(470px); */
-        /* top: 39%;
-        left: 50%; */
-        /* transform: translate(-45%, -50%); */
-        width: auto;
-        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -67%);
+        width: 60vh;
+        height: 33vh;
         color: #fff;
-        transition: all 0.3s ease-in-out;
-      "
-    >
-      <h1 id="EDU_txt"
+        transition: all 0.3s ease-in-out;">
+    <h1 
       style="
-        font-size: 19vh;
+        height: fit-content;
+        width: fit-content;
+        margin: 0;
+        padding: 0;
+        font-size: 40.8vh;
         opacity: 1;
-        /* top: 50%; */
-        /* left: 50%; */
-        transform: translate(50vh, 40vh);
-        transition: all 0.3s ease-in-out;
-      ">EDU</h1>
-    </div>
+        transition: all 0.3s ease-in-out;">
+      EDU
+    </h1>
+</div>
 
     <div class="header">
       <h1>THE PENGUIN STUDIO</h1>
+      
       <svg
         id="list_icon"
         viewBox="0 4 85 85"
@@ -316,7 +321,7 @@
           justify-content: flex-end;
           position: absolute;
           transform: translateX(470px);
-          width: 5%;
+          width: 5vh;
           height: auto;
           color: #fff;
         "
@@ -339,12 +344,39 @@
     </div>
     <div class="services">
       <div class="group">
-        <img id="img1" src="img_pre/game-development.jpg"
-            data-high-res="img/game-development.jpg"
-            onerror="this.onerror=null; this.src='img_pre/game-development.jpg';"
-            onload="this.onerror=null; this.src=this.dataset.highRes;"
-            alt="遊戲開發_JPG"
-          />
+        <script>
+        const handleImgLoad = function() {
+          this.removeEventListener('load', handleImgLoad);
+          this.src = this.dataset.highRes;
+        };
+        
+        const handleImgError = function() {
+          this.removeEventListener('error', handleImgError);
+          this.src = `img_pre/${this.alt}.jpg`;
+        };
+
+          const img1 = document.getElementById('img1');
+          img1.addEventListener('load', handleImgLoad);
+          img1.addEventListener('error', handleImgError);
+
+          const img2 = document.getElementById('img2');
+          img2.addEventListener('load', handleImgLoad);
+          img2.addEventListener('error', handleImgError);
+
+          const img3 = document.getElementById('img3');
+          img3.addEventListener('load', handleImgLoad);
+          img3.addEventListener('error', handleImgError);
+  
+          const img4 = document.getElementById('img4');
+          img4.addEventListener('load', handleImgLoad);
+          img4.addEventListener('error', handleImgError);
+        </script>
+
+        <img 
+          id="img1"
+          src="img_pre/game-development.jpg"
+          data-high-res="img/game-development.jpg"
+          alt="遊戲開發_JPG">
         <div style="
           display: flex;
           flex-direction: column;
@@ -381,12 +413,11 @@
       </div>
       <div class="group" style="margin-bottom: 27px;">
         <!-- <div> -->
-          <img id="img3" src="img_pre/email-design.jpg"
+          <img 
+            id="img3" 
+            src="img_pre/email-design.jpg"
             data-high-res="img/email-design.jpg"
-            onerror="this.onerror=null; this.src='img_pre/email-design.jpg';"
-            onload="this.onerror=null; this.src=this.dataset.highRes;"
-            alt="郵件設計_JPG"
-          />
+            alt="郵件設計_JPG">
           <!-- <div class="text">郵件設計</div> -->
         <!-- </div> -->
         <div id="top_right_box">
@@ -397,20 +428,18 @@
               <h1>設</h1>
               <h1>計</h1>
             </div>
-            <img id="img2" src="img_pre/web-design.jpg"
+            <img 
+              id="img2" 
+              src="img_pre/web-design.jpg"
               data-high-res="img/web-design.jpg"
-              onerror="this.onerror=null; this.src='img_pre/web-design.jpg';"
-              onload="this.onerror=null; this.src=this.dataset.highRes;"
-              alt="網頁設計_JPG"
-            />
+              alt="網頁設計_JPG">
           </div>
           <div class="SPS_box">
-            <img id="img4" src="img_pre/layout-design.jpg"
-              data-high-res="img/layout-design.jpg"
-              onerror="this.onerror=null; this.src='img_pre/layout-design.jpg';"
-              onload="this.onerror=null; this.src=this.dataset.highRes;"
-              alt="版型設計_JPG"
-            />
+            <img 
+              id="img4" 
+              src="img_pre/layout-design.jpg" 
+              data-high-res="img/layout-design.jpg" 
+              alt="版型設計_JPG">
             <div class="text_bottom">
               <h1>程</h1>
               <h1>式</h1>
@@ -420,7 +449,31 @@
           </div>
         </div>
       </div>
-    </div>       
+    </div>
+    <div style="
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      height: 50px;
+      background-color: #ccc;
+      border: 2px solid #999;
+      border-radius: 10px 0 0 0;
+      z-index: 10;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      padding: 10px;
+    ">
+      <p style="
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      ">
+        ｜這個網頁任在施工階段｜
+      </p>
+      <!-- Under construction -->
+    </div>
     <div class="cta">
       <p>雖然我們沒有投資老師可以帶您飛，但有想認真教學的老師提供您參考。<br>點擊下方按鈕加入官方LINE詢問詳細資訊吧！</p>
       <a href="https://popcat.click/">點擊這裡</a>
