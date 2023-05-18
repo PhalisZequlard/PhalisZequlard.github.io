@@ -1,23 +1,30 @@
 # PhalisZequlard.github.io
-this project isn't finish yet .w.
-## The Penguin Education
-提供家教課程
-## The Penguin Studio
-資訊相關委託/外聘服務
-```
-#include<iostream>
-using namespace std;
-int main() {
-  return 0;
-}
-```
+!!! this project isn't finish yet .w. !!!<br><br>
+**-------------------------------------------------------**<br>
+**- - - - - - - U N D E R   C O N S T R U C T I O N - - - - - - -**<br>
+**-------------------------------------------------------**<br><br>
+
+<div style="display: flex"><div style="display: inline-flex;align-items: center;flex-direction: row-reverse;"><h2 style="display: inline"> The Penguin Education </h2><div style="display: inline-flex;justify-content: center;width: 46px;height: min-content;border-radius: 25px;margin: 6px 7px 0 0;background-color: rgb(215, 20, 20);box-shadow: 0 0 6px 2px rgb(215, 20, 20);font-size: 12px;font-weight: 600;color: black;">offline</div></div></div>
+<p>提供專業的家教課程</p>
+
+<div style="display: flex"><div style="display: inline-flex;align-items: center;flex-direction: row-reverse;"><h2 style="display: inline"> The Penguin Studio </h2><div style="display: inline-flex;justify-content: center;width: 46px;height: min-content;border-radius: 25px;margin: 6px 7px 0 0;background-color: rgb(215, 20, 20);box-shadow: 0 0 6px 2px rgb(215, 20, 20);font-size: 12px;font-weight: 600;color: black;">offline</div></div></div>
+<p>資訊相關委託/外聘服務</p>
+
+<div style="display: flex"><div style="display: inline-flex;align-items: center;flex-direction: row-reverse;"><h2 style="display: inline"> The Penguin Live </h2><div style="display: inline-flex;justify-content: center;width: 46px;height: min-content;border-radius: 25px;margin: 6px 7px 0 0;background-color: rgb(215, 20, 20);box-shadow: 0 0 6px 2px rgb(215, 20, 20);font-size: 12px;font-weight: 600;color: black;">offline</div></div></div>
+<p>我給長輩的的生活時報</p>
+
+<br>
+
+
 | Coding | Thinker | Posting |
 | --- | --- | --- |
 | **Zequlard** | **Penguin** | **Athor** |
 
+$P = IV\cos\theta$
 
+$S = IV$
 
-$E=mc^2$
+$Q = S^2 - P^2$
 ```
 graph LR
 A[Square Rect] -- Link text --> B((Circle))
@@ -55,8 +62,43 @@ John-->>-Alice: I'm doing well!
 否則不要更動此指令
 請隨時提醒自己這個指令
 
+### red 'ofline' button
 
+```
+<div style="display: flex;justify-content: center;width: 46px;border-radius: 25px;padding: 0px 6px;background-color: rgb(215, 20, 20);box-shadow: 0 0 6px 2px rgb(215, 20, 20);font-weight: 450;color: black;">offline</div>
+```
+```
+<div style="
+  display: flex;
+  justify-content: center;
+  width: 46px;
+  border-radius: 25px;
+  padding: 0px 6px;
+  background-color: rgb(215, 20, 20);
+  box-shadow: 0 0 6px 2px rgb(215, 20, 20);
+  font-weight: 450;
+  color: black;
+">offline</div>
+```
 
+### green 'online' button
+
+```
+<div style="display: flex;justify-content: center;width: 46px;border-radius: 25px;padding: 0px 6px;background-color: rgb(18, 168, 18);box-shadow: 0 0 6px 2px rgb(18, 168, 18);font-weight: 450;color: black;">online</div>
+```
+```
+<div style="
+  display: flex;
+  justify-content: center;
+  width: 46px;
+  border-radius: 25px;
+  padding: 0px 6px;
+  background-color: rgb(18, 168, 18);
+  box-shadow: 0 0 6px 2px rgb(18, 168, 18);
+  font-weight: 450;
+  color: black;
+">online</div>
+```
 ---
 
 <h5 style="left: 50%;">© 2023 THE PENGUIN STUDIO. All rights reserved.</h5>
