@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zequlard|bio</title>
+  <script>
+    window.onload = function() {
+      var BIG_NAME = document.getElementById("Name");
+      var APPERTAINING = document.getElementById("locate");
+      var VIEW_BUTTON = document.getElementById("viewButton");
+      var HERDER_BOX = document.getElementById("header");
+      
+      if (window.innerWidth > 700) {
+        BIG_NAME.style.fontSize = "7vh";
+        APPERTAINING.style.fontSize = "3vh";
+        VIEW_BUTTON.style.fontSize = "2vh";
+        VIEW_BUTTON.style.margin = "12px 0 0 0";
+        HERDER_BOX.style.height = "42.5vh";
+      } else {
+        BIG_NAME.style.fontSize = "10vw";
+        APPERTAINING.style.fontSize = "4.2vw";
+        VIEW_BUTTON.style.fontSize = "2.1vh";
+        VIEW_BUTTON.style.margin = "6px 0 0 0";
+        HERDER_BOX.style.height = "28vh";
+      }
+    };
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body style="
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+">
+  <div id="header" style="
+  background-image: url(img/frozenlake_2.9mb.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  ">
+    <div>
+      <img src="" alt="ICON">
+    </div>
+    <div style="
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    ">
+      <h1 id="Name" style="
+      font-family: Arial, Helvetica, sans-serif;
+      text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .7);
+      font-weight: 600;
+      color: white;
+      margin: 0;
+      ">Phalis Zequlard</h1>
+      <h2 id="locate" style="
+      font-weight: 200;
+      margin: 0vh 0 0 0;
+      text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .7);
+      color: white;
+      ">the engineer from the penguin studio</h2>
+      <h2 id="viewButton" style="
+      font-weight: 200;
+      padding: 0 9px;
+      text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .7);
+      color: white;
+      border-radius: 50px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(255, 255, 255);
+      box-shadow: 0px 0px 2.5px rgba(0, 0, 0, .7);
+      ">start to view</h2>
+    </div>
+  </div>
+  <div id="main"></div>
+  <div id="footer"></div>
+</body>
+</html>
