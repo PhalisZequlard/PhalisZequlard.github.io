@@ -16,6 +16,10 @@
   <link rel="icon" href="img/icon_gray.png">
   <title>Zequlard｜BIO</title>
   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var loadingOverlay = document.getElementById("loadingOverlay");
+      loadingOverlay.style.display = "none";
+    });
     window.onload = function() {
       window.scrollTo(
         window.scrollTo({
@@ -80,6 +84,27 @@ padding: 0;
 display: flex;
 justify-content: center;
 ">
+  <style>
+    #loadingOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #loadingText {
+      font-size: 24px;
+    }
+  </style>
+  <div id="loadingOverlay">
+    <span id="loadingText">Loading...</span>
+  </div>
   <div id="header" style="
   background-image: url(img/frozenlake_2.9mb.jpg);
   background-size: cover;
