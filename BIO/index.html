@@ -36,6 +36,9 @@
       var HEAD_MEDIA_BOTTOM_TXT = document.getElementById("head_media_bottom_txt");
       
       if (window.innerWidth > 700) {
+        TOP_LIST.forEach(function(item) {
+          item.style.fontSize = "1.35vw";
+        });
         BIG_NAME.style.fontSize = "9vh";
         APPERTAINING.style.fontSize = "3vh";
         MY_ICON.style.height = "35px";
@@ -44,7 +47,7 @@
         HEAD_MEDIA_MIDDLE_TXT.style.fontSize = "auto";
       } else {
         TOP_LIST.forEach(function(item) {
-          item.style.fontSize = "1.5vw";
+          item.style.fontSize = "2.5vw";
         });
         BIG_NAME.style.fontSize = "10vw";
         APPERTAINING.style.fontSize = "4.2vw";
@@ -104,7 +107,7 @@ justify-content: center;
         <h1 id="myicon_txt" style="
         font-family: Arial, Helvetica, sans-serif;
         text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
-        font-weight: 600;
+        font-weight: 500;
         color: white;
         margin: 0 0 0 6px;">Zequlard Web</h1>
       </div>
@@ -123,18 +126,18 @@ justify-content: center;
           }
           .list_txt:hover {
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 1px 5px;
-            border-radius: 5px;
+            padding: 1px 7px;
+            border-radius: 8px;
           }
         </style>
         <p class="list_txt" style="
-        margin: 0 2.4vw 0 0;
+        margin: 0 1.8vw 0 0;
         ">News</p>
         <p class="list_txt" style="
-        margin: 0 2.4vw 0 0;
+        margin: 0 1.8vw 0 0;
         ">Belief</p>
         <p class="list_txt" style="
-        margin: 0 2.4vw 0 0;
+        margin: 0 1.8vw 0 0;
         ">Project</p>
         <p class="list_txt" style="
         margin: 0;
