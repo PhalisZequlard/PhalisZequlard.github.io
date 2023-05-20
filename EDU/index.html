@@ -16,6 +16,12 @@
     <link href="img/icon_gray.png" rel="icon" type="image/png">
     <script>
       window.onload = function() {
+        window.scrollTo(
+          window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+          })
+        );
         if (window.innerWidth < 585) {
           document.body.innerHTML = "<h1>請拉寬螢幕</h1><div style='position: fixed; bottom: 0; right: 0; width: 15vh; height: 17vh; background-color: #ccc; margin: 0; border: 0px solid #999; border-radius: 10px 10px 0px 10px; z-index: 10; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); padding: 10px;'><img src='img/under_construction_meow.png' alt='MEOW!' style='width: 15vh; height: auto; border-radius: 10px 10px 10px 10px; margin: 1px 0 0 0;'><p style='font-size: 1vh; font-weight: bold; text-align: center; color: #000; margin: 0; padding: 0; overflow: hidden;'>UNDER CONSTRUCTION</p></div>";
         } else if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {

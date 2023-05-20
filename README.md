@@ -1,8 +1,8 @@
 # PhalisZequlard.github.io
 !!! this project isn't finish yet .w. !!!<br><br>
-**-------------------------------------------------------**<br>
-**- - - - - - - U N D E R   C O N S T R U C T I O N - - - - - - -**<br>
-**-------------------------------------------------------**<br><br>
+**-------------------------------------------**<br>
+**- - - U N D E R   C O N S T R U C T I O N - - -**<br>
+**-------------------------------------------**<br><br>
 
 <div style="display: flex"><div style="display: inline-flex;align-items: center;flex-direction: row-reverse;"><h2 style="display: inline"> The Penguin Education </h2><div style="display: inline-flex;justify-content: center;width: 46px;height: min-content;border-radius: 25px;margin: 6px 7px 0 0;background-color: rgb(215, 20, 20);box-shadow: 0 0 6px 2px rgb(215, 20, 20);font-size: 12px;font-weight: 600;color: black;">offline</div></div></div>
 <p>提供專業的家教課程</p>
