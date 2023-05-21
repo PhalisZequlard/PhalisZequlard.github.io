@@ -81,6 +81,9 @@
       margin: 0;
       padding: 0;
     }
+    ::-webkit-scrollbar {
+      display: none;
+    }
   </style>
 </head>
 <body style="
@@ -89,6 +92,8 @@ padding: 0;
 display: flex;
 flex-direction: column;
 justify-content: center;
+overflow-x: hidden;
+background-color: rgb(255, 255, 255);
 ">
   <style>
     #loadingOverlay {
@@ -280,16 +285,49 @@ justify-content: center;
   </div>
   <div id="main">
     <div> <!-- imglist + txt border-radius: 200px 90px;-->
-      <p>About me</p>
-      <h1>Important information</h1>
+      <div style="
+        display: flex;
+        margin: 1vh 0 1vh 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        ">
+        <p style="
+        font-size: 10dw;
+        font-weight: 100;
+        ">ABOUT ME</p>
+        <h1 style="
+        font-size: 3vw
+        ">Important information</h1>
+      </div>
       <style>
         .info_img {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
           background-size: cover;
           background-position: center;
-          border-radius: 3.5vw;
+          border-radius: 3vw;
+        }
+        .info_img h1, h5 {
+          color: white;
+          margin-left: 2vw;
+          text-shadow: 0px 0px 2px rgba(0, 0, 0, .3);
+        }
+        .info_img h1 {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 7.5vw;
+        }
+        .info_img h5 {
+          margin-bottom: 1.25vw;
         }
         .row1 {
-          margin: 0;
+          height: 30vw;
+          width: 47vw;
+        }
+        .row2 {
+          height: 25vw;
+          width: 31vw;
         }
       </style>
       <div style="
@@ -299,34 +337,31 @@ justify-content: center;
         ">
         <div class="info_img row1" style="
         background-image: url(img/frozenlake_2.9mb.jpg);
-        height: 30vw;
-        width: 47vw;
-        "></div>
+        ">
+          <h1>Scool</h1>
+          <h5>txt about my school</h5>
+        </div>
         <div class="info_img row1" style="
         background-image: url(img/frozenlake_2.9mb.jpg);
-        height: 30vw;
-        width: 47vw;
-        "></div>
+        ">
+          <h1>Hobby</h1>
+          <h5>txt aboutt my hobby</h5>
+        </div>
       </div>
       <div style="
       display: flex;
       justify-content: space-evenly;
       flex-direction: row;
+      margin-top: 1.2vw;
       ">
         <div class="info_img row2" style="
         background-image: url(img/frozenlake_2.9mb.jpg);
-        height: 30vw;
-        width: 47vw;
         "></div>
         <div class="info_img row2" style="
         background-image: url(img/frozenlake_2.9mb.jpg);
-        height: 30vw;
-        width: 47vw;
         "></div>
         <div class="info_img row2" style="
         background-image: url(img/frozenlake_2.9mb.jpg);
-        height: 30vw;
-        width: 47vw;
         "></div>
       </div>
     </div>
