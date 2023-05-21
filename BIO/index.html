@@ -56,8 +56,8 @@
         });
         BIG_NAME.style.fontSize = "10vw";
         APPERTAINING.style.fontSize = "4.2vw";
-        VIEW_BUTTON.style.fontSize = "2.1vh";
-        VIEW_BUTTON.style.margin = "6px 0 0 0";
+        VIEW_BUTTON.style.fontSize = "1.5vh";
+        VIEW_BUTTON.style.margin = "0 0 0 18vw";
         MY_ICON.style.height = "4.2vw";
         MY_ICON_TXT.style.fontSize = "4vw";
         MEDIA_BOX.style.fontSize = "2.5vw";
@@ -71,6 +71,10 @@
         HEAD_MEDIA_BOTTOM_TXT.style.opacity = "0";
       }
     };
+    myHeading.addEventListener('click', function() {
+      var myHeading = document.getElementById('myHeading');
+      window.scrollBy(0, window.innerWidth * 0.2);
+    });
   </script>
   <style>
     * {
@@ -196,7 +200,7 @@ justify-content: center;
     display: flex;
     justify-content: space-between
     ">
-      <div  id="media_box" style="
+      <div id="media_box" style="
       display: flex;
       flex-direction: column;
       margin: 0 0 15px 0;
@@ -256,7 +260,7 @@ justify-content: center;
       </style>
       <h2 id="viewButton" style="
       position: absolute; 
-      left: 47%;
+      left: 45%;
       width: fit-content;
       height: fit-content;
       font-weight: 200;
@@ -275,39 +279,55 @@ justify-content: center;
     </div>
   </div>
   <div id="main">
-    <div> <!-- imglist -->
+    <div> <!-- imglist + txt border-radius: 200px 90px;-->
+      <p>About me</p>
+      <h1>Important information</h1>
+      <style>
+        .info_img {
+          background-size: cover;
+          background-position: center;
+          border-radius: 3.5vw;
+        }
+        .row1 {
+          margin: 0;
+        }
+      </style>
       <div style="
         display: flex;
         justify-content: space-evenly;
         flex-direction: row;
-        ">  <!-- imglist_row   border-radius: 200px 90px;-->
-        <div class="info_img" style="
+        ">
+        <div class="info_img row1" style="
         background-image: url(img/frozenlake_2.9mb.jpg);
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: 3.5vw;
         height: 30vw;
         width: 47vw;
         "></div>
-        <div class="info_img" style="
+        <div class="info_img row1" style="
         background-image: url(img/frozenlake_2.9mb.jpg);
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: 3.5vw;
         height: 30vw;
         width: 47vw;
         "></div>
       </div>
-      <div>
-        <div class="info_img"></div>
-        <div class="info_img"></div>
-        <div class="info_img"></div>
+      <div style="
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row;
+      ">
+        <div class="info_img row2" style="
+        background-image: url(img/frozenlake_2.9mb.jpg);
+        height: 30vw;
+        width: 47vw;
+        "></div>
+        <div class="info_img row2" style="
+        background-image: url(img/frozenlake_2.9mb.jpg);
+        height: 30vw;
+        width: 47vw;
+        "></div>
+        <div class="info_img row2" style="
+        background-image: url(img/frozenlake_2.9mb.jpg);
+        height: 30vw;
+        width: 47vw;
+        "></div>
       </div>
     </div>
     <div>
@@ -316,10 +336,4 @@ justify-content: center;
   </div>
   <div id="footer"></div>
 </body>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var loadingOverlay = document.getElementById("loadingOverlay");
-    loadingOverlay.style.display = "none";
-  });
-</script>
 </html>
