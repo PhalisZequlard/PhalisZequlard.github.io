@@ -40,6 +40,11 @@
       var HEAD_MEDIA_MIDDLE_TXT = document.getElementById("head_media_middle_txt");
       var HEAD_MEDIA_BOTTOM_TXT = document.getElementById("head_media_bottom_txt");
       var myHeading = document.getElementById('viewButton');
+      var IMG_TXT_SCHOOL = document.getElementById("School_txt");
+      var IMG_TXT_HOBBY = document.getElementById("Hobby_txt");
+      var IMG_TXT_FOOD = document.getElementById("Food_txt");
+      var IMG_TXT_PLACE = document.getElementById("Place_txt");
+      var IMG_TXT_WORK = document.getElementById("Work_txt");
       myHeading.addEventListener('click', function() {
         if (window.innerWidth > 700) {
           window.scrollBy({
@@ -54,7 +59,6 @@
             behavior: 'smooth'
           });
         }
-        
       });
       if (window.innerWidth > 700) {
         TOP_LIST.forEach(function(item) {             
@@ -85,6 +89,11 @@
         HEAD_MEDIA_MIDDLE_TXT.style.opacity = "0";
         HEAD_MEDIA_BOTTOM_TXT.style.height = "0";
         HEAD_MEDIA_BOTTOM_TXT.style.opacity = "0";
+        IMG_TXT_SCHOOL.innerHTML = "stust";
+        IMG_TXT_HOBBY.innerHTML = "coding";
+        IMG_TXT_FOOD.innerHTML = "suhsi";
+        IMG_TXT_PLACE.innerHTML = "taiwan";
+        IMG_TXT_WORK.innerHTML = "engineer";
       }
     };
     
@@ -112,27 +121,8 @@ background-color: rgb(255, 255, 255);
     html {
       scroll-behavior: smooth;
     }
-    #loadingOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      transition: all .7s ease-in-out;
-    }
-
-    #loadingText {
-      font-size: 10vw;
-    }
   </style>
-  <div id="loadingOverlay">
-    <span id="loadingText">Loading...</span>
-  </div>
+  <div id="loadingOverlay" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background-color: white;display: flex;align-items: center;justify-content: center;z-index: 100;transition: all .7s ease-in-out;"><span style="font-size: 10vw;">Loading...</span></div>
   <div id="header" style="
   background-image: url(img/frozenlake_2.9mb.jpg);
   background-size: cover;
@@ -377,13 +367,13 @@ background-color: rgb(255, 255, 255);
         background-image: url(img/school.jpg);
         ">
           <h1>School</h1>
-          <h5>stust starbucks included</h5>
+          <h5 id="School_txt">stust starbucks is included</h5>
         </div>
         <div class="info_img row1" style="
         background-image: url(img/coding.jpg);
         ">
           <h1>Hobby</h1>
-          <h5>coding mainly html or c++</h5>
+          <h5 id="Hobby_txt">coding mainly html and c++</h5>
         </div>
       </div>
       <div style="
@@ -396,19 +386,19 @@ background-color: rgb(255, 255, 255);
         background-image: url(img/food.jpg);
         ">
           <h1>Food</h1>
-          <h5>txt about my food</h5>
+          <h5 id="Food_txt">anything good to eat</h5>
         </div>
         <div class="info_img row2" style="
         background-image: url(img/taiwan.jpg);
         ">
           <h1>Place</h1>
-          <h5>live in taiwan</h5>
+          <h5 id="Place_txt">live in taiwan</h5>
         </div>
         <div class="info_img row2" style="
         background-image: url(img/work.jpg);
         ">
           <h1>Work</h1>
-          <h5>the penguin studio engineer</h5>
+          <h5 id="Work_txt">the penguin studio engineer</h5>
         </div>
       </div>
     </div>
