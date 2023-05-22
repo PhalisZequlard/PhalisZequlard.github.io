@@ -19,7 +19,8 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var loadingOverlay = document.getElementById("loadingOverlay");
-      loadingOverlay.style.display = "none";
+      loadingOverlay.style.opacity = "0";
+      // loadingOverlay.style.display = "none";
     });
     window.onload = function() {
       window.scrollTo(
@@ -316,16 +317,15 @@ background-color: rgb(255, 255, 255);
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-          background-size: cover;
           background-position: center;
           border-radius: 3vw;
-          background-size: 40vw;
+          background-size: 50vw;
           backdrop-filter: blur(0px);
           transition: all 0.3s ease-in-out;
           cursor: pointer;
         }
         .info_img:hover {
-          background-size: 50vw;
+          background-size: 55vw;
           backdrop-filter: blur(5px);
           transition: all 0.3s ease-in-out;
         }
