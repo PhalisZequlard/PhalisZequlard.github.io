@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<div id="loadingOverlay" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background-color: white;display: flex;align-items: center;justify-content: center;z-index: 100;transition: all .7s ease-in-out;"><span style="font-size: 10vw;">Loading...</span></div>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +20,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var loadingOverlay = document.getElementById("loadingOverlay");
-      loadingOverlay.style.opacity = "1";
+      loadingOverlay.style.opacity = "0";
       // loadingOverlay.style.display = "none";
     });
     window.onload = function() {
@@ -123,7 +124,6 @@ background-color: rgb(255, 255, 255);
       scroll-behavior: smooth;
     }
   </style>
-  <div id="loadingOverlay" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background-color: white;display: flex;align-items: center;justify-content: center;z-index: 100;transition: all .7s ease-in-out;"><span style="font-size: 10vw;">Loading...</span></div>
   <div id="header" style="
   background-image: url(img/frozenlake_2.9mb.jpg);
   background-size: cover;
