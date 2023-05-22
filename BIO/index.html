@@ -24,7 +24,7 @@
     window.onload = function() {
       window.scrollTo(
         window.scrollTo({
-          top: 0,
+          top: 1000,
           behavior: 'auto'
         })
       );
@@ -39,7 +39,23 @@
       var HEAD_MEDIA_TOP_TXT = document.getElementById("head_media_top_txt");
       var HEAD_MEDIA_MIDDLE_TXT = document.getElementById("head_media_middle_txt");
       var HEAD_MEDIA_BOTTOM_TXT = document.getElementById("head_media_bottom_txt");
-      
+      var myHeading = document.getElementById('viewButton');
+      myHeading.addEventListener('click', function() {
+        if (window.innerWidth > 700) {
+          window.scrollBy({
+            top: window.innerHeight * 0.43,
+            left: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          window.scrollBy({
+            top: window.innerHeight * 0.28,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }
+        
+      });
       if (window.innerWidth > 700) {
         TOP_LIST.forEach(function(item) {             
           item.style.fontSize = "1.35vw";
@@ -71,10 +87,7 @@
         HEAD_MEDIA_BOTTOM_TXT.style.opacity = "0";
       }
     };
-    myHeading.addEventListener('click', function() {
-      var myHeading = document.getElementById('myHeading');
-      window.scrollBy(0, window.innerWidth * 0.2);
-    });
+    
   </script>
   <style>
     * {
@@ -96,6 +109,9 @@ overflow-x: hidden;
 background-color: rgb(255, 255, 255);
 ">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     #loadingOverlay {
       position: fixed;
       top: 0;
@@ -106,7 +122,7 @@ background-color: rgb(255, 255, 255);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
+      z-index: 100;
       transition: all .7s ease-in-out;
     }
 
@@ -159,12 +175,13 @@ background-color: rgb(255, 255, 255);
             font-weight: 100;
             letter-spacing: 1px;
             margin: 0;
-            border-radius: 10px;
-            transition: all .3s ease-in-out;
+            border-radius: .5vw;
+            transition: all .6s ease-in-out;
           }
           .list_txt:hover {
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 1px 9px;
+            padding: 2px 9px;
+            transition: all .2s ease-in-out;
           }
         </style>
         <p class="list_txt" style="
@@ -193,12 +210,14 @@ background-color: rgb(255, 255, 255);
       font-weight: 600;
       color: white;
       margin: 0;
+      cursor: default;
       ">Phalis Zequlard</h1>
       <h2 id="locate" style="
       font-weight: 200;
       margin: 0vh 0 0 0;
       text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .5);
       color: white;
+      cursor: default;
       ">the engineer from the penguin studio</h2>
     </div>
     <div style="
@@ -214,6 +233,7 @@ background-color: rgb(255, 255, 255);
       width: fit-content;
       text-shadow: 0px 0px .8px rgba(0, 0, 0, .2);
       color: white;
+      cursor: default;
       ">
         <p style="font-weight: 350;" id="head_media_top_txt">follow me on social media</p>
         <p style="font-weight: 150;" id="head_media_middle_txt">a plethora of surprises</p>
@@ -229,13 +249,13 @@ background-color: rgb(255, 255, 255);
             transition: all .4s ease-in-out;
           }
           #fb:hover {
-            fill: rgb(80, 143, 252);
+            fill: rgb(56, 129, 255);
           }
           #ig:hover {
-            fill: rgb(252, 122, 122);
+            fill: rgb(255, 67, 161);
           }
           #git:hover {
-            fill: rgb(105, 105, 105);
+            fill: rgb(75, 75, 75);
           }
           #yt:hover {
             fill: rgb(255, 86, 86);
@@ -280,6 +300,7 @@ background-color: rgb(255, 255, 255);
       border-color: rgb(255, 255, 255);
       box-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
       transition: all .4s ease-in-out;
+      cursor: pointer;
       ">start to view</h2>
     </div>
   </div>
@@ -308,26 +329,43 @@ background-color: rgb(255, 255, 255);
           background-size: cover;
           background-position: center;
           border-radius: 3vw;
+          background-size: 40vw;
+          backdrop-filter: blur(0px);
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+        }
+        .info_img:hover {
+          background-size: 50vw;
+          backdrop-filter: blur(5px);
+          transition: all 0.3s ease-in-out;
         }
         .info_img h1, h5 {
           color: white;
-          margin-left: 2vw;
           text-shadow: 0px 0px 2px rgba(0, 0, 0, .3);
         }
         .info_img h1 {
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 7.5vw;
+          margin-left: 2vw;
         }
         .info_img h5 {
-          margin-bottom: 1.25vw;
+          margin-bottom: 1.8vw;
+          margin-left: 2.4vw;
         }
         .row1 {
           height: 30vw;
           width: 47vw;
         }
+        .row1 h1 {
+          font-size: 7.5vw;
+          height: 8vw;
+        }
         .row2 {
           height: 25vw;
           width: 31vw;
+        }
+        .row2 h1 {
+          font-size: 6.5vw;
+          height: 7vw;
         }
       </style>
       <div style="
@@ -336,16 +374,16 @@ background-color: rgb(255, 255, 255);
         flex-direction: row;
         ">
         <div class="info_img row1" style="
-        background-image: url(img/frozenlake_2.9mb.jpg);
+        background-image: url(img/school.jpg);
         ">
-          <h1>Scool</h1>
-          <h5>txt about my school</h5>
+          <h1>School</h1>
+          <h5>stust starbucks included</h5>
         </div>
         <div class="info_img row1" style="
-        background-image: url(img/frozenlake_2.9mb.jpg);
+        background-image: url(img/coding.jpg);
         ">
           <h1>Hobby</h1>
-          <h5>txt aboutt my hobby</h5>
+          <h5>coding mainly html or c++</h5>
         </div>
       </div>
       <div style="
@@ -355,20 +393,46 @@ background-color: rgb(255, 255, 255);
       margin-top: 1.2vw;
       ">
         <div class="info_img row2" style="
-        background-image: url(img/frozenlake_2.9mb.jpg);
-        "></div>
+        background-image: url(img/food.jpg);
+        ">
+          <h1>Food</h1>
+          <h5>txt about my food</h5>
+        </div>
         <div class="info_img row2" style="
-        background-image: url(img/frozenlake_2.9mb.jpg);
-        "></div>
+        background-image: url(img/taiwan.jpg);
+        ">
+          <h1>Place</h1>
+          <h5>live in taiwan</h5>
+        </div>
         <div class="info_img row2" style="
-        background-image: url(img/frozenlake_2.9mb.jpg);
-        "></div>
+        background-image: url(img/work.jpg);
+        ">
+          <h1>Work</h1>
+          <h5>the penguin studio engineer</h5>
+        </div>
       </div>
     </div>
-    <div>
-      ...
+    <div style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ">
+      <h3>extracurricular activities</h3>
+      <img src="" alt="ActingHappy_img">
     </div>
   </div>
-  <div id="footer"></div>
+  <div id="footer">
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+    footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>footer<br>
+  </div>
 </body>
 </html>
