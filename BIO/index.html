@@ -195,9 +195,28 @@ background-color: rgb(255, 255, 255);
     flex-direction: column;
     justify-content: center;
     ">
+      <style>
+        #Name:hover {
+          transition: all 5s ease-in-out;
+          animation: rainbow_shadow infinite 2.6s ease-in-out;
+        }
+        @keyframes rainbow_shadow {
+          0% {text-shadow: 0px 0px 7.5px rgba(255, 0, 0, 0.65);}
+          10% {text-shadow: 0px 0px 7.5px rgba(255, 145, 0, 0.65);}
+          20% {text-shadow: 0px 0px 7.5px rgba(255, 247, 0, 0.65);}
+          30% {text-shadow: 0px 0px 7.5px rgba(115, 255, 0, 0.65);}
+          40% {text-shadow: 0px 0px 7.5px rgba(0, 255, 30, 0.65);}
+          50% {text-shadow: 0px 0px 7.5px rgba(0, 255, 170, 0.65);}
+          60% {text-shadow: 0px 0px 7.5px rgba(0, 157, 255, 0.65);}
+          70% {text-shadow: 0px 0px 7.5px rgba(0, 0, 255, 0.65);}
+          80% {text-shadow: 0px 0px 7.5px rgba(195, 0, 255, 0.65);}
+          90% {text-shadow: 0px 0px 7.5px rgba(255, 0, 212, 0.65);}
+          100% {text-shadow: 0px 0px 7.5px rgba(255, 0, 106, 0.65);}
+        }
+      </style>
       <h1 id="Name" style="
       font-family: Arial, Helvetica, sans-serif;
-      text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
+      text-shadow: 0px 0px 4px rgba(0, 0, 0, .3);
       font-weight: 600;
       color: white;
       margin: 0;
@@ -450,7 +469,7 @@ background-color: rgb(255, 255, 255);
     height: 40vw;
     ">
     </div>
-    <p style="margin-left: 2vw;">FOOTER_SPACER | © 2023 The Penguin Studio All right reserved.</p> 
+    <p style="margin-left: 2vw; font-size: 13px">FOOTER_SPACER | © 2023 The Penguin Studio All right reserved.</p> 
   </div>
 </body>
 </html>
