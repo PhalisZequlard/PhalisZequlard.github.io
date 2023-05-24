@@ -47,7 +47,7 @@
       var IMG_TXT_PLACE = document.getElementById("Place_txt");
       var IMG_TXT_WORK = document.getElementById("Work_txt");
       myHeading.addEventListener('click', function() {
-        if (window.innerWidth > 700) {
+        if (window.innerWidth > 780) {
           window.scrollBy({
             top: window.innerHeight * 0.43,
             left: 0,
@@ -61,7 +61,7 @@
           });
         }
       });
-      if (window.innerWidth > 700) {
+      if (window.innerWidth > 780) {
         TOP_LIST.forEach(function(item) {             
           item.style.fontSize = "1.35vw";
         });
@@ -197,8 +197,8 @@ background-color: rgb(255, 255, 255);
     ">
       <style>
         #Name:hover {
-          transition: all 5s ease-in-out;
           animation: rainbow_shadow infinite 2.6s ease-in-out;
+          transform: scale(1.05);
         }
         @keyframes rainbow_shadow {
           0% {text-shadow: 0px 0px 7.5px rgba(255, 0, 0, 0.65);}
@@ -221,6 +221,7 @@ background-color: rgb(255, 255, 255);
       color: white;
       margin: 0;
       cursor: default;
+      transition: transform .6s ease-in-out;
       ">Phalis Zequlard</h1>
       <h2 id="locate" style="
       font-weight: 200;
@@ -315,8 +316,8 @@ background-color: rgb(255, 255, 255);
     </div>
   </div>
   <div id="main">
-    <div> <!-- imglist + txt border-radius: 200px 90px;-->
-      <div style="
+    <div>   <!-- /* Important information img list */ -->
+      <div style=" /* title */
       display: flex;
       margin: 1.2vh 0 1.2vh 0;
       flex-direction: column;
@@ -332,20 +333,18 @@ background-color: rgb(255, 255, 255);
         ">Important information</h1>
       </div>
       <style>
-        .info_img {
+        .info_img { /* note:txt border-radius: 200px 90px; */
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
           background-position: center;
           border-radius: 3vw;
           background-size: 50vw;
-          backdrop-filter: blur(0px);
           transition: all 0.3s ease-in-out;
           cursor: pointer;
         }
         .info_img:hover {
           background-size: 55vw;
-          backdrop-filter: blur(5px);
           transition: all 0.3s ease-in-out;
         }
         .info_img h1, h5 {
@@ -362,7 +361,8 @@ background-color: rgb(255, 255, 255);
         }
         .row1 {
           height: 30vw;
-          width: 47vw;
+          width: 45.5vw;
+          margin: 0 .5vw;
         }
         .row1 h1 {
           font-size: 7.5vw;
@@ -370,16 +370,17 @@ background-color: rgb(255, 255, 255);
         }
         .row2 {
           height: 25vw;
-          width: 31vw;
+          width: 30vw;
+          margin: 0 .5vw;
         }
         .row2 h1 {
           font-size: 6.5vw;
           height: 7vw;
         }
       </style>
-      <div style="
+      <div style=" /* ROW_1 */
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         flex-direction: row;
         ">
         <div class="info_img row1" style="
@@ -395,11 +396,11 @@ background-color: rgb(255, 255, 255);
           <h5 id="Hobby_txt">coding mainly html and c++</h5>
         </div>
       </div>
-      <div style="
+      <div style=" /* ROW_2 */
       display: flex;
-      justify-content: space-evenly;
+      justify-content: center;
       flex-direction: row;
-      margin-top: 1.2vw;
+      margin-top: 1vw;
       ">
         <div class="info_img row2" style="
         background-image: url(img/food.jpg);
@@ -421,15 +422,15 @@ background-color: rgb(255, 255, 255);
         </div>
       </div>
     </div>
-    <div style="
-    margin: 3.5vh 0 0 0;
+    <div style=" /* extracurricular activities */
+    margin: 3.5dvw 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     ">
       <h3 style="
       background-color: rgb(255, 53, 70);
-      margin-bottom: 3.5vh;
+      margin-bottom: 3.5vw;
       padding: .4vw 2vw;
       border-radius: 50px;
       box-shadow: 0px 0px 2.5px rgba(255, 53, 70, .9);
@@ -447,13 +448,101 @@ background-color: rgb(255, 255, 255);
       background-image: url(img/acting_happy.JPG);
       color: white;
       ">
-        <p style="
-        margin: 0 0 1vw 1vw;
-        ">
+        <p style="margin: 0 0 1vw 1vw;">
           why are you expecting for a engineer<br>
           to have any extracurricular activities?<br>
           friendly notice: your sick.
         </p>
+      </div>
+    </div>
+    <div style=" /* Let's get in touch */
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5vw;
+    ">
+      <div style=" /* left TXT */
+      /* background-color: rgb(55, 55, 55); */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 36vw;
+      height: 41vw;
+      overflow: hidden;
+      ">
+      <div>
+        <p style="
+        font-size: 10dw;
+        font-weight: 100;
+        ">CONTACT ME</p>
+        <h1 style="
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 3.5vw;
+        font-weight: 900;
+        ">Let's get in touch</h1>
+      </div>
+        <style>
+          @media (max-width: 780px) {
+            .contacttxt {
+              font-size: 1.8vw;
+              margin-bottom: .6vw;
+              content: var(--before-content, 'stust starbucks included');
+            }
+            .contacttxt::after {
+              content: "sssss";
+            }
+          }
+        </style>
+        <div style=" /* contact txt */
+        margin-top: 1vw;
+        margin-bottom: 5px;
+        ">
+          <p class="contacttxt" id="l1">I'm always open to discussing</p>
+          <p class="contacttxt" id="l2">product design work</p>
+          <p class="contacttxt" id="l3">or partnership opportunities.</p>
+          <p class="contacttxt" id="l4">If you have any questions,</p>
+          <p class="contacttxt" id="l5">feel free to contact me.</p>
+          <p class="contacttxt" id="l6">I will reply as soon as possible</p>
+          <p class="contacttxt" id="l7">Thank you >w< </p>
+        </div>
+        <div style="
+        border-radius: 50px;
+        background-color: rgb(255, 72, 72);
+        width: fit-content;
+        padding: .2vw 1.2vw;
+        ">Contact</div>
+      </div>
+      <div style=" /* right 2 img */
+      position: relative;
+      height: 41vw;
+      width: 55vw;
+      ">
+        <div style="
+        position: relative;
+        background-image: url(img/mecoding.jpeg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 2vw;
+        height: 41vw;
+        width: 55vw;
+        "></div>
+        <div style="
+        position: relative;
+        background-image: url(img/icon_white_shadow_plus.png);
+        background-size: cover;
+        background-position: center;
+        border-radius: 2vw;
+        z-index: 10;
+
+        /* height: 12vw;
+        width: 20vw; 
+        left: -4vw;
+        top: -43vw;*/
+
+        height: 15vw;
+        width: 15vw;
+        left: -4vw;
+        top: -45vw;
+        "></div>
       </div>
     </div>
   </div>
