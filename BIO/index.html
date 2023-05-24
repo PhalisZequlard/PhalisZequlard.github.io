@@ -319,7 +319,7 @@ background-color: rgb(255, 255, 255);
     <div>   <!-- /* Important information img list */ -->
       <div style=" /* title */
       display: flex;
-      margin: 1.2vh 0 1.2vh 0;
+      margin: 2.5vh 0 1.9vh 0;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -480,35 +480,81 @@ background-color: rgb(255, 255, 255);
         font-weight: 900;
         ">Let's get in touch</h1>
       </div>
-        <style>
-          @media (max-width: 780px) {
-            .contacttxt {
-              font-size: 1.8vw;
-              margin-bottom: .6vw;
-              content: var(--before-content, 'stust starbucks included');
-            }
+        <style> /* span contact txt */
+          .contacttxt { /* ::big screen contact txt */
+            font-size: 2.3vw;
+          }
+          #l1::after {
+            content: "I'm always open to discussing";
+          }
+          #l2::after {
+            content: "product design work";
+          }
+          #l3::after {
+            content: "or partnership opportunities.";
+          }
+          #l4::after {
+            content: "If you have any questions,";
+          }
+          #l5::after {
+            content: "feel free to contact me.";
+          }
+          #l6::after {
+            content: "I will reply you as soon as possible.";
+          }
+          #l7::after {
+            content: "Thank you >w<";
+          }
+          @media (max-width: 780px) { /* ::small screen contact txt */
             .contacttxt::after {
-              content: "sssss";
+              font-size: 3vw;
+            }
+            #l1::after {
+              content: "open to discussing";
+            }
+            #l2::after {
+              content: "product design work";
+            }
+            #l3::after {
+              content: "or partnership";
+            }
+            #l4::after {
+              content: "If any questions";
+              display: none;
+            }
+            #l5::after {
+              content: "pls contact me";
+            }
+            #l6::after {
+              content: "I will reply quickly.";
+              display: none;
+            }
+            #l7::after {
+              content: "Thank you >w<";
             }
           }
         </style>
-        <div style=" /* contact txt */
+        <div style=" /* contact span locate */
         margin-top: 1vw;
         margin-bottom: 5px;
         ">
-          <p class="contacttxt" id="l1">I'm always open to discussing</p>
-          <p class="contacttxt" id="l2">product design work</p>
-          <p class="contacttxt" id="l3">or partnership opportunities.</p>
-          <p class="contacttxt" id="l4">If you have any questions,</p>
-          <p class="contacttxt" id="l5">feel free to contact me.</p>
-          <p class="contacttxt" id="l6">I will reply as soon as possible</p>
-          <p class="contacttxt" id="l7">Thank you >w< </p>
+          <p class="contacttxt" id="l1"></p>
+          <p class="contacttxt" id="l2"></p>
+          <p class="contacttxt" id="l3"></p>
+          <p class="contacttxt" id="l4"></p>
+          <p class="contacttxt" id="l5"></p>
+          <p class="contacttxt" id="l6"></p>
+          <p class="contacttxt" id="l7"></p>
         </div>
         <div style="
         border-radius: 50px;
-        background-color: rgb(255, 72, 72);
+        background-color: rgb(255, 75, 72);
         width: fit-content;
-        padding: .2vw 1.2vw;
+        padding: .1vw 1.4vw .1vw .9vw;
+        margin-bottom: 1vh;
+        font-size: 3vw;
+        font-weight: 900;
+        color: white;
         ">Contact</div>
       </div>
       <div style=" /* right 2 img */
