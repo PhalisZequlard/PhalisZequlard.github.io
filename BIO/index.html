@@ -20,10 +20,11 @@
     document.addEventListener("DOMContentLoaded", function() {
       var loadingOverlay = document.getElementById("loadingOverlay");
       loadingOverlay.style.opacity = "1";
-      loadingOverlay.style.display = "none";
+      // loadingOverlay.style.display = "none";
     });
     window.addEventListener("load", function() {
       var loadingOverlay = document.getElementById("loadingOverlay");
+      loadingOverlay.style.display = "none";
       loadingOverlay.parentNode.removeChild(loadingOverlay);
     });
     window.onload = function() {
