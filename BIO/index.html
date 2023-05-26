@@ -121,6 +121,7 @@ background-color: rgb(255, 255, 255);
   <style>
     html {
       scroll-behavior: smooth;
+      font-family: sans-serif, Arial, Helvetica;
     }
   </style>
   <div id="loadingOverlay" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background-color: white;display: flex;align-items: center;justify-content: center;z-index: 100;transition: all .7s ease-in-out;"><span style="font-size: 10vw;">Loading...</span></div>
@@ -133,7 +134,7 @@ background-color: rgb(255, 255, 255);
   flex-direction: column;
   justify-content: space-between;
   ">
-    <div style="
+    <div style=" /* top row */
     margin: 10px 0px 0px 0px;
     padding: 0 5vw 0 5vw;
     height: fit-content;
@@ -141,7 +142,7 @@ background-color: rgb(255, 255, 255);
     justify-content: space-between;
     align-items: center
     ">
-      <div style="
+      <div style=" /* top icon */
       display: flex;
       ">
         <img id="myicon" src="img/icon_white_shadow_plus.png" alt="MY_ICON: NAME_SET('Phalis_Zequlard');" style="
@@ -149,13 +150,15 @@ background-color: rgb(255, 255, 255);
         width: auto;
         ">
         <h1 id="myicon_txt" style="
+        display: inline;
+        overflow-x: visible;
         font-family: Arial, Helvetica, sans-serif;
         text-shadow: 0px 0px 4.5px rgba(0, 0, 0, .3);
         font-weight: 100;
         color: white;
         margin: 0 0 0 6px;">Zequlard Web</h1>
       </div>
-      <div style="
+      <div style=" /* top list */
       display: flex;
       align-items: center;
       text-shadow: 0px 0px .8px rgba(0, 0, 0, .2);
@@ -231,7 +234,7 @@ background-color: rgb(255, 255, 255);
       cursor: default;
       ">the engineer from the penguin studio</h2>
     </div>
-    <div style="
+    <div style=" /* media && button */
     display: flex;
     justify-content: space-between
     ">
