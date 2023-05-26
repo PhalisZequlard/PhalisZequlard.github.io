@@ -19,8 +19,12 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var loadingOverlay = document.getElementById("loadingOverlay");
-      loadingOverlay.style.opacity = "0";
+      loadingOverlay.style.opacity = "1";
       loadingOverlay.style.display = "none";
+    });
+    window.addEventListener("load", function() {
+      var loadingOverlay = document.getElementById("loadingOverlay");
+      loadingOverlay.parentNode.removeChild(loadingOverlay);
     });
     window.onload = function() {
       window.scrollTo(
@@ -107,6 +111,10 @@
     ::-webkit-scrollbar {
       display: none;
     }
+    html {
+      scroll-behavior: smooth;
+      font-family: sans-serif, Arial, Helvetica;
+    }
   </style>
 </head>
 <body style="
@@ -118,12 +126,6 @@ justify-content: center;
 overflow-x: hidden;
 background-color: rgb(255, 255, 255);
 ">
-  <style>
-    html {
-      scroll-behavior: smooth;
-      font-family: sans-serif, Arial, Helvetica;
-    }
-  </style>
   <div id="loadingOverlay" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background-color: white;display: flex;align-items: center;justify-content: center;z-index: 100;transition: all .7s ease-in-out;"><span style="font-size: 10vw;">Loading...</span></div>
   <div id="header" style="
   background-image: url(img/frozenlake_2.9mb.jpg);
@@ -192,7 +194,7 @@ background-color: rgb(255, 255, 255);
         ">Design</p>
       </div>
     </div>
-    <div style="
+    <div style=" /* name + tps info */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -594,6 +596,32 @@ background-color: rgb(255, 255, 255);
         "></div>
       </div>
     </div>
+    <div style=" /* other web */
+    display: flex;
+    flex-wrap: wrap;
+    ">
+      <style>
+        .webBOX {
+          background-color: rgb(55, 55, 55);
+          width: 25vw;
+          height: 20vw;
+          margin: 1vw;
+          border-radius: 2vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 3vw;
+          font-weight: 900;
+          color: white;
+        }
+      </style>
+      <div class="webBOX">b1</div>
+      <div class="webBOX">b2</div>
+      <div class="webBOX">b3</div>
+      <div class="webBOX">b4</div>
+      <div class="webBOX">b5</div>
+      <div class="webBOX">b6</div>
+    </div>
   </div>
   <div id="footer">
     <div style="
@@ -607,7 +635,7 @@ background-color: rgb(255, 255, 255);
     height: 40vw;
     ">
     </div>
-    <p style="margin-left: 2vw; font-size: 13px">FOOTER_SPACER | © 2023 The Penguin Studio All right reserved.</p> 
+    <p style="margin-left: 2vw; font-size: 13px">© 2023 The Penguin Studio All right reserved.</p> 
   </div>
 </body>
 </html>
