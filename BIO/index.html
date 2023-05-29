@@ -497,13 +497,13 @@
         flex-direction: row;
         ">
         <div class="info_img row1" style="
-        background-image: url(img/school.jpg);
+        background-image: url(img/aboutme/school.jpg);
         ">
           <h1>School</h1>
           <h5 id="School_txt">stust starbucks is included</h5>
         </div>
         <div class="info_img row1" style="
-        background-image: url(img/coding.jpg);
+        background-image: url(img/aboutme/coding.jpg);
         ">
           <h1>Hobby</h1>
           <h5 id="Hobby_txt">coding mainly html and c++</h5>
@@ -516,19 +516,19 @@
       margin-top: 1vw;
       ">
         <div class="info_img row2" style="
-        background-image: url(img/food.jpg);
+        background-image: url(img/aboutme/food.jpg);
         ">
           <h1>Food</h1>
           <h5 id="Food_txt">anything good to eat</h5>
         </div>
         <div class="info_img row2" style="
-        background-image: url(img/taiwan.jpg);
+        background-image: url(img/aboutme/taiwan.jpg);
         ">
           <h1>Place</h1>
           <h5 id="Place_txt">live in taiwan</h5>
         </div>
         <div class="info_img row2" style="
-        background-image: url(img/work.jpg);
+        background-image: url(img/aboutme/work.jpg);
         ">
           <h1>Work</h1>
           <h5 id="Work_txt">the penguin studio engineer</h5>
@@ -718,6 +718,9 @@
     ">
       <style>
         .webBOX {
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
           background-color: rgb(255, 255, 255);
           width: 28vw;
           height: 40vw;
@@ -734,13 +737,121 @@
         .webBOX:hover {
           box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
         }
+        .webIMG {
+          border-radius: 2vw 2vw 0 0;
+          background-size: cover;
+          background-position: center;  
+          height: 35vw;
+          width: 28vw;
+          transition: all .3s ease-in-out;
+        }
+        .webIMG:hover {
+          height: 100vw;
+        }
+        .webTXT {
+          height: 20vw;
+          width: 28vw;
+          margin-left: 2vw;
+          overflow-y: hidden;
+          /* border-radius: 0 0 2vw 2vw; */
+          transition: all .3s ease-in-out;
+        }
+        .webTXT:hover {
+          height: 200%;
+        }
+        .webTXT h1 {
+          font-size: 4vw;
+          font-weight: 900;
+          color: black;
+          margin: .6vw 0;
+          padding: 0;
+        }
+        .webTXT p {
+          color: black;
+          font-weight: 400;
+          font-size: 2.5vw;
+          height: 3.7vw;
+        }
       </style>
-      <div class="webBOX">b1</div>
-      <div class="webBOX">b2</div>
-      <div class="webBOX">b3</div>
-      <div class="webBOX">b4</div>
-      <div class="webBOX">b5</div>
-      <div class="webBOX">b6</div>
+
+      <!-- banking -->
+      <div class="webBOX">
+        <div class="webIMG" style="background-image: url(img/otherWEB/banking.jpg);"></div>
+        <div class="webTXT">
+          <h1>Banking</h1>
+          <p>provide any kind of</p>
+          <p>Banking services</p>
+          <p>deposit investment</p>
+          <p>all kinds included</p>
+          <p>under preparation</p>
+        </div>
+      </div>
+
+      <!-- edu -->
+      <div class="webBOX">
+        <div class="webIMG" style="background-image: url(img/otherWEB/edu.jpg);"></div>
+        <div class="webTXT">
+          <h1>Education</h1>
+          <p>education</p>
+          <p>education</p>
+          <p>education</p>
+          <p>education</p>
+          <p>education</p>
+        </div>
+      </div>
+
+      <!-- live -->
+      <div class="webBOX">
+        <div class="webIMG" style="background-image: url(img/otherWEB/live.jpg);"></div>
+        <div class="webTXT">
+          <h1>Live</h1>
+          <p>live</p>
+          <p>live</p>
+          <p>live</p>
+          <p>live</p>
+          <p>live</p>
+        </div>
+      </div>
+
+      <!-- penguin -->
+      <div class="webBOX">
+        <div class="webIMG" style="background-image: url(img/otherWEB/penguin.jpg);"></div>
+        <div class="webTXT">
+          <h1>Penguin</h1>
+          <p>Due the overwhelming</p>
+          <p> cuteness of penguins</p>
+          <p>this website is</p>
+          <p>specifically designed</p>
+          <p> for penguins</p>
+        </div>
+      </div>
+
+      <!-- support -->
+      <div class="webBOX">
+        <div class="webIMG" style="background-image: url(img/otherWEB/support.jpg);"></div>
+        <div class="webTXT">
+          <h1>Support</h1>
+          <p>support</p>
+          <p>support</p>
+          <p>support</p>
+          <p>support</p>
+          <p>support</p>
+        </div>
+      </div>
+
+      <!-- tools -->
+      <div class="webBOX">
+        <div class="webIMG" style="background-image: url(img/otherWEB/tools.jpg);"></div>
+        <div class="webTXT">
+          <h1>Tools</h1>
+          <p>very usefull tools in</p>
+          <p>this website features</p> 
+          <p>a wide range of</p>
+          <p>useful digital tools</p>
+          <p>under preparation</p>
+        </div>
+      </div>
+
     </div>
 
   </div>
