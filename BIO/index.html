@@ -29,7 +29,7 @@
     window.onload = function() {
       window.scrollTo(
         window.scrollTo({
-          top: 1000,
+          top: -1000,
           behavior: 'auto'
         })
       );
@@ -101,7 +101,6 @@
         IMG_TXT_WORK.innerHTML = "engineer";
       }
     };
-    
   </script>
   <style>
     * {
@@ -115,17 +114,19 @@
       scroll-behavior: smooth;
       font-family: sans-serif, Arial, Helvetica;
     }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-x: hidden;
+      background-color: rgb(255, 255, 255);
+    }
   </style>
 </head>
-<body style="
-margin: 0;
-padding: 0;
-display: flex;
-flex-direction: column;
-justify-content: center;
-overflow-x: hidden;
-background-color: rgb(255, 255, 255);
-">
+<body>
+
   <div id="loadingOverlay" style="
   position: fixed;
   top: 0;
@@ -214,6 +215,7 @@ background-color: rgb(255, 255, 255);
     </div>
     <!-- <span style="font-size: 10vw;">Web is Loading...</span> -->
   </div>
+
   <div id="header" style="
   background-image: url(img/frozenlake_2.9mb.jpg);
   background-size: cover;
@@ -223,7 +225,9 @@ background-color: rgb(255, 255, 255);
   flex-direction: column;
   justify-content: space-between;
   ">
-    <div style=" /* top row */
+
+    <!-- top row -->
+    <div style=" 
     margin: 10px 0px 0px 0px;
     padding: 0 5vw 0 5vw;
     height: fit-content;
@@ -281,7 +285,9 @@ background-color: rgb(255, 255, 255);
         ">Design</p>
       </div>
     </div>
-    <div style=" /* name + tps info */
+
+    <!-- name + tps info -->
+    <div style=" 
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -323,7 +329,9 @@ background-color: rgb(255, 255, 255);
       cursor: default;
       ">the engineer from the penguin studio</h2>
     </div>
-    <div style=" /* media && button */
+
+    <!-- media && button -->
+    <div style=" 
     display: flex;
     justify-content: space-between
     ">
@@ -406,15 +414,21 @@ background-color: rgb(255, 255, 255);
       cursor: pointer;
       ">start to view</h2>
     </div>
+
   </div>
+
   <div id="main">
+
+    <!-- main background style -->
     <style>
       #main {
         /* background: linear-gradient(to bottom, rgb(101, 75, 253), rgb(74, 255, 195), rgb(69, 224, 255), rgb(191, 89, 255)); */
         background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(255, 255, 255), rgb(69, 224, 255), rgb(191, 89, 255));
       }
     </style>
-    <div style=" /* Important information img list */
+
+    <!-- Important information img list -->
+    <div style="
     background-color: none;">
       <div style=" /* title */
       display: flex;
@@ -521,7 +535,9 @@ background-color: rgb(255, 255, 255);
         </div>
       </div>
     </div>
-    <div style=" /* Let's get in touch */
+
+    <!-- Let's get in touch -->
+    <div style=" 
     display: flex;
     justify-content: center;
     margin-top: 8vw;
@@ -657,6 +673,8 @@ background-color: rgb(255, 255, 255);
         "></div>
       </div>
     </div>
+
+    <!-- this one not really needed -->
     <!-- <div style=" /* extracurricular activities */
     margin: 7vw 0 0 0;
     display: flex;
@@ -690,8 +708,9 @@ background-color: rgb(255, 255, 255);
         </p>
       </div>
     </div> -->
-    <!-- this one not really needed -->
-    <div style=" /* other web 6 box */
+    
+    <!-- other web 6 box -->
+    <div style=" 
     margin: 7vw 0 0 0;
     display: flex;
     flex-wrap: wrap;
@@ -699,9 +718,9 @@ background-color: rgb(255, 255, 255);
     ">
       <style>
         .webBOX {
-          background-color: rgb(55, 55, 55);
-          width: 25vw;
-          height: 20vw;
+          background-color: rgb(255, 255, 255);
+          width: 28vw;
+          height: 40vw;
           margin: 1vw;
           border-radius: 2vw;
           display: flex;
@@ -710,6 +729,10 @@ background-color: rgb(255, 255, 255);
           font-size: 3vw;
           font-weight: 900;
           color: white;
+          transition: all .1s ease-in-out;
+        }
+        .webBOX:hover {
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
         }
       </style>
       <div class="webBOX">b1</div>
@@ -719,7 +742,9 @@ background-color: rgb(255, 255, 255);
       <div class="webBOX">b5</div>
       <div class="webBOX">b6</div>
     </div>
+
   </div>
+
   <div id="footer">
     <div style="
     display: flex;
@@ -734,5 +759,6 @@ background-color: rgb(255, 255, 255);
     </div>
     <p style="margin-left: 2vw; font-size: 13px">© 2023 The Penguin Studio All right reserved.</p> 
   </div>
+
 </body>
 </html>
