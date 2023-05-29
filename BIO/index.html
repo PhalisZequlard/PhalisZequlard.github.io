@@ -408,16 +408,23 @@ background-color: rgb(255, 255, 255);
     </div>
   </div>
   <div id="main">
-    <div>   <!-- /* Important information img list */ -->
+    <style>
+      #main {
+        /* background: linear-gradient(to bottom, rgb(101, 75, 253), rgb(74, 255, 195), rgb(69, 224, 255), rgb(191, 89, 255)); */
+        background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(255, 255, 255), rgb(69, 224, 255), rgb(191, 89, 255));
+      }
+    </style>
+    <div style=" /* Important information img list */
+    background-color: none;">
       <div style=" /* title */
       display: flex;
-      margin: 2.5vh 0 1.9vh 0;
+      margin: 3.5vh 0 2.7vh 0;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       ">
         <p style="
-        font-size: 10dw;
+        font-size: 6vw;
         font-weight: 100;
         ">ABOUT ME</p>
         <h1 style="
@@ -514,43 +521,10 @@ background-color: rgb(255, 255, 255);
         </div>
       </div>
     </div>
-    <div style=" /* extracurricular activities */
-    margin: 3.5dvw 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    ">
-      <h3 style="
-      background-color: rgb(255, 53, 70);
-      margin-bottom: 3.5vw;
-      padding: .4vw 2vw;
-      border-radius: 50px;
-      box-shadow: 0px 0px 2.5px rgba(255, 53, 70, .9);
-      ">extracurricular activities</h3>
-      <div style="
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
-      width: 80vw;
-      height: 50vw;
-      border-radius: 2vw;
-      flex-direction: column;
-      background-size: cover;
-      background-position: center;
-      background-image: url(img/acting_happy.JPG);
-      color: white;
-      ">
-        <p style="margin: 0 0 1vw 1vw;">
-          why are you expecting for a engineer<br>
-          to have any extracurricular activities?<br>
-          friendly notice: your sick.
-        </p>
-      </div>
-    </div>
     <div style=" /* Let's get in touch */
     display: flex;
     justify-content: center;
-    margin-top: 3.5vw;
+    margin-top: 8vw;
     ">
       <div style=" /* left TXT */
       /* background-color: rgb(55, 55, 55); */
@@ -683,9 +657,45 @@ background-color: rgb(255, 255, 255);
         "></div>
       </div>
     </div>
+    <!-- <div style=" /* extracurricular activities */
+    margin: 7vw 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ">
+      <h3 style="
+      background-color: rgb(255, 76, 91);
+      margin-bottom: 6.5vw;
+      padding: 1.5vw 4vw;
+      border-radius: 50px;
+      box-shadow: 0px 0px 6px rgba(255, 53, 70, .9);
+      ">extracurricular activities</h3>
+      <div id="head_img" style=" /* my img */
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      width: 80vw;
+      height: 50vw;
+      border-radius: 2vw;
+      flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      background-image: url(img/acting_happy.JPG);
+      color: white;
+      ">
+        <p style="margin: 0 0 1vw 1vw;">
+          why are you expecting for a engineer<br>
+          to have any extracurricular activities?<br>
+          friendly notice: your sick.
+        </p>
+      </div>
+    </div> -->
+    <!-- this one not really needed -->
     <div style=" /* other web 6 box */
+    margin: 7vw 0 0 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     ">
       <style>
         .webBOX {
