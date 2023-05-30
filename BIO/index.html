@@ -121,7 +121,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: linear-gradient(to bottom, rgb(50, 50, 50), rgba(0, 0, 0, 0));
+      background-color: rgb(55, 55, 55);
     }
   </style>
 </head>
@@ -865,6 +865,7 @@
       <!-- title -->
       <style>
         .titleTXT {
+          z-index: 100;
           width: fit-content;
           position: relative;
           font-size: 8.3vw;
@@ -896,34 +897,38 @@
           .sportLIST {
             display: flex;
             flex-direction: row;
+            height: fit-content;
+            width: fit-content;
           }
           .sportBOX {
-            height: 5vw;
-            width: 5vw;
-            background-color: #84cdfa;
-            margin: 0 1vw;
+            position: relative;
+            z-index: 10;
+            height: 12vw;
+            width: 12vw;
+            margin: 1vw;
+            top: -10vw;
           }
         </style>
         <div class="sportLIST">
-          <div class="sportBOX">
-            <span>canyoning</span>
+          <div class="sportBOX" style="background: url(img/sports/canyoning.png) center/cover;">
+            <!-- <span>canyoning</span> -->
           </div>
-          <div class="sportBOX">
-            <span>dinghy</span>
+          <div class="sportBOX" style="background: url(img/sports/dinghy.png) center/cover;">
+            <!-- <span>dinghy</span> -->
           </div>
-          <div class="sportBOX">
-            <span>fencing</span>
+          <div class="sportBOX" style="background: url(img/sports/fencing.png) center/cover;">
+            <!-- <span>fencing</span> -->
           </div>
         </div>
         <div class="sportLIST">
-          <div class="sportBOX">
-            <span>kitesurfing</span>
+          <div class="sportBOX" style="background: url(img/sports/kitesurfing.png) center/cover;">
+            <!-- <span>kitesurfing</span> -->
           </div>
-          <div class="sportBOX">
-            <span>racing</span>
+          <div class="sportBOX" style="background: url(img/sports/racing.png) center/cover;">
+            <!-- <span>racing</span> -->
           </div>
-          <div class="sportBOX">
-            <span>trekking</span>
+          <div class="sportBOX" style="background: url(img/sports/trekking.png) center/cover;">
+            <!-- <span>trekking</span> -->
           </div>
         </div>
       </div>
@@ -934,9 +939,9 @@
       width: fit-content;
       color: rgb(255, 255, 255);
       text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-      top: -35vw;
-      left: 40vw;
+      top: -32vw;
+      left: 60vw;
+      font-size: 2.5vw;
       ">see more</div>
     </div>
 
