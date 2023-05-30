@@ -113,6 +113,7 @@
     html {
       scroll-behavior: smooth;
       font-family: sans-serif, Arial, Helvetica;
+      overflow-x: hidden;
     }
     body {
       margin: 0;
@@ -120,7 +121,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      overflow-x: hidden;
       background-color: rgb(255, 255, 255);
     }
   </style>
@@ -853,13 +853,33 @@
 
     <!-- extracurricular activities -->
     <div style="
-    margin: 6vw 0 0 0;
+    margin: 10vw 0 0 0;
     ">
       <div style="
-      height: 40vw;
-      background: url(img/.jpg) bottom/cover;
-      ">asdf</div>
-      <div>asdf</div>
+      height: 35vw;
+      width: 90vw;
+      border-radius: 0 1000px 1000px 0;
+      background: url(img/ex_activities.jpg) center/cover;
+      "></div>
+
+      <!-- title -->
+      <style>
+        .titleTXT {
+          position: relative;
+          font-size: 8.3vw;
+          font-weight: 800;
+          height: 8.3vw;
+        }
+      </style>
+      <div class="titleTXT" style="
+      top: -42.2vw;
+      left: 28vw;
+      ">extracurricular</div>
+      <div class="titleTXT" style="
+      top: -40vw;
+      left: 50vw;
+      ">activities</div>
+
     </div>
 
     <!-- this one is an easter egg -->
