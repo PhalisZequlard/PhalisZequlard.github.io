@@ -551,18 +551,19 @@
       height: 41vw;
       overflow: hidden;
       ">
-      <div>
-        <p style="
-        font-size: 10dw;
-        font-weight: 100;
-        ">CONTACT ME</p>
-        <h1 style="
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 3.5vw;
-        font-weight: 900;
-        ">Let's get in touch</h1>
-      </div>
-        <style> /* span contact txt */
+        <div>
+          <p style="
+          font-size: 10dw;
+          font-weight: 100;
+          ">CONTACT ME</p>
+          <h1 style="
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 3.5vw;
+          font-weight: 900;
+          ">Let's get in touch</h1>
+        </div>
+        <!-- span contact txt -->
+        <style>
           .contacttxt { /* ::big screen contact txt */
             font-size: 2.3vw;
           }
@@ -616,7 +617,8 @@
             }
           }
         </style>
-        <div style=" /* contact span locate */
+        <!-- place ToSpan txt -->
+        <div style="
         margin-top: 1vw;
         margin-bottom: 5px;
         ">
@@ -628,16 +630,45 @@
           <p class="contacttxt" id="l6"></p>
           <p class="contacttxt" id="l7"></p>
         </div>
-        <div style="
-        border-radius: 50px;
-        background-color: rgb(255, 75, 72);
-        width: fit-content;
-        padding: .1vw 1.4vw .1vw .9vw;
-        margin-bottom: 1vh;
-        font-size: 3vw;
-        font-weight: 900;
-        color: white;
-        ">Contact</div>
+
+        <!-- contant button style -->
+        <style>
+          #contant_button {
+            text-decoration: none;
+            border-radius: 50px 50px 50px 50px;
+            background-color: rgb(255, 75, 72);
+            width: fit-content;
+            padding: .1vw 1.4vw .0vw .9vw;
+            margin: 0 0 1vh 0vw;
+            font-size: 3vw;
+            font-weight: 900;
+            color: white;
+            transition: all .08s;
+          }
+          #contant_button:hover {
+            animation: quack .4s infinite alternate;
+            border-radius: 50px 50px 50px 10px;
+          }
+          @keyframes quack {
+            0% {
+              transform: scale(1, 1.1);
+              transform: translateX(0vw);
+            }
+            50% {
+              transform: scale(1.1, 1);
+              transform: translateX(1vw);
+            }
+            100% {
+              transform: scale(1, 1.1);
+              transform: translateX(0vw);
+            }
+          }
+        </style>
+        <!-- span button -->
+        <a href="" style="text-decoration: none;">
+          <div id="contant_button">Contact</div>
+        </a>
+
       </div>
       <div style=" /* right 2 img */
       position: relative;
