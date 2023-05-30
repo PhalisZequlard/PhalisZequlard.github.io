@@ -859,7 +859,7 @@
       height: 35vw;
       width: 90vw;
       border-radius: 0 1000px 1000px 0;
-      background: url(img/ex_activities.jpg) center/cover;
+      background: url(img/ex_activities.jpg) 90% 53%/cover;
       "></div>
 
       <!-- title -->
@@ -873,6 +873,7 @@
           color: #ffffff;
           text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           height: 7vw;
+          cursor: default;
         }
       </style>
       <div class="titleTXT" style="
@@ -893,6 +894,7 @@
       top: -35vw;
       left: 40vw;
       ">
+        <!-- icon style && list position -->
         <style>
           .sportLIST {
             display: flex;
@@ -903,37 +905,47 @@
           .sportBOX {
             position: relative;
             z-index: 10;
-            height: 12vw;
-            width: 12vw;
-            margin: 1vw 1.35vw;
-            top: -10vw;
+            height: 8vw;
+            width: 8vw;
+            margin: 1vw 2.2vw;
+            top: -2vw;
           }
           .l1 {
-            right: 15vw;
+            right: 6vw;
+          }
+          .l2 {
+            right: 2vw;
           }
         </style>
+
+        <!-- first line -->
         <div class="sportLIST">
-          <div class="sportBOX l1" style="background: url(img/sports/canyoning.png) center/cover;">
-            <!-- <span>canyoning</span> -->
-          </div>
-          <div class="sportBOX l1" style="background: url(img/sports/dinghy.png) center/cover;">
-            <!-- <span>dinghy</span> -->
-          </div>
-          <div class="sportBOX l1" style="background: url(img/sports/fencing.png) center/cover;">
-            <!-- <span>fencing</span> -->
-          </div>
+
+          <!-- canyoning -->
+          <div class="sportBOX l1" style="background: url(img/sports/canyoning.png) center/cover;"></div>
+
+          <!-- dinghy -->
+          <div class="sportBOX l1" style="background: url(img/sports/dinghy.png) center/cover;"></div>
+          
+          <!-- fencing -->
+          <div class="sportBOX l1" style="background: url(img/sports/fencing.png) center/cover;"></div>
+        
         </div>
+
+        <!-- second line -->
         <div class="sportLIST">
-          <div class="sportBOX l2" style="background: url(img/sports/kitesurfing.png) center/cover;">
-            <!-- <span>kitesurfing</span> -->
-          </div>
-          <div class="sportBOX l2" style="background: url(img/sports/racing.png) center/cover;">
-            <!-- <span>racing</span> -->
-          </div>
-          <div class="sportBOX l2" style="background: url(img/sports/trekking.png) center/cover;">
-            <!-- <span>trekking</span> -->
-          </div>
+
+          <!-- kitesurfing -->
+          <div class="sportBOX l2" style="background: url(img/sports/kitesurfing.png) center/cover;"></div>
+          
+          <!-- racing -->
+          <div class="sportBOX l2" style="background: url(img/sports/racing.png) center/cover;"></div>
+          
+          <!-- trekking -->
+          <div class="sportBOX l2" style="background: url(img/sports/trekking.png) center/cover;"></div>
+        
         </div>
+
       </div>
 
       <!-- see more btn -->
@@ -941,11 +953,25 @@
       position: relative;
       width: fit-content;
       color: rgb(255, 255, 255);
-      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-      top: -32vw;
-      left: 60vw;
-      font-size: 2.5vw;
+      top: -52vw;
+      left: 72vw;
+      font-weight: 700;
+      font-size: 3.25vw;
+      cursor: pointer;
       ">see more</div>
+
+      <!-- hiking txt -->
+      <div class="contentTXT" style="
+      position: relative;
+      width: fit-content;
+      color: rgb(255, 255, 255);
+      top: -63.1vw;
+      left: -13.8vw;
+      font-weight: 700;
+      font-size: 10vw;
+      cursor: pointer;
+      rotate: 90deg;
+      ">HIKING</div>
     </div>
 
     <!-- this one is an easter egg -->
