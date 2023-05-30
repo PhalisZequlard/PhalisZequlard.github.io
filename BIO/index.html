@@ -885,20 +885,46 @@
 
       <!-- content -->
       <div class="contentTXT" style="
-      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      width: 30vw;
       position: relative;
       top: -35vw;
       left: 40vw;
       ">
-        <div>
-          <div></div>canyoning
-          <div></div>dinghy
-          <div></div>fencing
+        <style>
+          .sportLIST {
+            display: flex;
+            flex-direction: row;
+          }
+          .sportBOX {
+            height: 5vw;
+            width: 5vw;
+            background-color: #84cdfa;
+            margin: 0 1vw;
+          }
+        </style>
+        <div class="sportLIST">
+          <div class="sportBOX">
+            <span>canyoning</span>
+          </div>
+          <div class="sportBOX">
+            <span>dinghy</span>
+          </div>
+          <div class="sportBOX">
+            <span>fencing</span>
+          </div>
         </div>
-        <div>
-          <div></div>kitesurfing
-          <div></div>racing
-          <div></div>trekking
+        <div class="sportLIST">
+          <div class="sportBOX">
+            <span>kitesurfing</span>
+          </div>
+          <div class="sportBOX">
+            <span>racing</span>
+          </div>
+          <div class="sportBOX">
+            <span>trekking</span>
+          </div>
         </div>
       </div>
 
