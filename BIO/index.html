@@ -295,21 +295,43 @@
     ">
       <style>
         #Name:hover {
-          animation: rainbow_shadow infinite 2.6s ease-in-out;
-          transform: scale(1.05);
+          animation: rainbow_shadow infinite 5.6s ease-in-out;
+          transition: all .2s ease-in-out;
         }
         @keyframes rainbow_shadow {
-          0% {text-shadow: 0px 0px 7.5px rgba(255, 0, 0, 0.65);}
-          10% {text-shadow: 0px 0px 7.5px rgba(255, 145, 0, 0.65);}
-          20% {text-shadow: 0px 0px 7.5px rgba(255, 247, 0, 0.65);}
-          30% {text-shadow: 0px 0px 7.5px rgba(115, 255, 0, 0.65);}
-          40% {text-shadow: 0px 0px 7.5px rgba(0, 255, 30, 0.65);}
-          50% {text-shadow: 0px 0px 7.5px rgba(0, 255, 170, 0.65);}
-          60% {text-shadow: 0px 0px 7.5px rgba(0, 157, 255, 0.65);}
-          70% {text-shadow: 0px 0px 7.5px rgba(0, 0, 255, 0.65);}
-          80% {text-shadow: 0px 0px 7.5px rgba(195, 0, 255, 0.65);}
-          90% {text-shadow: 0px 0px 7.5px rgba(255, 0, 212, 0.65);}
-          100% {text-shadow: 0px 0px 7.5px rgba(255, 0, 106, 0.65);}
+          0% {text-shadow: 0px 0px 7.5px rgba(255, 0, 0, 0.65);
+            transform: scaleX(1);
+          }
+          10% {text-shadow: 0px 0px 7.5px rgba(255, 145, 0, 0.65);
+            transform: scaleX(1.02);
+          }
+          20% {text-shadow: 0px 0px 7.5px rgba(255, 247, 0, 0.65);
+            transform: scaleX(1);
+          }
+          30% {text-shadow: 0px 0px 7.5px rgba(115, 255, 0, 0.65);
+            transform: scaleX(1.02);
+          }
+          40% {text-shadow: 0px 0px 7.5px rgba(0, 255, 30, 0.65);
+            transform: scaleX(1);
+          }
+          50% {text-shadow: 0px 0px 7.5px rgba(0, 255, 170, 0.65);
+            transform: scaleX(1.02);
+          }
+          60% {text-shadow: 0px 0px 7.5px rgba(0, 157, 255, 0.65);
+            transform: scaleX(1);
+          }
+          70% {text-shadow: 0px 0px 7.5px rgba(0, 0, 255, 0.65);
+            transform: scaleX(1.02);
+          }
+          80% {text-shadow: 0px 0px 7.5px rgba(195, 0, 255, 0.65);
+            transform: scaleX(1);
+          }
+          90% {text-shadow: 0px 0px 7.5px rgba(255, 0, 212, 0.65);
+            transform: scaleX(1.02);
+          }
+          100% {text-shadow: 0px 0px 7.5px rgba(255, 0, 106, 0.65);
+            transform: scaleX(1);
+          }
         }
       </style>
       <h1 id="Name" style="
