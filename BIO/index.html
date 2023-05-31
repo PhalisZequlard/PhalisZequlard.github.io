@@ -245,6 +245,10 @@
             #myicon_txt {
               display: none;
             }
+            #myicon {
+              height: 50px;
+              width: auto;
+            }
           }
         </style>
         <img id="myicon" src="img/icon_white_shadow_plus.png" alt="MY_ICON: NAME_SET('Phalis_Zequlard');">
@@ -252,32 +256,47 @@
       </div>
 
       <!-- top list -->
-      <div style=" 
+      <div class="list_txt" style=" 
       display: flex;
       align-items: center;
-      text-shadow: 0px 0px .8px rgba(0, 0, 0, .2);
-      color: white;
       ">
         <style>
-          .list_txt {
+          .list_txt p {
+            color: white;
             font-weight: 100;
             letter-spacing: 1px;
+            text-shadow: 0px 0px .8px rgba(0, 0, 0, .2);
+
             margin: 0 0 0 .5vw;
             padding: 2px 9px;
-            border-radius: .5vw;
+            border-radius: 5px;
+
             transition: all .6s ease-in-out;
           }
-          .list_txt:hover {
+          .list_txt p:hover {
             background-color: rgba(255, 255, 255, 0.2);
             padding: 2px 9px;
             transition: all .2s ease-in-out;
           }
+          #s1::after {
+            content: "News";
+          }
+          #s2::after {
+            content: "Belief";
+          }
+          #s3::after {
+            content: "Project";
+          }
+          #s4::after {
+            content: "Design";
+          }
         </style>
-        <p class="list_txt">News</p>
-        <p class="list_txt">Belief</p>
-        <p class="list_txt">Project</p>
-        <p class="list_txt">Design</p>
+        <p id="s1"></p>
+        <p id="s2"></p>
+        <p id="s3"></p>
+        <p id="s4"></p>
       </div>
+
 
     </div>
 
@@ -430,16 +449,20 @@
             fill: white;
             transform: translate(0, 0);
             transition: all .6s ease-in-out;
+            cursor: none;
           }
           .head_media_icon:hover {
             transform: translate(0, -2px);
             transition: all .4s ease-in-out;
           }
+          .mediaLink {
+            cursor: default;
+          }
           #fb:hover {
             fill: rgb(56, 129, 255);
           }
           #ig:hover {
-            fill: rgb(255, 67, 161);
+            fill: rgb(255, 106, 77);
           }
           #git:hover {
             fill: rgb(75, 75, 75);
@@ -449,18 +472,27 @@
           }
         </style>
         <div>
-          <a href="https://www.facebook.com/profile.php?id=100014913602307&mibextid=LQQJ4d"><svg id="fb" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+
+          <!-- facebook svg + link -->
+          <a class="mediaLink" href="https://www.facebook.com/profile.php?id=100014913602307&mibextid=LQQJ4d"><svg id="fb" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
             <path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z"></path>
           </svg></a>
-          <a href="https://www.instagram.com/phalis_zequlard/"><svg id="ig" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-1 0 24 19">
+
+          <!-- instagram svg + link -->
+          <a class="mediaLink" href="https://www.instagram.com/phalis_zequlard/"><svg id="ig" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-1 0 24 19">
             <path d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z"></path>
           </svg></a>
-          <a href="https://github.com/PhalisZequlard"><svg id="git" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 32 24">
+
+          <!-- github svg + link -->
+          <a class="mediaLink" href="https://github.com/PhalisZequlard"><svg id="git" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 32 24">
             <path fill-rule="evenodd" d="M 16 4 C 9.371094 4 4 9.371094 4 16 C 4 21.300781 7.4375 25.800781 12.207031 27.386719 C 12.808594 27.496094 13.027344 27.128906 13.027344 26.808594 C 13.027344 26.523438 13.015625 25.769531 13.011719 24.769531 C 9.671875 25.492188 8.96875 23.160156 8.96875 23.160156 C 8.421875 21.773438 7.636719 21.402344 7.636719 21.402344 C 6.546875 20.660156 7.71875 20.675781 7.71875 20.675781 C 8.921875 20.761719 9.554688 21.910156 9.554688 21.910156 C 10.625 23.746094 12.363281 23.214844 13.046875 22.910156 C 13.15625 22.132813 13.46875 21.605469 13.808594 21.304688 C 11.144531 21.003906 8.34375 19.972656 8.34375 15.375 C 8.34375 14.0625 8.8125 12.992188 9.578125 12.152344 C 9.457031 11.851563 9.042969 10.628906 9.695313 8.976563 C 9.695313 8.976563 10.703125 8.65625 12.996094 10.207031 C 13.953125 9.941406 14.980469 9.808594 16 9.804688 C 17.019531 9.808594 18.046875 9.941406 19.003906 10.207031 C 21.296875 8.65625 22.300781 8.976563 22.300781 8.976563 C 22.957031 10.628906 22.546875 11.851563 22.421875 12.152344 C 23.191406 12.992188 23.652344 14.0625 23.652344 15.375 C 23.652344 19.984375 20.847656 20.996094 18.175781 21.296875 C 18.605469 21.664063 18.988281 22.398438 18.988281 23.515625 C 18.988281 25.121094 18.976563 26.414063 18.976563 26.808594 C 18.976563 27.128906 19.191406 27.503906 19.800781 27.386719 C 24.566406 25.796875 28 21.300781 28 16 C 28 9.371094 22.628906 4 16 4 Z"></path>
           </svg></a>
-          <a href="https://www.youtube.com/channel/UCQYiHM34EfXuLUi76RJOfQA"><svg id="yt" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 18">
+
+          <!-- youtube svg + link -->
+          <a class="mediaLink" href="https://www.youtube.com/channel/UCQYiHM34EfXuLUi76RJOfQA"><svg id="yt" class="head_media_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 18">
             <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,14.598V9.402c0-0.385,0.417-0.625,0.75-0.433l4.5,2.598c0.333,0.192,0.333,0.674,0,0.866l-4.5,2.598 C10.417,15.224,10,14.983,10,14.598z"></path>
           </svg></a>
+
         </div>
 
       </div>
@@ -541,12 +573,17 @@
       #main {
         /* background: linear-gradient(to bottom, rgb(101, 75, 253), rgb(74, 255, 195), rgb(69, 224, 255), rgb(191, 89, 255)); */
         background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(255, 255, 255), rgb(69, 224, 255), rgb(191, 89, 255));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     </style>
 
     <!-- Important information img list -->
     <div style="
-    background-color: none;">
+    background-color: none;
+    max-width: 1650px;
+    ">
       <div style=" /* title */
       display: flex;
       margin: 3.5vh 0 2.7vh 0;
@@ -658,6 +695,7 @@
     display: flex;
     justify-content: center;
     margin-top: 8vw;
+    max-width: 1650px;
     ">
       <div style=" /* left TXT */
       /* background-color: rgb(55, 55, 55); */
@@ -835,39 +873,46 @@
           overflow: hidden;
           display: flex;
           flex-direction: column;
-          background-color: rgb(255, 255, 255);
-          width: 28vw;
-          height: 40vw;
-          margin: 1vw;
-          border-radius: 2vw;
-          display: flex;
           justify-content: center;
           align-items: center;
+
+          width: 28vw;
+          height: 40vw;
+
+          margin: 1vw;
+          border-radius: 2vw;
+          background-color: rgb(255, 255, 255);
+
+          color: white;
           font-size: 3vw;
           font-weight: 900;
-          color: white;
+
           transition: all .1s ease-in-out;
         }
         .webBOX:hover {
           box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
         }
         .webIMG {
-          border-radius: 2vw 2vw 0 0;
           background-size: cover;
           background-position: center;  
+
           height: 35.1vw;
           width: 28vw;
+          border-radius: 2vw 2vw 0 0;
+
           transition: all .3s ease-in-out;
         }
         .webIMG:hover {
           height: 100vw;
         }
         .webTXT {
+          overflow-y: hidden;
+
           height: 20vw;
           width: 28vw;
+
           margin-left: 2vw;
-          overflow-y: hidden;
-          /* border-radius: 0 0 2vw 2vw; */
+
           transition: all .3s ease-in-out;
         }
         .webTXT:hover {
@@ -877,6 +922,7 @@
           font-size: 4vw;
           font-weight: 900;
           color: black;
+
           margin: .6vw 0;
           padding: 0;
         }
@@ -884,12 +930,39 @@
           color: black;
           font-weight: 400;
           font-size: 2.5vw;
+
           height: 3.7vw;
+        }
+
+        .bankingBOX h1::after {
+          content: "Banking";
+        }
+
+
+        .webTXT p:nth-child(2)::after {
+          color: #ff0000;
+          content: "T1";
+        }
+        .webTXT p:nth-child(3)::after {
+          color: #ff0000;
+          content: "T2";
+        }
+        .webTXT p:nth-child(4)::after {
+          color: #ff0000;
+          content: "T3";
+        }
+        .webTXT p:nth-child(5)::after {
+          color: #ff0000;
+          content: "T4";
+        }
+        .webTXT p:nth-child(6)::after {
+          color: #ff0000;
+          content: "under preparation";
         }
       </style>
 
       <!-- banking -->
-      <div class="webBOX">
+      <div class="webBOX bankingBOX">
         <div class="webIMG" style="background-image: url(img/otherWEB/banking.jpg);"></div>
         <div class="webTXT">
           <h1>Banking</h1>
@@ -897,12 +970,12 @@
           <p>Banking services</p>
           <p>deposit investment</p>
           <p>all kinds included</p>
-          <p>under preparation</p>
+          <p></p>
         </div>
       </div>
 
       <!-- edu -->
-      <div class="webBOX">
+      <div class="webBOX eduBOX">
         <div class="webIMG" style="background-image: url(img/otherWEB/edu.jpg);"></div>
         <div class="webTXT">
           <h1>Education</h1>
@@ -910,12 +983,12 @@
           <p>for your assistance</p>
           <p>and inquiries 24/7</p>
           <p>help help help help</p>
-          <p>under preparation</p>
+          <p></p>
         </div>
       </div>
 
       <!-- live -->
-      <div class="webBOX">
+      <div class="webBOX liveBOX">
         <div class="webIMG" style="background-image: url(img/otherWEB/live.jpg);"></div>
         <div class="webTXT">
           <h1>Live</h1>
@@ -923,25 +996,25 @@
           <p>of live events join us</p>
           <p>workshops interactive</p>
           <p>sessions hosted</p>
-          <p>under preparation</p>
+          <p></p>
         </div>
       </div>
 
       <!-- penguin -->
-      <div class="webBOX">
+      <div class="webBOX penguinBOX">
         <div class="webIMG" style="background-image: url(img/otherWEB/penguin.jpg);"></div>
         <div class="webTXT">
           <h1>Penguin</h1>
           <p>Due the overwhelming</p>
           <p>cuteness of penguins</p>
-          <p>this website is</p>
           <p>specifically designed</p>
           <p>for penguins</p>
+          <p></p>
         </div>
       </div>
 
       <!-- support -->
-      <div class="webBOX">
+      <div class="webBOX supportBOX">
         <div class="webIMG" style="background-image: url(img/otherWEB/support.jpg);"></div>
         <div class="webTXT">
           <h1>Support</h1>
@@ -949,12 +1022,12 @@
           <p>for your assistance</p>
           <p>and inquiries 24/7</p>
           <p>help help help help</p>
-          <p>under preparation</p>
+          <p></p>
         </div>
       </div>
 
       <!-- tools -->
-      <div class="webBOX">
+      <div class="webBOX toolsBOX">
         <div class="webIMG" style="background-image: url(img/otherWEB/tools.jpg);"></div>
         <div class="webTXT">
           <h1>Tools</h1>
@@ -962,7 +1035,7 @@
           <p>this website features</p>
           <p>a wide range of</p>
           <p>useful digital tools</p>
-          <p>under preparation</p>
+          <p></p>
         </div>
       </div>
 
@@ -972,6 +1045,7 @@
     <div style="
     margin: 15vw 0 0 0;
     height: 50vw;
+    align-self: start;
     ">
       <div style="
       height: 35vw;
