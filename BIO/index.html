@@ -40,13 +40,12 @@
       var MY_ICON = document.getElementById("myicon");
       var MY_ICON_TXT = document.getElementById("myicon_txt");
       var HERDER_BOX = document.getElementById("header");
-      var myHeading = document.getElementById('viewButton');
       var IMG_TXT_SCHOOL = document.getElementById("School_txt");
       var IMG_TXT_HOBBY = document.getElementById("Hobby_txt");
       var IMG_TXT_FOOD = document.getElementById("Food_txt");
       var IMG_TXT_PLACE = document.getElementById("Place_txt");
       var IMG_TXT_WORK = document.getElementById("Work_txt");
-      myHeading.addEventListener('click', function() {
+      VIEW_BUTTON.addEventListener('click', function() {
         if (window.innerWidth > 780) {
           window.scrollBy({
             top: window.innerHeight * 0.43,
@@ -77,8 +76,6 @@
         });
         BIG_NAME.style.fontSize = "10vw";
         APPERTAINING.style.fontSize = "4.2vw";
-        VIEW_BUTTON.style.fontSize = "1.5vh";
-        VIEW_BUTTON.style.margin = "0 0 0 18vw";
         MY_ICON.style.height = "4.2vw";
         MY_ICON_TXT.style.fontSize = "4vw";
         HERDER_BOX.style.height = "28vh";
@@ -228,18 +225,30 @@
       <div style=" 
       display: flex;
       ">
-        <img id="myicon" src="img/icon_white_shadow_plus.png" alt="MY_ICON: NAME_SET('Phalis_Zequlard');" style="
-        height: 35px;
-        width: auto;
-        ">
-        <h1 id="myicon_txt" style="
-        display: inline;
-        overflow-x: visible;
-        font-family: Arial, Helvetica, sans-serif;
-        text-shadow: 0px 0px 4.5px rgba(0, 0, 0, .3);
-        font-weight: 100;
-        color: white;
-        margin: 0 0 0 6px;">Zequlard Web</h1>
+        <style>
+          #myicon {
+            height: 35px;
+            width: auto;
+          }
+          #myicon_txt::after {
+            content: "Zequlard Web";
+          }
+          #myicon_txt {
+            display: inline;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 0px 0px 4.5px rgba(0, 0, 0, .3);
+            font-weight: 100;
+            color: white;
+            margin: 0 0 0 6px;
+          }
+          @media screen and (max-width: 410px) {
+            #myicon_txt {
+              display: none;
+            }
+          }
+        </style>
+        <img id="myicon" src="img/icon_white_shadow_plus.png" alt="MY_ICON: NAME_SET('Phalis_Zequlard');">
+        <h1 id="myicon_txt"></h1>
       </div>
 
       <!-- top list -->
@@ -375,9 +384,18 @@
         #media_box:hover {
           background-color: rgba(255, 255, 255, 0.2);
         }
-        #mediaBox_spacer {
-          height: 6.8vw;
+
+        /* content */
+        #hMediaTXT_1::after {
+          content: "follow me on social media";
         }
+        #hMediaTXT_2::after {
+          content: "a plethora of surprises";
+        }
+        #hMediaTXT_3::after {
+          content: "awaits you to explore";
+        }
+
         @media (max-width: 780px) {
           #media_box {
             top: 23.5%;
@@ -394,11 +412,19 @@
           }
         }
         
+        /* spacer height */
+        #mediaBox_spacer {
+          height: 6.8vw;
+        }
       </style>
       <div id="media_box">
-        <p style="font-weight: 350;" id="hMediaTXT_1">follow me on social media</p>
-        <p style="font-weight: 150;" id="hMediaTXT_2">a plethora of surprises</p>
-        <p style="font-weight: 150;" id="hMediaTXT_3">awaits you to explore</p>
+
+        <!-- txt locate -->
+        <p style="font-weight: 350;" id="hMediaTXT_1"></p>
+        <p style="font-weight: 150;" id="hMediaTXT_2"></p>
+        <p style="font-weight: 150;" id="hMediaTXT_3"></p>
+
+        <!-- svg icon -->
         <style>
           .head_media_icon {
             fill: white;
@@ -436,37 +462,73 @@
             <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,14.598V9.402c0-0.385,0.417-0.625,0.75-0.433l4.5,2.598c0.333,0.192,0.333,0.674,0,0.866l-4.5,2.598 C10.417,15.224,10,14.983,10,14.598z"></path>
           </svg></a>
         </div>
+
       </div>
       <div id="mediaBox_spacer"></div>
 
       <!-- view button -->
       <style>
+        #viewButton::after {
+          content: "start to view";
+        }
         #viewButton {
+          cursor: pointer;
           position: absolute; 
           left: 45%;
+
           width: fit-content;
           height: fit-content;
-          font-weight: 200;
-          font-size: 2vh;
           margin: 0px 0 0 0;
           padding: 2px 9px;
-          text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
-          color: white;
+
           border-radius: 50px;
           border-width: 1px;
           border-style: solid;
           border-color: rgb(255, 255, 255);
+
+          font-weight: 200;
+          font-size: 2vh;
+          color: white;
+          text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
           box-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
+
           transition: all .4s ease-in-out;
-          cursor: pointer;
+          animation: viewButton_back .2s ease-in-out forwards;
         }
         #viewButton:hover {
           background-color: rgba(255, 255, 255, 0.2);
-          transform: scale(1.1) !important;
-          transition: all .16s ease-in-out !important;
+          animation: viewButton .2s ease-in-out forwards;
+        }
+        @media screen and (max-width: 780px) {
+          #viewButton {
+            margin: 0 0 0 12vw;
+            font-size: 100%;
+          }
+        }
+        @keyframes viewButton {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1.06);
+          }
+        }
+        @keyframes viewButton_back {
+          0% {
+            transform: scale(1.06);
+          }
+          50% {
+            transform: scale(1.08);
+          }
+          100% {
+            transform: scale(1);
+          }
         }
       </style>
-      <h2 id="viewButton">start to view</h2>
+      <h2 id="viewButton"></h2>
 
     </div>
 
