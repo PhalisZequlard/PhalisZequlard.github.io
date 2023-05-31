@@ -265,7 +265,8 @@
           .list_txt {
             font-weight: 100;
             letter-spacing: 1px;
-            margin: 0;
+            margin: 0 0 0 .5vw;
+            padding: 2px 9px;
             border-radius: .5vw;
             transition: all .6s ease-in-out;
           }
@@ -275,20 +276,12 @@
             transition: all .2s ease-in-out;
           }
         </style>
-        <p class="list_txt" style="
-        margin: 0 1.8vw 0 0;
-        ">News</p>
-        <p class="list_txt" style="
-        margin: 0 1.8vw 0 0;
-        ">Belief</p>
-        <p class="list_txt" style="
-        margin: 0 1.8vw 0 0;
-        ">Project</p>
-        <p class="list_txt" style="
-        margin: 0;
-        ">Design</p>
+        <p class="list_txt">News</p>
+        <p class="list_txt">Belief</p>
+        <p class="list_txt">Project</p>
+        <p class="list_txt">Design</p>
       </div>
-      
+
     </div>
 
     <!-- name + tps info -->
@@ -365,19 +358,33 @@
     <!-- media && button -->
     <div style=" 
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
     ">
-      <div id="media_box" style="
-      display: flex;
-      flex-direction: column;
-      margin: 0 0 15px 0;
-      padding: 0 0 0 5vw;
-      height: fit-content;
-      width: fit-content;
-      text-shadow: 0px 0px .8px rgba(0, 0, 0, .2);
-      color: white;
-      cursor: default;
-      ">
+
+      <!-- media box -->
+      <style>
+        #media_box {
+          position: absolute;
+          top: 41vw;
+
+          display: flex;
+          flex-direction: column;
+
+          margin: 0 0 15px 0;
+          padding: 0 0 0 5vw;
+
+          height: fit-content;
+          width: fit-content;
+
+          background-color: rgba(1, 255, 255, 0.477);
+          border: 0px solid rgba(1, 255, 255, 0.477);
+          border-radius: 0px 50px 50px 0px;
+          text-shadow: 0px 0px .8px rgba(0, 0, 0, .2);
+          color: white;
+          cursor: default;
+        }
+      </style>
+      <div id="media_box">
         <p style="font-weight: 350;" id="head_media_top_txt">follow me on social media</p>
         <p style="font-weight: 150;" id="head_media_middle_txt">a plethora of surprises</p>
         <p style="font-weight: 150;" id="head_media_bottom_txt">awaits you to explore</p>
@@ -419,32 +426,36 @@
           </svg></a>
         </div>
       </div>
+
+      <!-- view button -->
       <style>
+        #viewButton {
+          position: absolute; 
+          left: 45%;
+          width: fit-content;
+          height: fit-content;
+          font-weight: 200;
+          font-size: 2vh;
+          margin: 0px 0 0 0;
+          padding: 2px 9px;
+          text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
+          color: white;
+          border-radius: 50px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(255, 255, 255);
+          box-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
+          transition: all .4s ease-in-out;
+          cursor: pointer;
+        }
         #viewButton:hover {
           background-color: rgba(255, 255, 255, 0.2);
           transform: scale(1.1) !important;
           transition: all .16s ease-in-out !important;
         }
       </style>
-      <h2 id="viewButton" style="
-      position: absolute; 
-      left: 45%;
-      width: fit-content;
-      height: fit-content;
-      font-weight: 200;
-      font-size: 2vh;
-      margin: 0px 0 0 0;
-      padding: 2px 9px;
-      text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
-      color: white;
-      border-radius: 50px;
-      border-width: 1px;
-      border-style: solid;
-      border-color: rgb(255, 255, 255);
-      box-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
-      transition: all .4s ease-in-out;
-      cursor: pointer;
-      ">start to view</h2>
+      <h2 id="viewButton">start to view</h2>
+
     </div>
 
   </div>
