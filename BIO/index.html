@@ -39,11 +39,7 @@
       var VIEW_BUTTON = document.getElementById("viewButton");
       var MY_ICON = document.getElementById("myicon");
       var MY_ICON_TXT = document.getElementById("myicon_txt");
-      var MEDIA_BOX = document.getElementById("media_box");
       var HERDER_BOX = document.getElementById("header");
-      var HEAD_MEDIA_TOP_TXT = document.getElementById("head_media_top_txt");
-      var HEAD_MEDIA_MIDDLE_TXT = document.getElementById("head_media_middle_txt");
-      var HEAD_MEDIA_BOTTOM_TXT = document.getElementById("head_media_bottom_txt");
       var myHeading = document.getElementById('viewButton');
       var IMG_TXT_SCHOOL = document.getElementById("School_txt");
       var IMG_TXT_HOBBY = document.getElementById("Hobby_txt");
@@ -85,15 +81,7 @@
         VIEW_BUTTON.style.margin = "0 0 0 18vw";
         MY_ICON.style.height = "4.2vw";
         MY_ICON_TXT.style.fontSize = "4vw";
-        MEDIA_BOX.style.fontSize = "2.5vw";
-        MEDIA_BOX.style.margin = "0 0 4px 0px";
         HERDER_BOX.style.height = "28vh";
-        HEAD_MEDIA_TOP_TXT.style.height = "0";
-        HEAD_MEDIA_TOP_TXT.style.opacity = "0";
-        HEAD_MEDIA_MIDDLE_TXT.style.height = "0";
-        HEAD_MEDIA_MIDDLE_TXT.style.opacity = "0";
-        HEAD_MEDIA_BOTTOM_TXT.style.height = "0";
-        HEAD_MEDIA_BOTTOM_TXT.style.opacity = "0";
         IMG_TXT_SCHOOL.innerHTML = "stust";
         IMG_TXT_HOBBY.innerHTML = "coding";
         IMG_TXT_FOOD.innerHTML = "suhsi";
@@ -365,32 +353,46 @@
       <style>
         #media_box {
           position: absolute;
-          top: 38vw;
+          top: 30%;
 
           display: flex;
           flex-direction: column;
 
           margin: 0 0 15px 0;
-          padding: 1vw 5vw 1vw 5vw;
+          padding: 1.5vw 5vw 1.2vw 5vw;
 
           height: fit-content;
           width: fit-content;
 
-          background-color: rgba(202, 202, 202, 0.318);
-          border: 0px solid rgba(169, 169, 169, 0.477);
+          background-color: rgba(255, 255, 255, 0.2);
           border-radius: 0px 500px 500px 0px;
           text-shadow: 0px 0px .8px rgba(0, 0, 0, .2);
           color: white;
           cursor: default;
         }
         #mediaBox_spacer {
-          height: 8vw;
+          height: 6vw;
         }
+        @media (max-width: 780px) {
+          /* #media_box {
+            display: none;
+          } */
+          #hMediaTXT_1 {
+            display: none;
+          }
+          #hMediaTXT_2 {
+            display: none;
+          }
+          #hMediaTXT_3 {
+            display: none;
+          }
+        }
+        
       </style>
       <div id="media_box">
-        <p style="font-weight: 350;" id="head_media_top_txt">follow me on social media</p>
-        <p style="font-weight: 150;" id="head_media_middle_txt">a plethora of surprises</p>
-        <p style="font-weight: 150;" id="head_media_bottom_txt">awaits you to explore</p>
+        <p style="font-weight: 350;" id="hMediaTXT_1">follow me on social media</p>
+        <p style="font-weight: 150;" id="hMediaTXT_2">a plethora of surprises</p>
+        <p style="font-weight: 150;" id="hMediaTXT_3">awaits you to explore</p>
         <style>
           .head_media_icon {
             fill: white;
