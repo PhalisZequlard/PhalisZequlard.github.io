@@ -697,12 +697,12 @@
     margin-top: 8vw;
     max-width: 1650px;
     ">
-      <div style=" /* left TXT */
+      <div id="lefttxtBOX" style=" /* left TXT */
       /* background-color: rgb(55, 55, 55); */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 36vw;
+      width: 37vw;
       height: 41vw;
       overflow: hidden;
       ">
@@ -738,9 +738,12 @@
             content: "feel free to contact me.";
           }
           #l6::after {
-            content: "I will reply you as soon as possible.";
+            content: "I will reply you as soon";
           }
           #l7::after {
+            content: "as possible.";
+          }
+          #l8::after {
             content: "Thank you >w<";
           }
           @media (max-width: 780px) { /* ::small screen contact txt */
@@ -768,7 +771,22 @@
               display: none;
             }
             #l7::after {
+              display: none;
+            }
+            #l8::after {
               content: "Thank you >w<";
+            }
+          }
+          @media (min-width: 1650px) {
+            .contacttxt { /* ::big screen contact txt */
+              font-size: 35px;
+              font-weight: 500;
+            }
+            #lefttxtBOX {
+              min-width: fit-content;
+            }
+            #l2, #l3, #l4, #l5, #l6, #l7, #l8 {
+              margin-top: .5vw;
             }
           }
         </style>
@@ -784,6 +802,7 @@
           <p class="contacttxt" id="l5"></p>
           <p class="contacttxt" id="l6"></p>
           <p class="contacttxt" id="l7"></p>
+          <p class="contacttxt" id="l8"></p>
         </div>
 
         <!-- contant button style -->
@@ -829,6 +848,7 @@
       position: relative;
       height: 41vw;
       width: 55vw;
+      max-width: 1000px;
       ">
         <div style="
         position: relative;
@@ -894,7 +914,7 @@
         }
         .webIMG {
           background-size: cover;
-          background-position: center;  
+          background-position: center;
 
           height: 35.1vw;
           width: 28vw;
@@ -934,26 +954,12 @@
           height: 3.7vw;
         }
 
-        
-        .webTXT p:nth-child(2)::after {
-          color: #000000;
-        }
-        .webTXT p:nth-child(3)::after {
-          color: #000000;
-        }
-        .webTXT p:nth-child(4)::after {
-          color: #000000;
-        }
-        .webTXT p:nth-child(5)::after {
-          color: #000000;
-        }
-        .webTXT p:nth-child(6)::after {
-          color: #ff0000;
-          content: "UNDERPREPARATION";
-        }
-        
+        /* ---------------- */
+        /* spawn webBOX TXT */
+        /* ---------------- */
+
         /* bankingBOX */
-        .bankingBOX .webTXT h1:nth-child(1)::after {
+        .bankingBOX .webTXT h1::after {
           content: "Banking";
         }
         .bankingBOX .webTXT p:nth-child(2)::after {
@@ -968,43 +974,43 @@
         .bankingBOX .webTXT p:nth-child(5)::after {
           content: "all kinds included";
         }
-
+      
         /* eduBox */
-        .eduBox .webTXT h1:nth-child(1)::after {
+        .eduBOX .webTXT h1::before {
           content: "Education";
         }
-        .eduBox .webTXT p:nth-child(2)::after {
+        .eduBOX .webTXT p:nth-child(2)::after {
           content: "customer support";
         }
-        .eduBox .webTXT p:nth-child(3)::after {
+        .eduBOX .webTXT p:nth-child(3)::after {
           content: "for your assistance";
         }
-        .eduBox .webTXT p:nth-child(4)::after {
+        .eduBOX .webTXT p:nth-child(4)::after {
           content: "and inquiries 24/7";
         }
-        .eduBox .webTXT p:nth-child(5)::after {
+        .eduBOX .webTXT p:nth-child(5)::after {
           content: "help help help help";
         }
-
+      
         /* liveBox */
-        .liveBox .webTXT h1:nth-child(1)::after {
+        .liveBOX .webTXT h1::after {
           content: "Live";
         }
-        .liveBox .webTXT p:nth-child(1)::after {
+        .liveBOX .webTXT p:nth-child(2)::after {
           content: "Experience excitement";
         }
-        .liveBox .webTXT p:nth-child(2)::after {
+        .liveBOX .webTXT p:nth-child(3)::after {
           content: "of live events join us";
         }
-        .liveBox .webTXT p:nth-child(3)::after {
+        .liveBOX .webTXT p:nth-child(4)::after {
           content: "workshops interactive";
         }
-        .liveBox .webTXT p:nth-child(4)::after {
+        .liveBOX .webTXT p:nth-child(5)::after {
           content: "sessions hosted";
         }
-
+      
         /* penguinBOX */
-        .penguinBOX .webTXT h1:nth-child(1)::after {
+        .penguinBOX .webTXT h1::after {
           content: "Penguin";
         }
         .penguinBOX .webTXT p:nth-child(2)::after {
@@ -1019,9 +1025,9 @@
         .penguinBOX .webTXT p:nth-child(5)::after {
           content: "for penguins";
         }
-
+      
         /* supportBOX */
-        .supportBOX .webTXT h1:nth-child(1)::after {
+        .supportBOX .webTXT h1::after {
           content: "Support";
         }
         .supportBOX .webTXT p:nth-child(2)::after {
@@ -1036,9 +1042,9 @@
         .supportBOX .webTXT p:nth-child(5)::after {
           content: "help help help help";
         }
-
+      
         /* toolsBOX */
-        .toolsBOX .webTXT h1:nth-child(1)::after {
+        .toolsBOX .webTXT h1::after {
           content: "Tools";
         }
         .toolsBOX .webTXT p:nth-child(2)::after {
@@ -1053,6 +1059,13 @@
         .toolsBOX .webTXT p:nth-child(5)::after {
           content: "useful digital tools";
         }
+        
+        /* global */
+        .webTXT p:nth-child(6)::after {
+          content: "UNDERPREPARATION";
+          color: #ff4d4d;
+        }
+
       </style>
 
       <!-- banking -->
@@ -1136,11 +1149,23 @@
     </div>
 
     <!-- extracurricular activities -->
-    <div style="
-    margin: 15vw 0 0 0;
-    height: 50vw;
-    align-self: start;
-    ">
+    <div id="exActBOX">
+      <style>
+        #exActBOX {
+          position: relative;
+          top: 0vw;
+          left: -100vw;
+          margin: 15vw 0 0 0;
+          height: 50vw;
+          align-self: start;
+          transition: all 0.7s ease-in-out;
+        }
+        #exActBOX.fixed {
+          top: 0vw;
+          left: 0vw;
+        }
+      </style>
+
       <div style="
       height: 35vw;
       width: 90vw;
@@ -1258,6 +1283,24 @@
       cursor: pointer;
       rotate: 90deg;
       ">HIKING</div>
+
+      <!-- swipe right script -->
+      <script>
+        window.addEventListener('scroll', function() {
+          var exActBOX = document.getElementById("exActBOX");
+          var windowHeight = window.innerHeight;
+          var boxOffsetTop = exActBOX.offsetTop;
+          var boxHeight = exActBOX.offsetHeight;
+          var scrollY = window.scrollY;
+
+          if (scrollY > boxOffsetTop - windowHeight / 1.2 || scrollY > boxOffsetTop + boxHeight - windowHeight) {
+            exActBOX.classList.add('fixed');
+          } else {
+            exActBOX.classList.remove('fixed');
+          }
+        });
+      </script>
+
     </div>
 
     <!-- this one is an easter egg -->
