@@ -183,7 +183,8 @@
             var newDot = { top: snake[snake.length - 1].top + direction.y, left: snake[snake.length - 1].left + direction.x };
             if (checkCollision(newDot)) {
                 clearInterval(gameInterval);
-                // alert('Game Over!');.classList.remove('fixed');
+                alert('Game Over!');
+                // .classList.remove('fixed');
                 // document.getElementById('start-btn').style.display = 'block';
                 document.getElementById('start-btn').classList.remove('fixed');
                 return;
