@@ -20,11 +20,13 @@
     document.addEventListener("DOMContentLoaded", function() {
       var loadingOverlay = document.getElementById("loadingOverlay");
       loadingOverlay.style.opacity = "1";
+      document.html.style.overflow = "hidden";
     });
     window.addEventListener("load", function() {
       var loadingOverlay = document.getElementById("loadingOverlay");
       loadingOverlay.style.display = "none";
       loadingOverlay.parentNode.removeChild(loadingOverlay);
+      document.html.style.overflow = "auto";
     });
     window.onload = function() {
       window.scrollTo(
