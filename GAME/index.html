@@ -79,32 +79,31 @@
         }
 
         .direction-btn {
-            display: none;
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 150px;
+            height: 150px;
             border: none;
-            border-radius: 50%;
+            border-radius: 30px;
             background-color: #666;
             color: #fff;
             font-weight: bold;
             font-size: 20px;
         }
         #up-btn {
-            bottom: 150px;
-            left: calc(50% - 25px);
+            bottom: calc(10vh + 180px);
+            left: 42.5vw;
         }
         #down-btn {
-            bottom: 50px;
-            left: calc(50% - 25px);
+            bottom: 10vh;
+            left: 42.5vw;
         }
         #left-btn {
-            bottom: 100px;
-            right: 70px;
+            bottom: 10vh;
+            right: 60vw;
         }
         #right-btn {
-            bottom: 100px;
-            left: 70px;
+            bottom: 10vh;
+            left: 60vw;
         }
     </style>
 </head>
@@ -114,8 +113,8 @@
     <div id="start-btn">開始遊戲</div>
     <button id="up-btn" class="direction-btn">⬆️</button>
     <button id="down-btn" class="direction-btn">⬇️</button>
-    <button id="left-btn" class="direction-btn">⬅️</button>
     <button id="right-btn" class="direction-btn">➡️</button>
+    <button id="left-btn" class="direction-btn">⬅️</button>
     <script>
         var dotSize = 20;
         var direction = { x: dotSize, y: 0 };
