@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #333;
+            color: #eee;
+            font-family: Arial, sans-serif;
+        }
+        #game-board {
+            position: relative;
+            height: 400px;
+            width: 400px;
+            /* max-height: 400px;
+            max-width: 400px; */
+            border: 1px solid #999;
+            background-color: #444;
+            margin: 0 auto;
+        }
+        .dot {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+        }
+        .dot:nth-child(odd) {
+            background: #ccc;
+        }
+        .dot:nth-child(even) {
+            background: #aaa;
+        }
+        .apple {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 5px;
+            background: #f00;
+        }
+        #start-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 0px;
+            background-color: #666;
+            color: #eee;
+            text-align: center;
+            cursor: pointer;
+        }
+        #score-board {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-board"></div>
+    <div id="start-btn">開始遊戲</div>
+    <div id="score-board">得分: 0 | 最高分: 0</div>
+    <script>
+        var dotSize = 20;
+        var direction = { x: dotSize, y: 0 };
+        var snake = [{ top: 0, left: 0 }];
+        var apple = null;
+        var score = 0;
+        var highScore = 0;
+        var gameInterval;
+
+        function changeDirection(event) {
+            var newDirection;
+            switch (event.keyCode) {
+                case 65:
+                case 37: // Left
+                    newDirection = { x: -dotSize, y: 0 };
+                    break;
+                case 87:
+                case 38: // Up
+                    newDirection = { x: 0, y: -dotSize };
+                    break;
+                case 68:
+                case 39: // Right
+                    newDirection = { x: dotSize, y: 0 };
+                    break;
+                case 83:
+                case 40: // Down
+                    newDirection = { x: 0, y: dotSize };
+                    break;
+            }
+            // Check if new direction is not opposite to current
+            if (newDirection.x !== -direction.x || newDirection.y !== -direction.y) {
+                direction = newDirection;
+            }
+        }
+
+        function checkCollision(newDot) {
+            if (newDot.left < 0 || newDot.top < 0 || newDot.left === 400 || newDot.top === 400) return true;
+            for (var i = 0; i < snake.length - 1; i++) {
+                if (newDot.left === snake[i].left && newDot.top === snake[i].top) return true;
+            }
+            return false;
+        }
+
+        function updateSnake() {
+            var gameBoard = document.getElementById('game-board');
+            while (gameBoard.firstChild) {
+                gameBoard.removeChild(gameBoard.firstChild);
+            }
+            snake.push({ ...snake[snake.length - 1] });
+            snake = snake.slice(1);
+            var newDot = { top: snake[snake.length - 1].top + direction.y, left: snake[snake.length - 1].left + direction.x };
+            if (checkCollision(newDot)) {
+                clearInterval(gameInterval);
+                alert('Game Over!');
+                document.getElementById('start-btn').style.display = 'block';
+                return;
+            }
+            snake[snake.length - 1] = newDot;
+            for (var i in snake) {
+                var dot = document.createElement('div');
+                dot.style.top = `${snake[i].top}px`;
+                dot.style.left = `${snake[i].left}px`;
+                dot.className = 'dot';
+                gameBoard.appendChild(dot);
+            }
+        }
+
+        function updateApple() {
+            if (apple === null || (apple.top === snake[snake.length - 1].top && apple.left === snake[snake.length - 1].left)) {
+                do {
+                    apple = { top: Math.floor(Math.random() * 20) * dotSize, left: Math.floor(Math.random() * 20) * dotSize };
+                } while (checkCollision(apple))
+                snake = [{ top: snake[0].top, left: snake[0].left }, ...snake];
+                score += 10;
+                if (score > highScore) highScore = score;
+                document.getElementById('score-board').textContent = `得分: ${score} | 最高分: ${highScore}`;
+            }
+            var appleElement = document.createElement('div');
+            appleElement.style.top = `${apple.top}px`;
+            appleElement.style.left = `${apple.left}px`;
+            appleElement.className = 'apple';
+            document.getElementById('game-board').appendChild(appleElement);
+        }
+
+        function startGame() {
+            direction = { x: dotSize, y: 0 };
+            snake = [{ top: 0, left: 0 }];
+            apple = null;
+            score = 0;
+            document.getElementById('score-board').textContent = `得分: ${score} | 最高分: ${highScore}`;
+            document.getElementById('start-btn').style.display = 'none';
+            gameInterval = setInterval(function () {
+                updateSnake();
+                updateApple();
+            }, 200);
+        }
+
+        document.getElementById('start-btn').addEventListener('click', startGame);
+        window.addEventListener('keydown', changeDirection);
+    </script>
+</body>
+</html>
