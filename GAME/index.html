@@ -127,6 +127,11 @@
     var score = 0;
     var highScore = 0;
     var gameInterval;
+    var highScore = parseInt(localStorage.getItem('highScore')) || 0;
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem('highScore', highScore);
+    }
 
     function changeDirection(event) {
       var newDirection;
