@@ -1,260 +1,255 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="img/icon_gray.png">
-    <title>Zequlard｜GAME</title>
-    <style>
-        body {
-            overflow: hidden;
-            background-color: #333;
-            display: flex;
-            justify-content: start;
-            flex-direction: column;
-            color: #eee;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-        #game-board {
-            position: relative;
-            height: 400px;
-            width: 400px;
-            border: 1px solid #999;
-            background-color: #444;
-            margin: 10vw auto 20px auto;
-        }
-        .dot {
-            position: absolute;
-            height: 20px;
-            width: 20px;
-        }
-        .dot:nth-child(odd) {
-            background: #ccc;
-        }
-        .dot:nth-child(even) {
-            background: #aaa;
-        }
-        .apple {
-            position: absolute;
-            height: 20px;
-            width: 20px;
-            border-radius: 5px;
-            background: #f00;
-        }
-        #start-btn {
-            position: absolute;
-            bottom: 0;
-            align-self: center;
-            width: 100vw;
-            margin: 0px;
-            padding: 10px 0px;
-            background-color: #666;
-            border-radius: 15px 15px 0 0;
-            color: #eee;
-            text-align: center;
-            cursor: pointer;
-            font-size: 6vw;
-            transition: all 0.8s ease-in-out;
-        }
-        #start-btn:hover {
-            background-color: #8e8e8e;
-        }
-        #start-btn.fixed {
-            border-radius: 20px 20px 0 0;
-            bottom: -10vh;
-        }
-        #score-board {
-            text-align: center;
-            margin-top: 20px;
-        }
-        @media screen and (min-width: 768px) {
-            #start-btn {
-                height: 70px;
-                font-size: 40px;;
-                border-radius: 0;
-                justify-content: center;
-            }
-            #score-board {
-                font-size: 30px;
-                border-radius: 0;
-            }
-        }
-
-        .direction-btn {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border: none;
-            border-radius: 30px;
-            background-color: #666;
-            color: #fff;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        #up-btn {
-            bottom: calc(10vh + 180px);
-            left: 42.5vw;
-        }
-        #down-btn {
-            bottom: 10vh;
-            left: 42.5vw;
-        }
-        #left-btn {
-            bottom: 10vh;
-            right: 60vw;
-        }
-        #right-btn {
-            bottom: 10vh;
-            left: 60vw;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="img/icon_gray.png">
+  <title>Zequlard｜GAME</title>
+  <style>
+    body {
+      overflow: hidden;
+      background-color: #333;
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    #game-board {
+      position: relative;
+      height: 400px;
+      width: 400px;
+      border: 1px solid #999;
+      background-color: #444;
+      margin: 10vw auto 20px auto;
+    }
+    .dot {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+    }
+    .dot:nth-child(odd) {
+      background: #ccc;
+    }
+    .dot:nth-child(even) {
+      background: #aaa;
+    }
+    .apple {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      border-radius: 5px;
+      background: #f00;
+    }
+    #start-btn {
+      position: absolute;
+      bottom: 0;
+      align-self: center;
+      width: 100vw;
+      margin: 0px;
+      padding: 10px 0px;
+      background-color: #666;
+      border-radius: 15px 15px 0 0;
+      color: #eee;
+      text-align: center;
+      cursor: pointer;
+      font-size: 6vw;
+      transition: all 0.8s ease-in-out;
+    }
+    #start-btn:hover {
+      background-color: #8e8e8e;
+    }
+    #start-btn.fixed {
+      border-radius: 20px 20px 0 0;
+      bottom: -10vh;
+    }
+    #score-board {
+      text-align: center;
+      margin-top: 20px;
+    }
+    @media screen and (min-width: 768px) {
+      #start-btn {
+        height: 70px;
+        font-size: 40px;
+        border-radius: 0;
+        justify-content: center;
+      }
+      #score-board {
+        font-size: 30px;
+        border-radius: 0;
+      }
+    }
+    .direction-btn {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border: none;
+      border-radius: 30px;
+      background-color: #666;
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    #up-btn {
+      bottom: calc(10vh + 180px);
+      left: 42.5vw;
+    }
+    #down-btn {
+      bottom: 10vh;
+      left: 42.5vw;
+    }
+    #left-btn {
+      bottom: 10vh;
+      right: 60vw;
+    }
+    #right-btn {
+      bottom: 10vh;
+      left: 60vw;
+    }
+  </style>
 </head>
 <body>
-    <div id="game-board"></div>
-    <div id="score-board">得分: 0 | 最高分: 0</div>
-    <div id="start-btn">開始遊戲</div>
-    <button id="up-btn" class="direction-btn">⬆️</button>
-    <button id="down-btn" class="direction-btn">⬇️</button>
-    <button id="right-btn" class="direction-btn">➡️</button>
-    <button id="left-btn" class="direction-btn">⬅️</button>
-    <script>
-        var dotSize = 20;
-        var direction = { x: dotSize, y: 0 };
-        var snake = [{ top: 0, left: 0 }];
-        var apple = null;
-        var score = 0;
-        var highScore = 0;
-        var gameInterval;
+  <div id="game-board"></div>
+  <div id="score-board">得分: 0 | 最高分: 0</div>
+  <div id="start-btn">開始遊戲</div>
+  <button id="up-btn" class="direction-btn">⬆️</button>
+  <button id="down-btn" class="direction-btn">⬇️</button>
+  <button id="right-btn" class="direction-btn">➡️</button>
+  <button id="left-btn" class="direction-btn">⬅️</button>
+  <script>
+    var dotSize = 20;
+    var direction = { x: dotSize, y: 0 };
+    var snake = [{ top: 0, left: 0 }];
+    var apple = null;
+    var score = 0;
+    var highScore = 0;
+    var gameInterval;
 
-        function changeDirection(event) {
-        var newDirection;
-        switch (event) {
-            case 'up':
-                newDirection = { x: 0, y: -dotSize };
-                break;
-            case 'down':
-                newDirection = { x: 0, y: dotSize };
-                break;
-            case 'left':
-                newDirection = { x: -dotSize, y: 0 };
-                break;
-            case 'right':
-                newDirection = { x: dotSize, y: 0 };
-                break;
-            default:
-                switch (event.keyCode) {
-                    case 65:
-                    case 37: // Left
-                        newDirection = { x: -dotSize, y: 0 };
-                        break;
-                    case 87:
-                    case 38: // Up
-                        newDirection = { x: 0, y: -dotSize };
-                        break;
-                    case 68:
-                    case 39: // Right
-                        newDirection = { x: dotSize, y: 0 };
-                        break;
-                    case 83:
-                    case 40: // Down
-                        newDirection = { x: 0, y: dotSize };
-                        break;
-                }
-        }
-        // Check if new direction is not opposite to current
-        if (newDirection.x !== -direction.x || newDirection.y !== -direction.y) {
-            direction = newDirection;
-        }
+    function changeDirection(event) {
+      var newDirection;
+      switch (event) {
+        case 'up':
+          newDirection = { x: 0, y: -dotSize };
+          break;
+        case 'down':
+          newDirection = { x: 0, y: dotSize };
+          break;
+        case 'left':
+          newDirection = { x: -dotSize, y: 0 };
+          break;
+        case 'right':
+          newDirection = { x: dotSize, y: 0 };
+          break;
+        default:
+          switch (event.keyCode) {
+            case 65:
+            case 37: // Left
+              newDirection = { x: -dotSize, y: 0 };
+              break;
+            case 87:
+            case 38: // Up
+              newDirection = { x: 0, y: -dotSize };
+              break;
+            case 68:
+            case 39: // Right
+              newDirection = { x: dotSize, y: 0 };
+              break;
+            case 83:
+            case 40: // Down
+              newDirection = { x: 0, y: dotSize };
+              break;
+          }
+      }
+      // Check if new direction is not opposite to current
+      if (newDirection.x !== -direction.x || newDirection.y !== -direction.y) {
+        direction = newDirection;
+      }
     }
 
-        function checkCollision(newDot) {
-            if (newDot.left < 0 || newDot.top < 0 || newDot.left === 400 || newDot.top === 400) return true;
-            for (var i = 0; i < snake.length - 1; i++) {
-                if (newDot.left === snake[i].left && newDot.top === snake[i].top) return true;
-            }
-            return false;
-        }
+    function checkCollision(newDot) {
+      if (newDot.left < 0 || newDot.top < 0 || newDot.left === 400 || newDot.top === 400) return true;
+      for (var i = 0; i < snake.length - 1; i++) {
+        if (newDot.left === snake[i].left && newDot.top === snake[i].top) return true;
+      }
+      return false;
+    }
 
-        function updateSnake() {
-            var gameBoard = document.getElementById('game-board');
-            while (gameBoard.firstChild) {
-                gameBoard.removeChild(gameBoard.firstChild);
-            }
-            snake.push({ ...snake[snake.length - 1] });
-            snake = snake.slice(1);
-            var newDot = { top: snake[snake.length - 1].top + direction.y, left: snake[snake.length - 1].left + direction.x };
-            if (checkCollision(newDot)) {
-                clearInterval(gameInterval);
-                alert('Game Over!');
-                // .classList.remove('fixed');
-                // document.getElementById('start-btn').style.display = 'block';
-                document.getElementById('start-btn').classList.remove('fixed');
-                return;
-            }
-            snake[snake.length - 1] = newDot;
-            for (var i in snake) {
-                var dot = document.createElement('div');
-                dot.style.top = `${snake[i].top}px`;
-                dot.style.left = `${snake[i].left}px`;
-                dot.className = 'dot';
-                gameBoard.appendChild(dot);
-            }
-        }
+    function updateSnake() {
+      var gameBoard = document.getElementById('game-board');
+      while (gameBoard.firstChild) {
+        gameBoard.removeChild(gameBoard.firstChild);
+      }
+      snake.push({ ...snake[snake.length - 1] });
+      snake = snake.slice(1);
+      var newDot = { top: snake[snake.length - 1].top + direction.y, left: snake[snake.length - 1].left + direction.x };
+      if (checkCollision(newDot)) {
+        clearInterval(gameInterval);
+        alert('Game Over!');
+        document.getElementById('start-btn').classList.remove('fixed');
+        return;
+      }
+      snake[snake.length - 1] = newDot;
+      for (var i in snake) {
+        var dot = document.createElement('div');
+        dot.style.top = `${snake[i].top}px`;
+        dot.style.left = `${snake[i].left}px`;
+        dot.className = 'dot';
+        gameBoard.appendChild(dot);
+      }
+    }
 
-        function updateApple() {
-            if (apple === null || (apple.top === snake[snake.length - 1].top && apple.left === snake[snake.length - 1].left)) {
-                do {
-                    apple = { top: Math.floor(Math.random() * 20) * dotSize, left: Math.floor(Math.random() * 20) * dotSize };
-                } while (checkCollision(apple))
-                snake = [{ top: snake[0].top, left: snake[0].left }, ...snake];
-                score += 10;
-                if (score > highScore) highScore = score;
-                document.getElementById('score-board').textContent = `得分: ${score} | 最高分: ${highScore}`;
-            }
-            var appleElement = document.createElement('div');
-            appleElement.style.top = `${apple.top}px`;
-            appleElement.style.left = `${apple.left}px`;
-            appleElement.className = 'apple';
-            document.getElementById('game-board').appendChild(appleElement);
-        }
+    function updateApple() {
+      if (apple === null || (apple.top === snake[snake.length - 1].top && apple.left === snake[snake.length - 1].left)) {
+        do {
+          apple = { top: Math.floor(Math.random() * 20) * dotSize, left: Math.floor(Math.random() * 20) * dotSize };
+        } while (checkCollision(apple))
+        snake = [{ top: snake[0].top, left: snake[0].left }, ...snake];
+        score += 10;
+        if (score > highScore) highScore = score;
+        document.getElementById('score-board').textContent = `得分: ${score} | 最高分: ${highScore}`;
+      }
+      var appleElement = document.createElement('div');
+      appleElement.style.top = `${apple.top}px`;
+      appleElement.style.left = `${apple.left}px`;
+      appleElement.className = 'apple';
+      document.getElementById('game-board').appendChild(appleElement);
+    }
 
-        function startGame() {
-            direction = { x: dotSize, y: 0 };
-            snake = [{ top: 0, left: 0 }];
-            apple = null;
-            score = 0;
-            document.getElementById('score-board').textContent = `得分: ${score} | 最高分: ${highScore}`;
-            // document.getElementById('start-btn').style.display = 'none';
-            document.getElementById('start-btn').classList.add('fixed');
-            gameInterval = setInterval(function () {
-                updateSnake();
-                updateApple();
-            }, 200);
-        }
+    function startGame() {
+      direction = { x: dotSize, y: 0 };
+      snake = [{ top: 0, left: 0 }];
+      apple = null;
+      score = 0;
+      document.getElementById('score-board').textContent = `得分: ${score} | 最高分: ${highScore}`;
+      document.getElementById('start-btn').classList.add('fixed');
+      gameInterval = setInterval(function () {
+        updateSnake();
+        updateApple();
+      }, 200);
+    }
 
-        document.getElementById('start-btn').addEventListener('click', startGame);
-        window.addEventListener('keydown', changeDirection);
+    document.getElementById('start-btn').addEventListener('click', startGame);
+    window.addEventListener('keydown', changeDirection);
 
+    document.getElementById('start-btn').addEventListener('click', startGame);
+    window.addEventListener('keydown', changeDirection);
 
-        document.getElementById('start-btn').addEventListener('click', startGame);
-        window.addEventListener('keydown', changeDirection);
-
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            document.querySelectorAll('.direction-btn').forEach(function (btn) {
-                btn.style.display = 'block';
-            });
-            document.getElementById('up-btn').addEventListener('click', function () { changeDirection('up'); });
-            document.getElementById('down-btn').addEventListener('click', function () { changeDirection('down'); });
-            document.getElementById('left-btn').addEventListener('click', function () { changeDirection('left'); });
-            document.getElementById('right-btn').addEventListener('click', function () { changeDirection('right'); });
-        } else {
-            document.querySelectorAll('.direction-btn').forEach(function (btn) {
-                btn.style.display = 'none';
-            });
-        }
-    </script>
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      document.querySelectorAll('.direction-btn').forEach(function (btn) {
+        btn.style.display = 'block';
+      });
+      document.getElementById('up-btn').addEventListener('click', function () { changeDirection('up'); });
+      document.getElementById('down-btn').addEventListener('click', function () { changeDirection('down'); });
+      document.getElementById('left-btn').addEventListener('click', function () { changeDirection('left'); });
+      document.getElementById('right-btn').addEventListener('click', function () { changeDirection('right'); });
+    } else {
+      document.querySelectorAll('.direction-btn').forEach(function (btn) {
+        btn.style.display = 'none';
+      });
+    }
+  </script>
 </body>
 </html>
