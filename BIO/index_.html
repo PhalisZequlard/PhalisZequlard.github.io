@@ -100,7 +100,7 @@
     html {
       scroll-behavior: smooth;
       font-family: sans-serif, Arial, Helvetica;
-      overflow-x: hidden;
+      /* overflow-x: hidden; */
     }
     body {
       margin: 0;
@@ -618,6 +618,13 @@
         ">Important information</h1>
       </div>
       <style>
+        .IImgBOX {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          width: 100vw;
+          background-color: #a8a8a800;
+        }
         .info_img { /* note:txt border-radius: 200px 90px; */
           display: flex;
           flex-direction: column;
@@ -627,81 +634,48 @@
           background-size: 50vw;
           transition: all 0.3s ease-in-out;
           cursor: pointer;
+
+          height: 30vw;
+          width: 45.5vw;
+          margin: 0 .5vw;
         }
         .info_img:hover {
           background-size: 55vw;
           transition: all 0.3s ease-in-out;
         }
         .info_img h1, h5 {
-          color: white;
+          color: rgb(0, 0, 0);
           text-shadow: 0px 0px 2px rgba(0, 0, 0, .3);
         }
         .info_img h1 {
           font-family: Arial, Helvetica, sans-serif;
           margin-left: 2vw;
+          font-size: 7.5vw;
+          height: 8vw;
         }
         .info_img h5 {
           margin-bottom: 1.8vw;
           margin-left: 2.4vw;
         }
-        .row1 {
-          height: 30vw;
-          width: 45.5vw;
-          margin: 0 .5vw;
-        }
-        .row1 h1 {
-          font-size: 7.5vw;
-          height: 8vw;
-        }
-        .row2 {
-          height: 25vw;
-          width: 30vw;
-          margin: 0 .5vw;
-        }
-        .row2 h1 {
-          font-size: 6.5vw;
-          height: 7vw;
-        }
       </style>
-      <div style=" /* ROW_1 */
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        ">
-        <div class="info_img row1" style="
-        background-image: url(img/aboutme/school.jpg);
-        ">
+      <div class="IImgBOX">
+        <div class="info_img">
           <h1>School</h1>
           <h5 id="School_txt">stust starbucks is included</h5>
         </div>
-        <div class="info_img row1" style="
-        background-image: url(img/aboutme/coding.jpg);
-        ">
+        <div class="info_img">
           <h1>Hobby</h1>
           <h5 id="Hobby_txt">coding mainly html and c++</h5>
         </div>
-      </div>
-      <div style=" /* ROW_2 */
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      margin-top: 1vw;
-      ">
-        <div class="info_img row2" style="
-        background-image: url(img/aboutme/food.jpg);
-        ">
+        <div class="info_img">
           <h1>Food</h1>
           <h5 id="Food_txt">anything good to eat</h5>
         </div>
-        <div class="info_img row2" style="
-        background-image: url(img/aboutme/taiwan.jpg);
-        ">
+        <div class="info_img">
           <h1>Place</h1>
           <h5 id="Place_txt">live in taiwan</h5>
         </div>
-        <div class="info_img row2" style="
-        background-image: url(img/aboutme/work.jpg);
-        ">
+        <div class="info_img">
           <h1>Work</h1>
           <h5 id="Work_txt">the penguin studio engineer</h5>
         </div>
