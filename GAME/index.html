@@ -3,6 +3,7 @@
 <head>
     <style>
         body {
+            overflow: hidden;
             background-color: #333;
             display: flex;
             justify-content: start;
@@ -245,6 +246,10 @@
             document.getElementById('down-btn').addEventListener('click', function () { changeDirection('down'); });
             document.getElementById('left-btn').addEventListener('click', function () { changeDirection('left'); });
             document.getElementById('right-btn').addEventListener('click', function () { changeDirection('right'); });
+        } else {
+            document.querySelectorAll('.direction-btn').forEach(function (btn) {
+                btn.style.display = 'none';
+            });
         }
     </script>
 </body>
