@@ -244,11 +244,17 @@
             margin: 0 0 0 6px;
           }
           @media screen and (max-width: 410px) {
-            #myicon_txt {
-              display: none;
+            #myicon_txt::after {
+              position: relative;
+              content: "Zequlard";
+              top: -8.5%;
+              font-size: 20px;
+              font-weight: 100;
+              margin: 0 0 0 5px;
             }
             #myicon {
               height: 50px;
+              scale: 1.6;
               width: auto;
             }
           }
@@ -291,6 +297,11 @@
           }
           #s4::after {
             content: "Design";
+          }
+          @media screen and (max-width: 410px) {
+            .list_txt p {
+              display: none;
+            }
           }
         </style>
         <p id="s1"></p>
