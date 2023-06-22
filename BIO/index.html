@@ -455,7 +455,7 @@
 
         @media (max-width: 780px) {
           #media_box {
-            top: 22.5%;
+            top: 155px;
             padding: .6vw 2.4vw .6vw 5vw;
           }
           #hMediaTXT_1 {
@@ -544,6 +544,7 @@
         #viewButton {
           cursor: pointer;
           position: absolute; 
+          display: block;
           left: 45%;
 
           width: fit-content;
@@ -557,7 +558,6 @@
           border-color: rgb(255, 255, 255);
 
           font-weight: 200;
-          font-size: 2vh;
           color: white;
           text-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
           box-shadow: 0px 0px 2.5px rgba(0, 0, 0, .3);
@@ -572,13 +572,19 @@
         @media screen and (max-width: 780px) {
           #viewButton {
             position: relative;
+            display: block;
             left: -12.5vw;
-            bottom: 1.7vw;
+            bottom: 2px;
+            height: 24px;
+
             font-size: 100%;
             font-weight: 300;
+
+            padding: 0px 7px 0px 7px;
+            margin: 0 0 10px 0;
             border-width: 1px;
             border-radius: 9px;
-            padding: 0px 7px;
+
             text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
             box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
           }
