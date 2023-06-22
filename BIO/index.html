@@ -1399,6 +1399,8 @@
   height: 50vw;
   width: 100vw;
   background: url(img/aurora.jpg) bottom/cover;
+  display: flex;
+  align-items: center;
   ">
 
     <!-- blur decoration -->
@@ -1412,7 +1414,12 @@
     <div></div>
 
     <!-- bottom copyright -->
-    <div>
+    <div style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: .7vw;
+    ">
       <p style="
       position: relative;
       margin: 2% 0 0 4%;
