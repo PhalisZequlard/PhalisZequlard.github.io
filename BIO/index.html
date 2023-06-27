@@ -78,7 +78,7 @@
         });
         BIG_NAME.style.fontSize = "10vw";
         APPERTAINING.style.fontSize = "4.2vw";
-        MY_ICON.style.height = "4.2vw";
+        // MY_ICON.style.height = "4.2vw";
         MY_ICON_TXT.style.fontSize = "4vw";
         HERDER_BOX.style.height = "36vh";
         IMG_TXT_SCHOOL.innerHTML = "stust";
@@ -123,7 +123,10 @@
   background-color: rgb(255, 255, 255);
   display: flex;align-items: center;
   justify-content: center;z-index: 100;
-  transition: all .7s ease-in-out;">
+  transition: all .7s ease-in-out;
+  
+  display: none;
+  ">
     <style>
       .loader {
         position: fixed;
@@ -226,6 +229,9 @@
       <!-- top icon -->
       <div style=" 
       display: flex;
+      align-items: center;
+      position: relative;
+      top: -10%;
       ">
         <style>
           #myicon {
@@ -241,20 +247,18 @@
             text-shadow: 0px 0px 4.5px rgba(0, 0, 0, .3);
             font-weight: 100;
             color: white;
-            margin: 0 0 0 6px;
+            margin: 3% 0 0 6px;
           }
           @media screen and (max-width: 410px) {
             #myicon_txt::after {
-              position: relative;
               content: "Zequlard";
-              top: -8.5%;
-              font-size: 20px;
-              font-weight: 100;
+              font-size: 21px;
+              font-weight: 800;
               margin: 0 0 0 5px;
             }
             #myicon {
-              height: 50px;
-              scale: 1.6;
+              /* scale: 2.2; */
+              height: 30px;
               width: auto;
             }
           }
