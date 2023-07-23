@@ -17,27 +17,31 @@
   <meta property="twitter:url" content="https://phaliszequlard.github.io">
   <meta name="twitter:title" content="THE PENGUIN STUDIO">
   <meta name="twitter:description" content="PROFESSIONAL INFORMATION TECHNOLOGY ENGINEER AND DESIGNER COPYRIGHT THE PENGUIN STUDIO">
-  <!-- <script>
+  <script>
     window.onload = function() {
       window.location.href = "https://phaliszequlard.github.io/BIO/";
     }
-  </script> -->
+  </script>
   <style>
     :root {
-      --maxweight: 900px;
+      --maxweight: 1000px;
+      --pictureGap: 20px;
+    }
+    ::-webkit-scrollbar {
+      display: none;
     }
     * {
       margin: 0;
       padding: 0;
     }
     h2 {
-      font-size: 50px;
+      font-size: 45px;
       font-weight: 900;
       font-family: 'Dela Gothic One', 'Futura';
     }
     header {
       width: 100%;
-      height: 400px;
+      height: 500px;
       margin: 0;
       padding: 0;
       background-color: #540804;
@@ -56,7 +60,7 @@
     }
     header h1 {
       height: 250px;
-      font-size: 180px;
+      font-size: 200px;
       font-weight: 900;
       font-family: 'Dela Gothic One', 'Futura';
       color: #EA8C55;
@@ -73,10 +77,76 @@
       align-items: center;
     }
     .body_welcometxt {
+      margin: 100px 0 0 0;
       width: var(--maxweight);
-      height: 100px;
+      height: fit-content;
       display: flex;
       flex-direction: column;
+    }
+    .body_welcometxt div {
+      margin: 50px 0 0 0;
+      max-width: 600px;
+    }
+    .body_welcometxt h2 {
+      color: rgb(173, 46, 36);
+    }
+    .body_welcometxt p {
+      font-size: 20px;
+      font-weight: 300;
+      margin: 0 0 40px 0;
+    }
+    .body_showimg {
+      width: var(--maxweight);
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .body_showimg h2 {
+      color: rgb(129, 23, 27);
+    }
+    .body_showimg .imgRow {
+      width: 100%;
+      height: 300px;
+      margin-top: 30px;
+      display: flex;
+    }
+    .body_showimg .imgRow .row1 {
+      margin-right: var(--pictureGap);
+    }
+    .body_showimg .imgRow .row1 div:nth-child(1) {
+      width: 490px;
+      height: 300px;
+      margin-bottom: var(--pictureGap);
+      background-image: url(img/row1-1.jpg);
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+    }
+    .body_showimg .imgRow .row1 div:nth-child(2) {
+      width: 490px;
+      height: 600px;
+      background-image: url(img/row1-2.webp);
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+    }
+    .body_showimg .imgRow .row2 div:nth-child(1) {
+      width: 490px;
+      height: 600px;
+      margin-bottom: var(--pictureGap);
+      background-image: url(img/row2-1.webp);
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+    }
+    .body_showimg .imgRow .row2 div:nth-child(2) {
+      width: 490px;
+      height: 300px;
+      background-image: url(img/row2-2.webp);
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
     }
   </style>
 </head>
@@ -95,25 +165,28 @@
 </header>
 <body>
   <div class="body_welcometxt">
-    <h2>Welcome to the Coolest Studio of the South Pole!</h2>
-    <div class="body_welcometxt">
+    <h2>Welcome to the Coolest Studio of the Overworld!</h2>
+    <div>
       <p>Step inside our frost-free igloo and unleash your inner artist at The Penguin Studio! Trust us - we know how to make things extra cool.</p>
       <p>Founded by expert ice sculptor Oscar Penguini, our studio is packed with the finest and iciest art installations you’ve ever laid your flippers on.</p>
       <p>From frosty masterpieces to bone-chilling performances, we’ve got it all going down here at The Penguin Studio. Join us now for an unforgettable adventure into the heart of ice-cold creativity!</p>
     </div>
   </div>
-  <div>
+  <div class="body_showimg">
     <h2>Our Frostbitten Featured Works</h2>
-    <div>
-      <div>
-        <img src="" alt="">
-        <img src="" alt="">
+    <div class="imgRow">
+      <div class="row1">
+        <div id="IMG1-1"></div>
+        <div id="IMG1-2"></div>
       </div>
-      <div>
-        <img src="" alt="">
-        <img src="" alt="">
+      <div class="row2">
+        <div id="IMG2-1"></div>
+        <div id="IMG2-2"></div>
       </div>
     </div>
+  </div>
+  <div class="body_contact">
+    <svg><path d="M 153.363 83.39 C 148.042 79.345 140.629 77.638 138.057 71.234 M 121.162 126.697 C 118.728 124.872 115.335 123.852 112.644 122.407 C 110.466 121.237 108.036 119.386 106.187 117.741 C 105.006 116.692 103.513 114.329 102.949 112.925 M 98.946 127.759 C 99.478 127.759 99.86 128.189 100.376 128.351 C 101.675 128.761 102.622 129.284 103.797 129.937 C 104.108 130.11 106.052 131.317 105.461 131.701 C 104.047 132.62 101.904 132.506 100.317 132.861 C 98.666 133.233 99.692 130.942 100.001 130.316 M 158.512 71.129 C 159.679 72.425 159.972 73.588 159.999 75.203 C 160.091 80.694 154.893 85.222 151.728 88.856 C 147.425 93.796 144.545 99.853 140.254 104.78 C 135.404 110.347 130.82 116.161 125.96 121.739 C 124.177 123.787 122.148 125.565 120.369 127.607 C 119.619 128.468 118.26 129.876 117.025 130.039 C 112.934 130.582 109.364 133.091 105.219 133.684 C 103.52 133.927 99.179 135.051 98.562 132.549 C 98.231 131.205 98.711 129.682 98.397 128.335 C 98.255 127.722 98.322 125.722 98.508 125.179 C 99.156 123.29 98.863 120.89 99.343 118.839 C 99.881 116.536 101.219 115.361 102.461 113.455 C 104.481 110.355 106.637 107.301 108.749 104.187 C 110.588 101.475 112.36 98.819 114.515 96.346 C 116.906 93.6 118.745 90.389 121.127 87.654 C 125.1 83.094 129.399 79.031 133.68 74.771 C 135.887 72.578 138.565 70.94 140.589 68.616 C 142.523 66.396 144.396 64.616 147.869 65.519 C 149.915 66.05 151.572 66.75 153.569 67.476 C 155.176 68.06 156.748 69.968 158.057 71.132 M 39 131.135 C 41.448 129.572 43.829 127.418 46.567 126.402 C 49.153 125.442 52.187 124.996 54.923 125.459 C 58.251 126.025 60.398 128.075 62.534 130.548 C 63.301 131.435 64.118 132.265 64.942 133.098 C 65.607 133.77 66.324 134.722 67.201 135.132 C 67.935 135.474 68.714 134.611 69.266 134.242 C 71.162 132.973 73.159 131.962 75.389 131.456 C 77.869 130.894 80.287 130.8 82.444 132.366 C 83.729 133.298 84.979 134.344 86.354 135.138 C 87.205 135.63 88.914 134.713 89.68 134.196" stroke-width="10" stroke="rgb(0, 0, 0)" stroke-linecap="round" fill="none" stroke-miterlimit="10"></path></svg>
   </div>
   <!-- <a href="https://phaliszequlard.github.io/BIO/">≥link:touch.onherf->bio/thepenguinstudio≤</a> -->
 </body>
