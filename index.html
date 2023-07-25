@@ -62,7 +62,7 @@
       padding: 0 12px;
     }
     header svg {
-      scale: 0.09;
+      scale: 0.1;
     }
     .header_list {
       width: 100%;
@@ -160,6 +160,11 @@
       flex-direction: column;
       align-items: center;
     }
+    .body_contact svg {
+      width: 200px;
+      height: 150px;
+      margin: 0 0 50px 0;
+    }
     .body_contact h2 {
       color: rgb(84, 8, 4);
       margin: 50px 0 20px 0;
@@ -180,6 +185,7 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 350;
+      text-align: center;
     }
     .body_svgspacer {
       display: flex;
@@ -205,8 +211,6 @@
     .body_crew div {
       width: 475px;
       height: fit-content;
-      display: flex;
-      flex-direction: column;
     }
     .body_crew div:nth-child(1) {
       align-items: flex-start;
@@ -245,7 +249,6 @@
       width: var(--maxweight);
       flex-direction: row;
       gap: 10px;
-      overflow: hidden;
       position: relative;
       align-items: center;
       list-style: none;
@@ -291,11 +294,173 @@
       font-weight: 350;
       letter-spacing: 1.2px;
     }
+    footer p:after {
+      content: "© 2023 The Penguin Studio - Phalis Zequlard";
+    }
     .footer_media {
       display: flex;
       width: fit-content;
       height: 32px;
       gap: 20px;
+    }
+    @media screen and (max-width: 1200px) {
+      h2 {
+        font-size: 40px;
+      }
+      header {
+        height: 41.6vw;
+      }
+      header h1 {
+        font-size: 16.7vw;
+        height: fit-content;
+      }
+      header p {
+        padding: 0 1vw;
+      }
+      .body_welcometxt {
+        margin: 85px 0 0 0;
+        width: 85vw;
+      }
+      .body_welcometxt div {
+        margin: 40px 0 0 0;
+      }
+      .body_welcometxt p {
+        font-size: 20px;
+        font-weight: 300;
+        margin: 0 0 30px 0;
+      }
+      .body_showimg {
+        width: 85vw;
+        overflow: scroll;
+      }
+      .body_showimg .imgRow .row1 div:nth-child(1), 
+      .body_showimg .imgRow .row2 div:nth-child(1), 
+      .body_showimg .imgRow .row1 div:nth-child(2),
+      .body_showimg .imgRow .row2 div:nth-child(2) {
+        width: 41.25vw;
+      }
+      .body_showimg .imgRow .row1 div:nth-child(2), 
+      .body_showimg .imgRow .row2 div:nth-child(1) {
+        height: 55vw;
+      }
+      .body_showimg .imgRow .row1 div:nth-child(1), 
+      .body_showimg .imgRow .row2 div:nth-child(2) {
+        height: 30vw;
+      }
+      .body_contact {
+        margin: 140px 0 0 0;
+      }
+      .body_contact svg {
+        scale: 0.9;
+        margin: 0;
+      }
+      .body_crew {
+        flex-direction: column;
+        width: 85vw;
+        margin: 0 0 120px 0;
+        gap: 20px;
+      }
+      .body_crew div:nth-child(2) {
+        width: 85vw;
+      }
+      .body_events {
+        width: 85vw;
+        margin: 0 0 100px 0;
+      }
+      .body_events .list ul {
+        gap: 10px;
+        width: 85vw;
+        overflow: scroll;
+      }
+      .body_events .list li {
+        width: 85vw;
+        min-width: 820px;
+      }
+      .body_events .list svg {
+        height: 40px;
+        width: 40px;
+      }
+      footer {
+        margin-bottom: 80px;
+      }
+    }
+      
+    @media screen and (max-width: 810px) {
+      h2 {
+        font-size: 30px;
+      }
+      .body_welcometxt {
+        margin: 70px 0 0 0;
+        width: 85vw;
+      }
+      .body_welcometxt div {
+        margin: 30px 0 0 0;
+      }
+      .body_welcometxt p {
+        font-size: 20px;
+        font-weight: 300;
+        margin: 0 0 20px 0;
+      }
+      .body_contact {
+        margin: 120px 0 0 0;
+      }
+      .body_contact {
+        width: 90vw;
+      }
+      .body_contact svg {
+        scale: 0.6;
+        margin: 0;
+      }
+      .body_contact h2 {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .body_contact a {
+        width: 90vw;
+        padding: 10px 0px;
+      }
+      .body_crew {
+        width: 90vw;
+        margin: 0 0 80px 0;
+      }
+      .body_crew div:nth-child(2) {
+        width: 90vw;
+      }
+      .body_events {
+        width: 90vw;
+        margin: 0 0 80px 0;
+      }
+      .body_events .list ul {
+        gap: 10px;
+        width: 85vw;
+        overflow: scroll;
+      }
+      .body_events .list li {
+        min-width: 670px;
+      }
+      .body_events .list .event {
+        font-size: 19px;
+        line-height: 1.5em;
+      }
+      .body_events .list .year {
+        font-size: 24px;
+        line-height: 1.5em;
+      }
+      .body_events .list svg {
+        height: 30px;
+        width: 30px;
+      }
+      footer {
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+      }
+      footer p::after {
+        content: "© 2023 The Penguin Studio";
+      }
+      .footer_media {
+        width: 225px;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
@@ -403,7 +568,7 @@
   <!-- <a href="https://phaliszequlard.github.io/BIO/">≥link:touch.onherf->bio/thepenguinstudio≤</a> -->
 </body>
 <footer>
-  <p>© 2023 The Penguin Studio - Phalis Zequlard</p>
+  <p></p>
   <div class="footer_media">
     <!-- twitter -->
     <svg viewBox="0 0 32 32">
@@ -422,5 +587,32 @@
       <path xmlns="http://www.w3.org/2000/svg" d="M 26 4 L 6 4 C 4.895 4 4 4.895 4 6 L 4 24 C 4 25.105 4.895 26 6 26 L 8 26 L 8 30 C 8 30.388 8.224 30.741 8.576 30.906 C 8.927 31.071 9.342 31.017 9.64 30.769 L 15.363 26 L 20.638 26 C 21.106 26 21.559 25.836 21.919 25.536 L 27.28 21.067 C 27.737 20.688 28.001 20.125 28 19.531 L 28 6 C 28 4.895 27.105 4 26 4 Z M 16 17 C 16 17.552 15.552 18 15 18 C 14.448 18 14 17.552 14 17 L 14 11 C 14 10.448 14.448 10 15 10 C 15.552 10 16 10.448 16 11 Z M 22 17 C 22 17.552 21.552 18 21 18 C 20.448 18 20 17.552 20 17 L 20 11 C 20 10.448 20.448 10 21 10 C 21.552 10 22 10.448 22 11 Z" fill="#540804"/>
     </svg>
   </div>
+
+  
+  <style> /* WidthReminder tool */
+    .WidthReminder {
+      position: fixed;top: 10px;right: 10px;
+      background-color: #cb4040;
+      width: 50px;height: 50px;
+      display: flex;transition: all 0.45s ease-in;overflow: hidden;
+      justify-content: center;align-items: center;}
+    .WidthReminder h1 {
+      color: rgb(255, 255, 255);
+      font-weight: 900;font-size: 17px;
+      text-align: center;line-height: 20px;}
+    .WidthReminder h1::after {
+      content: "1200\AMAX";}
+    @media screen and (max-width: 1200px){
+      .WidthReminder {
+        background-color: #f56f21;}
+      .WidthReminder h1::after {
+        content: "1199\A ~810";}}
+    @media screen and (max-width: 810px){
+      .WidthReminder {
+        background-color: #91aa36;}
+      .WidthReminder h1::after {
+        content: "809\ALOW";}}
+  </style><div class="WidthReminder"><h1></h1></div>
+
 </footer>
 </html>
