@@ -2564,10 +2564,10 @@
     const analytics = getAnalytics(app);
     
     $(document).ready(function(){
-      var msgRef = firebase.database().ref('/messages/');
+      var msgRef = firebase.database().ref("/messages/");
 
       $("#btn").click(function() {
-        var msg = $('#input').val();
+        var msg = $("#input").val();
         console.log(msg);
         msgRef.push({
           text: msg
