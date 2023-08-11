@@ -2566,7 +2566,7 @@
     $(document).ready(function(){
       var msgRef = firebase.database().ref('/messages/');
 
-      $('#btn').click(function() {
+      $("#btn").click(function() {
         var msg = $('#input').val();
         console.log(msg);
         msgRef.push({
