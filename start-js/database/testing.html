@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="testing_style.css">
   <title>textData</title>
 </head>
 <body>
 
-  <button type="button" id="googleLoginBtn">Login with Google</button>
+  <button type="button" id="googleLoginBtn">Login</button>
   <button type="button" id="logoutBtn" style="display:none;">Logout</button>
 
   <input type="text" name="" id="input">
   <button type="button" id="btn">PUSH!</button>
-  <ul id="messagesList"></ul>
+  <ul id="msgList"></ul>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script type="module">
@@ -36,14 +37,21 @@
     let currentUsername = null;
 
     const fetchMessages = async () => {
-      const messagesSnapshot = await get(msgRef);
-      const messages = messagesSnapshot.val();
-      $("#messagesList").empty();
-      for (const username in messages) {
-        $("#messagesList").append(`<li>${username}: ${messages[username].text}</li>`);
-      }
-    };
+    const messagesSnapshot = await get(msgRef);
+    const messages = messagesSnapshot.val();
+    $("#msgList").empty();
+    for (const username in messages) {
+      $("#msgList").append(`
+        <li>
+          <h4>${username}</h4>
+          <p>${messages[username].text}</p>
+        </li>
+      `);
+    }
+  };
 
+// 在適當的地方調用 fetchMessages 函數
+fetchMessages();
     $(document).ready(function(){
       $("#btn").click(async function() {
         if (currentUsername) {
