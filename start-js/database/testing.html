@@ -37,21 +37,30 @@
     let currentUsername = null;
 
     const fetchMessages = async () => {
-    const messagesSnapshot = await get(msgRef);
-    const messages = messagesSnapshot.val();
-    $("#msgList").empty();
-    for (const username in messages) {
-      $("#msgList").append(`
-        <li>
-          <h4>${username}</h4>
-          <p>${messages[username].text}</p>
-        </li>
-      `);
-    }
-  };
+      try {
+        const messagesSnapshot = await get(msgRef);
+        if (messagesSnapshot.exists()) {
+          const messages = messagesSnapshot.val();
+          $("#msgList").empty();
+          for (const username in messages) {
+            $("#msgList").append(`
+              <li>
+                <h4>${username}</h4>
+                <p>${messages[username].text}</p>
+              </li>
+            `);
+          }
+        } else {
+          console.log("No messages found");
+        }
+      } catch (error) {
+        console.error("Failed to fetch messages:", error);
+      }
+    };
+
 
 // 在適當的地方調用 fetchMessages 函數
-fetchMessages();
+  fetchMessages();
     $(document).ready(function(){
       $("#btn").click(async function() {
         if (currentUsername) {

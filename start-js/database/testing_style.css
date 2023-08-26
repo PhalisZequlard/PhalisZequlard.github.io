@@ -27,7 +27,7 @@ body > #msgList > li {
   height: fit-content;
   list-style: none;
   color: black;
-  border: 5px solid black;
+  border: 3px solid black;
   border-radius: 10px;
   padding: 6px 0px 6px 12px;
 }
