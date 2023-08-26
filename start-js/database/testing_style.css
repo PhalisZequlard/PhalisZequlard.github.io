@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Albert Sans", "Albert Sans Placeholder", sans-serif;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body > #googleLoginBtn,
+body > #logoutBtn {
+  width: 60px;
+  min-width: fit-content;
+}
+body > #msgList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: none;
+  gap: 20px;
+}
+body > #msgList > li {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+  width: 100%;
+  height: fit-content;
+  list-style: none;
+  color: black;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 6px 0px 6px 12px;
+}
+body > #msgList > li > h4 {
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: none;
+}
+body > #msgList > li > p {
+  background-color: none;
+}
