@@ -15,6 +15,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  gap: 20px;
 }
 
 /* body .Openimg {
@@ -96,11 +97,80 @@ body .Search div:nth-child(2) {
   padding-right: var(--paddingRL);
 }
 
+body .Option {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+body .Option > .imgList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: var(--maxwidth);
+
+  --boxSize: 19.5vw;
+  --boxColor: rgb(230, 230, 230);
+
+  --pic1: url(images/salad.jpg);
+  --pic2: url(images/salad.jpg);
+  --pic3: url(images/salad.jpg);
+  --pic4: url(images/salad.jpg);
+}
+body .Option > .imgList div {
+  border-radius: 12px;
+  height: var(--boxSize);
+  width: var(--boxSize);
+  background-color: var(--boxColor);
+}
+body .Option > .imgList div:nth-child(1) > .pic,
+body .Option > .imgList div:nth-child(2) > .pic,
+body .Option > .imgList div:nth-child(3) > .pic,
+body .Option > .imgList div:nth-child(4) > .pic {
+  background-size: cover;
+  background-position: center;
+  scale: 0.5;
+}
+body .Option div:nth-child(1) > .pic {
+  background-image: var(--pic1);
+}
+body .Option div:nth-child(2) > .pic {
+  background-image: var(--pic2);
+}
+body .Option div:nth-child(3) > .pic {
+  background-image: var(--pic3);
+}
+body .Option div:nth-child(4) > .pic {
+  background-image: var(--pic4);
+}
+body .Option .txtList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: var(--maxwidth);
+  --boxSize: 19.5vw;
+}
+body .Option .txtList > p:nth-child(1),
+body .Option .txtList > p:nth-child(2),
+body .Option .txtList > p:nth-child(3),
+body .Option .txtList > p:nth-child(4) {
+  color: #000;
+  text-align: center;
+  width: var(--boxSize);
+}
 
 
 
 
 
+
+
+
+
+
+
+
+
+/* //KU */
 body > #msgList {
   display: flex;
   justify-content: space-evenly;
