@@ -9,12 +9,33 @@
 :root {
   --maxwidth: 90vw;
 }
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
 }
+
+/* body .Openimg {
+  position: absolute;
+  z-index: -1;
+  height: 250px;
+  width: 100vw;
+  background: url(images/salad.jpg);
+  background-size: cover;
+  background-position: bottom;
+}
+body .Openimg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 250px;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.9);
+} */
+
 body .Login {
   display: flex;
   flex-direction: row;
