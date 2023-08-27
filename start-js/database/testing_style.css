@@ -6,11 +6,80 @@
 ::-webkit-scrollbar {
   display: none;
 }
-body > #googleLoginBtn,
-body > #logoutBtn {
+:root {
+  --maxwidth: 90vw;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+body .Login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--maxwidth);
+}
+body .Login > .sign {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(234, 234, 234);
+  border-radius: 100px;
+  padding: 0px 8px 0px 0px;
+}
+body .Login > .sign > div {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border-radius: 100px;
+  padding: 3px 8px;
+}
+body .Login > .sign > div > svg {
+  width: 25px;
+  height: 25px;
+  scale: 0.6;
+}
+body .Login > .sign > #googleLoginBtn,
+body .Login > .sign > #googleLogoutBtn {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
   width: 60px;
   min-width: fit-content;
 }
+
+body .Search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  --paddingRL: 8px;
+  background-color: rgb(222, 222, 222);
+  border-radius: 100px;
+  width: var(--maxwidth);
+}
+body .Search div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  padding-left: var(--paddingRL);
+}
+body .Search div:nth-child(2) {
+  display: flex;
+  padding-right: var(--paddingRL);
+}
+
+
+
+
+
+
 body > #msgList {
   display: flex;
   justify-content: space-evenly;
@@ -29,7 +98,7 @@ body > #msgList > li {
   color: black;
   border: 3px solid black;
   border-radius: 10px;
-  padding: 6px 0px 6px 12px;
+  padding: 6px 0px 6px 10px;
 }
 body > #msgList > li > h4 {
   font-size: 1.2em;
