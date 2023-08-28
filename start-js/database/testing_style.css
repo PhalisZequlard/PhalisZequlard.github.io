@@ -15,7 +15,8 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  gap: 20px;
+  /* gap: 20px; */
+  --box1Gap: 20px;
 }
 
 body .Login {
@@ -24,6 +25,7 @@ body .Login {
   justify-content: space-between;
   align-items: center;
   width: var(--maxwidth);
+  margin-bottom: var(--box1Gap);
 }
 body .Login > .sign {
   display: flex;
@@ -65,6 +67,7 @@ body .Search {
   background-color: rgb(222, 222, 222);
   border-radius: 100px;
   width: var(--maxwidth);
+  margin-bottom: var(--box1Gap);
 }
 body .Search div:nth-child(1) {
   display: flex;
@@ -82,6 +85,7 @@ body .Option {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: var(--box1Gap);
 }
 body .Option > .imgList {
   display: flex;
@@ -139,8 +143,28 @@ body .Option .txtList > p:nth-child(4) {
   width: var(--boxSize);
 }
 
-
-
+body .Restaurant {
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  width: var(--maxwidth);
+}
+body .Restaurant > .notice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  margin: 5px 0;
+  --svg-info-size: 17px;
+}
+body .Restaurant > .notice > svg {
+  width: var(--svg-info-size);
+  height: var(--svg-info-size);
+}
+body .Restaurant > .notice > p {
+  font-size: 0.8em;
+  text-decoration: underline;
+}
 
 
 
