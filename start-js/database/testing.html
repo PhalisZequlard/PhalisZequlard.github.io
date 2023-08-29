@@ -127,7 +127,7 @@
     };
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
-    const msgRef = ref(database, "/messages/");
+    const msgRef = ref(database, "/user/");
 
     let currentUsername = null;
 
@@ -159,7 +159,7 @@
     $(document).ready(function(){
       $("#btn").click(async function() {
         if (currentUsername) {
-          const userMsgRef = ref(database, `/messages/${currentUsername}`);
+          const userMsgRef = ref(database, `/user/${currentUsername}`);
           var msg = $("#input").val();
           console.log(msg);
           await set(userMsgRef, {
