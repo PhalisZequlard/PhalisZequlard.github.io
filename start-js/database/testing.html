@@ -65,40 +65,7 @@
       </svg>
       <p style="align-items: self-end;">^ 可能需支付比你的外賣還貴的服務費</p>
     </div>
-
-    <div class="box">
-      <div class="img"></div>
-      <div class="txt">
-        <div>
-          <h4>Store Name</h4>
-          <p>100$ 000 . 15-30 min</p>
-        </div>
-        <p>5.0</p>
-      </div>
-    </div>
-
-    <div class="box">
-      <div class="img"></div>
-      <div class="txt">
-        <div>
-          <h4>Store Name</h4>
-          <p>100$ 000 . 15-30 min</p>
-        </div>
-        <p>5.0</p>
-      </div>
-    </div>
-
-    <div class="box">
-      <div class="img"></div>
-      <div class="txt">
-        <div>
-          <h4>Store Name</h4>
-          <p>100$ 000 . 15-30 min</p>
-        </div>
-        <p>5.0</p>
-      </div>
-    </div>
-
+    <div id="restaurantContainer"></div>
   </div>
   
 
@@ -106,15 +73,14 @@
 
 
 
-  <!-- <input type="text" name="" id="input"> -->
-  <!-- <button type="button" id="btn">PUSH!</button> -->
+  <input type="text" name="" id="input">
+  <button type="button" id="btn">PUSH!</button>
   <ul id="msgList"></ul>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
-
     const firebaseConfig = {
       apiKey: "AIzaSyC2wGJaAsQTdMP6VOiVtAl4DGlToiSvwSY",
       authDomain: "nomadic-bison-390822.firebaseapp.com",
@@ -127,10 +93,9 @@
     };
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
+
     const msgRef = ref(database, "/user/");
-
     let currentUsername = null;
-
     const fetchMessages = async () => {
       try {
         const messagesSnapshot = await get(msgRef);
@@ -152,11 +117,36 @@
         console.error("Failed to fetch messages:", error);
       }
     };
+    fetchMessages();
 
+    const restaurantRef = ref(database, "/order/restaurant/");
+    const fetchRestaurants = async () => {
+      const restaurantSnapshot = await get(restaurantRef);
+      const restaurants = restaurantSnapshot.val();
+      for (const restaurantName in restaurants) {
+        const rate = restaurants[restaurantName].rate;
+        const waitfor = restaurants[restaurantName].waitfor;
 
-// 在適當的地方調用 fetchMessages 函數
-  fetchMessages();
+        const restaurantBox = `
+          <div class="box">
+            <div class="img"></div>
+            <div class="txt">
+              <div>
+                <h4>${restaurantName}</h4>
+                <p>0$ 外送費・${waitfor} min</p>
+              </div>
+              <p>${rate}</p>
+            </div>
+          </div>
+        `;
+        $("#restaurantContainer").append(restaurantBox);
+      }
+    };
+    
+    // 在適當的地方調用 fetchMessages 函數
     $(document).ready(function(){
+      fetchRestaurants();
+
       $("#btn").click(async function() {
         if (currentUsername) {
           const userMsgRef = ref(database, `/user/${currentUsername}`);

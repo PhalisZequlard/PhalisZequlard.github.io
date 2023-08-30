@@ -166,25 +166,26 @@ body .Restaurant > .notice > p {
   text-decoration: underline;
 }
 
-body .Restaurant > .box {
+body .Restaurant > #restaurantContainer > .box {
   display: flex;
   flex-direction: column;
   width: var(--maxwidth);
   margin-top: 12px;
+  gap: 5px;
 }
-body .Restaurant > .box > .img {
+body .Restaurant > #restaurantContainer > .box > .img {
   height: 170px;
   width: 100%;
   border: 1px solid black;
   border-radius: 15px;
 }
-body .Restaurant > .box > .txt {
+body .Restaurant > #restaurantContainer > .box > .txt {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-body .Restaurant > .box > .txt > p {
+body .Restaurant > #restaurantContainer > .box > .txt > p {
   border-radius: 100px;
   padding: 5px;
   background-color: rgb(222, 222, 222);
