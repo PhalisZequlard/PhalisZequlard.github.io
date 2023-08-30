@@ -272,7 +272,7 @@ body > .msgTestingTable > #msgtable {
   justify-content: center;
   background-color: rgb(225, 225, 225);
   width: 100vw;
-  height: 35px;
+  height: 40px;
   gap: 10px;
 }
 body > .msgTestingTable > #msgtable > #btn {
