@@ -54,6 +54,7 @@ body .Login > .sign > #googleLogoutBtn {
   border: none;
   width: 60px;
   min-width: fit-content;
+  color: black;
 }
 
 body .Search {
@@ -237,7 +238,7 @@ body > .msgTestingTable > #msgtable {
   position: sticky;
   bottom: 0;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: rgb(225, 225, 225);
   width: 100vw;
   height: 35px;
@@ -260,7 +261,7 @@ body > .msgTestingTable > #msgtable > #btn > svg {
 }
 body > .msgTestingTable > #msgtable > #input {
   border-radius: 100px;
-  width: 75%;
+  width: 60%;
   height: 70%;
   border: none;
 }
