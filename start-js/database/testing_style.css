@@ -201,18 +201,22 @@ body > .Restaurant > #restaurantForm {
   border-radius: 10px;
   padding: 10px;
 }
+body > .Restaurant > #restaurantForm input {
+  height: 22px;
+  border-radius: 7px;
+  border: 1px solid black;
+}
 body > .Restaurant > #restaurantForm > button {
   color: black;
 } 
 body > .Restaurant > #restaurantForm > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 body > .Restaurant > #restaurantForm > div > #rate,
 body > .Restaurant > #restaurantForm > div > #waitfor {
   width: 25%;
-  border-radius: 8px;
-  border: 1px solid black;
 }
 body > .Restaurant > #restaurantForm > div > label {
   display: inline-flex;
