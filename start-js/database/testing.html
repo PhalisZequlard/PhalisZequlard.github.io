@@ -67,7 +67,9 @@
     </div>
     <div id="restaurantContainer"></div>
 
-    <div style="align-self: center;margin: 10px 0;">- 新增餐廳,需管理員權限 -</div>
+    <!-- <div style="align-self: center;margin: 10px 0;">- 新增餐廳,需管理員權限 -</div> -->
+    <!-- spacer -->
+    <div style="height: 5px;width: 100vw;background-color: rgb(230, 230, 230);align-self: center;margin: 10px 0;"></div>
     
     <h2>新增店家</h2>
     <form id="restaurantForm">
@@ -92,7 +94,7 @@
 
 
 
-    <div style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
+  <div style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
 
 
   <div class="msgTestingTable">
@@ -107,6 +109,14 @@
     </div>
   </div>
   
+
+
+
+  <button id="checkAdminStatus">檢查管理員狀態</button>
+  <div id="adminStatus"></div>
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script type="module">
@@ -177,9 +187,9 @@
     
 
 
-
     // 在適當的地方調用 fetchMessages 函數
     $(document).ready(function(){
+      
       fetchRestaurants();
       $("#addRestaurant").click(async function() {
         const name = $("#name").val();
@@ -247,6 +257,37 @@
         $("#googleLogoutBtn").hide();
       }
     });
+
+
+
+
+
+    // 檢查用戶是否是管理員
+    document.getElementById("checkAdminStatus").addEventListener("click", function() {
+    // 檢查用戶是否是管理員
+    const adminRef = ref(database, `/admins/${auth.currentUser.uid}`);
+    get(adminRef).then((snapshot) => {
+      console.log("檢查管理員狀態...");  // 調試信息
+      const adminStatusDiv = document.getElementById('adminStatus');
+      if (adminStatusDiv) {
+        console.log("找到管理員狀態 div。");  // 調試信息
+        if (snapshot.exists()) {
+          // 用戶是管理員
+          console.log("用戶是管理員。");  // 調試信息
+          adminStatusDiv.innerHTML = '您是管理員。';
+        } else {
+          // 用戶不是管理員
+          console.log("用戶不是管理員。");  // 調試信息
+          adminStatusDiv.innerHTML = '您不是管理員。';
+        }
+      } else {
+        console.log("未找到管理員狀態 div。");  // 調試信息
+      }
+    }).catch((error) => {
+      console.error("檢查管理員狀態失敗：", error);  // 調試信息
+    });
+  });
+
 
   </script>
 </body>
