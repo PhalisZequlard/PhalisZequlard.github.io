@@ -15,7 +15,6 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  /* gap: 20px; */
   --box1Gap: 20px;
 }
 
@@ -200,15 +199,21 @@ body .Restaurant > #restaurantContainer > .box > .txt > p {
 
 
 /* //KU */
-body > #msgList {
+body > .msgTestingTable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body > .msgTestingTable > #msgList {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: none;
+  width: var(--maxwidth);
   gap: 20px;
 }
-body > #msgList > li {
+body > .msgTestingTable > #msgList > li {
   display: flex;
   flex-direction: column;
   gap: 2.5px;
@@ -216,15 +221,46 @@ body > #msgList > li {
   height: fit-content;
   list-style: none;
   color: black;
-  border: 3px solid black;
+  border: 1.5px solid black;
   border-radius: 10px;
   padding: 6px 0px 6px 10px;
 }
-body > #msgList > li > h4 {
+body > .msgTestingTable > #msgList > li > h4 {
   font-size: 1.2em;
   font-weight: 500;
   background-color: none;
 }
-body > #msgList > li > p {
+body > .msgTestingTable > #msgList > li > p {
   background-color: none;
+}
+body > .msgTestingTable > #msgtable {
+  position: sticky;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(225, 225, 225);
+  width: 100vw;
+  height: 35px;
+  gap: 10px;
+}
+body > .msgTestingTable > #msgtable > #btn {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  height: 70%;
+  rotate: -40deg;
+  bottom: 4px;
+}
+body > .msgTestingTable > #msgtable > #btn > svg > path {
+  fill: black;
+}
+body > .msgTestingTable > #msgtable > #btn > svg {
+  width: 100%;
+  height: 100%;
+}
+body > .msgTestingTable > #msgtable > #input {
+  border-radius: 100px;
+  width: 75%;
+  height: 70%;
+  border: none;
 }

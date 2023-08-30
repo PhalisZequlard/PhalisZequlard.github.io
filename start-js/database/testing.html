@@ -66,6 +66,20 @@
       <p style="align-items: self-end;">^ 可能需支付比你的外賣還貴的服務費</p>
     </div>
     <div id="restaurantContainer"></div>
+    
+    <h2>新增店家</h2>
+    <form id="restaurantForm">
+      <label for="name">店家名稱:</label>
+      <input type="text" id="name" name="name"><br>
+
+      <label for="rate">評分:</label>
+      <input type="text" id="rate" name="rate"><br>
+
+      <label for="waitfor">等待時間:</label>
+      <input type="text" id="waitfor" name="waitfor"><br>
+
+      <button type="button" id="addRestaurant">新增店家</button>
+    </form>
   </div>
   
 
@@ -73,9 +87,18 @@
 
 
 
-  <input type="text" name="" id="input">
-  <button type="button" id="btn">PUSH!</button>
-  <ul id="msgList"></ul>
+  <div class="msgTestingTable">
+    <ul id="msgList"></ul>
+    <div id="msgtable" style="display: flex; flex-direction: row;">
+      <input type="text" name="" id="input">
+      <button type="button" id="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">
+          <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script type="module">
@@ -143,9 +166,28 @@
       }
     };
     
+
+
+
     // 在適當的地方調用 fetchMessages 函數
     $(document).ready(function(){
       fetchRestaurants();
+      $("#addRestaurant").click(async function() {
+        const name = $("#name").val();
+        const rate = $("#rate").val();
+        const waitfor = $("#waitfor").val();
+
+        if (name && rate && waitfor) {
+          const newRestaurantRef = ref(database, `/order/restaurant/${name}`);
+          await set(newRestaurantRef, {
+            rate: rate,
+            waitfor: waitfor
+          });
+          fetchRestaurants();
+        } else {
+          alert("所有欄位都是必填的！");
+        }
+      });
 
       $("#btn").click(async function() {
         if (currentUsername) {
