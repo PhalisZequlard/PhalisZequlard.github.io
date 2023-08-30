@@ -211,11 +211,14 @@ body > .Restaurant > #restaurantForm > div {
 body > .Restaurant > #restaurantForm > div > #rate,
 body > .Restaurant > #restaurantForm > div > #waitfor {
   width: 25%;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 body > .Restaurant > #restaurantForm > div > label {
   display: inline-flex;
   flex-direction: column;
-  width: 20%;
+  width: 22%;
+  font-size: 100%;
 }
 
 
