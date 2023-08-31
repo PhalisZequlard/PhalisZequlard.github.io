@@ -263,7 +263,7 @@ body > .Restaurant > #restaurantForm > div {
 }
 body > .Restaurant > #restaurantForm > div > #rate,
 body > .Restaurant > #restaurantForm > div > #waitfor {
-  width: 25%;
+  width: 20%;
 }
 body > .Restaurant > #restaurantForm > div > label {
   display: inline-flex;
