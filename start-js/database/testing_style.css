@@ -145,10 +145,10 @@ body .Option > .imgList {
   --boxSize: 19.5vw;
   --boxColor: rgb(230, 230, 230);
 
-  --pic1: url(images/restaurant.jpg);
-  --pic2: url(images/veggies.jpg);
-  --pic3: url(images/grocery.jpg);
-  --pic4: url(images/salad.jpg);
+  --pic1: url(images/restaurant.png);
+  --pic2: url(images/grocery.png);
+  --pic3: url(images/convenience_store.png);
+  --pic4: url(images/more.png);
 }
 body .Option > .imgList div {
   border-radius: 12px;
