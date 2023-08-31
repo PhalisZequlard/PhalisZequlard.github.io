@@ -145,9 +145,9 @@ body .Option > .imgList {
   --boxSize: 19.5vw;
   --boxColor: rgb(230, 230, 230);
 
-  --pic1: url(images/salad.jpg);
-  --pic2: url(images/salad.jpg);
-  --pic3: url(images/salad.jpg);
+  --pic1: url(images/restaurant.jpg);
+  --pic2: url(images/veggies.jpg);
+  --pic3: url(images/grocery.jpg);
   --pic4: url(images/salad.jpg);
 }
 body .Option > .imgList div {
