@@ -79,17 +79,17 @@
     <h2 class="adminOnly">新增店家</h2>
     <form class="adminOnly" id="restaurantForm">
       <label for="name">店家名稱</label>
-      <input type="text" id="name" name="name">
+      <input placeholder="Restaurant Name" type="text" id="name" name="name">
 
       <label for="foodimg">圖片連結</label>
-      <input type="text" id="foodimg" name="foodimg">
+      <input placeholder="Image url" type="text" id="foodimg" name="foodimg">
 
       <div>
         <label for="rate">網路評分</label>
-        <input type="text" id="rate" name="rate">
+        <input placeholder="Score" type="text" id="rate" name="rate">
 
         <label for="waitfor">等待時間</label>
-        <input type="text" id="waitfor" name="waitfor">
+        <input placeholder="Time" type="text" id="waitfor" name="waitfor">
       </div>
 
       <button type="button" id="addRestaurant">新增店家</button>
@@ -100,15 +100,16 @@
 
 
 
-  <button id="checkAdminStatus">檢查管理員狀態</button>
-  <div id="adminStatus"></div>
+  <!-- <button id="checkAdminStatus">檢查管理員狀態</button> -->
+  <!-- <div id="adminStatus">test</div> -->
 
   <div style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
 
+  <!-- <div></div> -->
   <div class="msgTestingTable">
     <ul id="msgList"></ul>
     <div id="msgtable" style="display: flex; flex-direction: row;">
-      <input type="text" name="" id="input">
+      <input placeholder="寫下個性留言" type="text" name="" id="input">
       <button type="button" id="btn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">
           <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>
@@ -195,7 +196,6 @@
 
     // 在適當的地方調用 fetchMessages 函數
     $(document).ready(function(){
-      
       fetchRestaurants();
       $("#addRestaurant").click(async function() {
         const name = $("#name").val();
@@ -286,18 +286,7 @@
     });
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // 檢查用戶是否是管理員
+    // 檢查用戶是否是管理員 button
     document.getElementById("checkAdminStatus").addEventListener("click", function() {
     // 檢查用戶是否是管理員
     const adminRef = ref(database, `/admins/${auth.currentUser.uid}`);
@@ -330,10 +319,10 @@
     const header = document.querySelector('header');
     header.addEventListener('click', function() {
       header.style.opacity = '0';
-      document.body.classList.remove('no-scroll');  // Enable scrolling
+      document.body.classList.remove('no-scroll');
       setTimeout(() => {
         header.remove();
-      }, 1000);  // Remove the header after 1 second
+      }, 1000);
     });
   });
   </script>

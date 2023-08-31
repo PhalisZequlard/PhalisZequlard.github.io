@@ -26,6 +26,8 @@ header {
 
   opacity: 1;
   transition: opacity 1s ease;
+
+  display: none;
 }
 header > h1 {
   font-size: 4.7em;
@@ -53,9 +55,9 @@ header > a {
 
 
 
-body.no-scroll {
+/* body.no-scroll {
   overflow-y: hidden;
-}
+} */
 body {
   display: flex;
   flex-direction: column;
@@ -71,7 +73,7 @@ body .Login {
   justify-content: space-between;
   align-items: center;
   width: var(--maxwidth);
-  margin-bottom: var(--box1Gap);
+  margin: 10px 0 var(--box1Gap) 0;
 }
 body .Login > .sign {
   display: flex;
@@ -243,18 +245,33 @@ body .Restaurant > #restaurantContainer > .box > .txt > p {
 body > .Restaurant > #restaurantForm {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  border: 1px solid black;
+  gap: 8px;
+  border: 1px solid rgba(0, 0, 0, .05);
   border-radius: 10px;
   padding: 10px;
+  background-color: rgb(40, 171, 77);
+  font-weight: 500;
 }
 body > .Restaurant > #restaurantForm input {
+  position: relative;
   height: 22px;
   border-radius: 7px;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, .05);
+  padding: 0 0 0 5px;
+  outline: none;
+  transition: border .2s ease;
+  margin: 1.5px 0;
+}
+body > .Restaurant > #restaurantForm input:focus {
+  border: 1px solid rgb(40, 171, 77);
 }
 body > .Restaurant > #restaurantForm > button {
   color: black;
+  height: 22px;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: 7px;
+  background-color: rgb(255, 255, 255);
+  margin: 0 0 1.5px 0;
 } 
 body > .Restaurant > #restaurantForm > div {
   display: flex;
@@ -291,6 +308,7 @@ body > .msgTestingTable > #msgList {
   background-color: none;
   width: var(--maxwidth);
   gap: 20px;
+  margin-bottom: 20px;
 }
 body > .msgTestingTable > #msgList > li {
   display: flex;
@@ -314,7 +332,7 @@ body > .msgTestingTable > #msgList > li > p {
 }
 body > .msgTestingTable > #msgtable {
   position: sticky;
-  bottom: 0;
+  bottom: 0px;
   align-items: center;
   justify-content: center;
   background-color: rgb(225, 225, 225);
@@ -339,8 +357,9 @@ body > .msgTestingTable > #msgtable > #btn > svg {
   bottom: 5px;
   rotate: -40deg;
 }
-body > .msgTestingTable > #msgtable > #input {
+body > .msgTestingTable > #msgtable > input {
   border-radius: 100px;
+  padding: 0 0 0 12px;
   width: 60%;
   height: 70%;
   border: none;
