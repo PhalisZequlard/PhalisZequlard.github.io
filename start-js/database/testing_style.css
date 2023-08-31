@@ -263,7 +263,7 @@ body > .Restaurant > #restaurantForm input {
   margin: 1.5px 0;
 }
 body > .Restaurant > #restaurantForm input:focus {
-  border: 1px solid rgb(40, 171, 77);
+  border: 1px solid rgb(0, 0, 0);
 }
 body > .Restaurant > #restaurantForm > button {
   color: black;
@@ -285,7 +285,6 @@ body > .Restaurant > #restaurantForm > div > #waitfor {
 body > .Restaurant > #restaurantForm > div > label {
   display: inline-flex;
   flex-direction: column;
-  width: 22%;
   font-size: 100%;
 }
 
@@ -318,7 +317,8 @@ body > .msgTestingTable > #msgList > li {
   height: fit-content;
   list-style: none;
   color: black;
-  border: 1.5px solid black;
+  border: 1.5px solid rgba(0, 0, 0, .05);
+  background-color: rgb(233, 233, 233);
   border-radius: 10px;
   padding: 6px 0px 6px 10px;
 }
@@ -363,4 +363,5 @@ body > .msgTestingTable > #msgtable > input {
   width: 60%;
   height: 70%;
   border: none;
+  outline: none;
 }
