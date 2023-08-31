@@ -6,7 +6,12 @@
   <link rel="stylesheet" href="testing_style.css">
   <title>textData</title>
 </head>
-<body>
+<header id="main-header">
+  <h2>WANT</h2>
+  <h1>EATS</h1>
+  <a href="testing_police.html">繼續使用代表你同使用條款</a>
+</header>
+<body class="no-scroll">
 
   <div class="Login">
     <div>
@@ -71,8 +76,8 @@
     <!-- spacer -->
     <div style="height: 5px;width: 100vw;background-color: rgb(230, 230, 230);align-self: center;margin: 10px 0;"></div>
     
-    <h2>新增店家</h2>
-    <form id="restaurantForm">
+    <h2 class="adminOnly">新增店家</h2>
+    <form class="adminOnly" id="restaurantForm">
       <label for="name">店家名稱</label>
       <input type="text" id="name" name="name">
 
@@ -95,10 +100,10 @@
 
 
 
-
-  <div style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
   <button id="checkAdminStatus">檢查管理員狀態</button>
   <div id="adminStatus"></div>
+
+  <div style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
 
   <div class="msgTestingTable">
     <ul id="msgList"></ul>
@@ -244,20 +249,49 @@
     });
 
     // 監聽身份驗證狀態的更改
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
         // 用戶已登入
-        currentUsername = user.displayName || user.email; // 使用顯示名稱或電子郵件作為用戶名
+        currentUsername = user.displayName || user.email;
         $("#googleLoginBtn").hide();
         $("#googleLogoutBtn").show();
         fetchMessages();
+
+        try {
+          // 嘗試檢查是否是管理員
+          const adminRef = ref(database, `/admins/${user.uid}`);
+          const snapshot = await get(adminRef);
+          if (snapshot.exists()) {
+            // 用戶是管理員，顯示所有 class="adminOnly" 的元素
+            $(".adminOnly").show();
+          } else {
+            // 用戶不是管理員，刪除所有 class="adminOnly" 的元素
+            $(".adminOnly").remove();
+          }
+        } catch (error) {
+          if (error.message === "Permission denied") {
+            // 訪問被拒絕，用戶不是管理員
+            $(".adminOnly").remove();
+          } else {
+            console.error("檢查管理員狀態失敗：", error);
+          }
+        }
       } else {
         // 用戶已登出
         currentUsername = null;
         $("#googleLoginBtn").show();
         $("#googleLogoutBtn").hide();
+        $(".adminOnly").remove();  // 用戶登出，刪除所有 class="adminOnly" 的元素
       }
     });
+
+
+
+
+
+
+
+
 
 
 
@@ -271,25 +305,37 @@
       console.log("檢查管理員狀態...");  // 調試信息
       const adminStatusDiv = document.getElementById('adminStatus');
       if (adminStatusDiv) {
-        console.log("找到管理員狀態 div。");  // 調試信息
+        console.log("找到管理員狀態 div");  // 調試信息
         if (snapshot.exists()) {
           // 用戶是管理員
-          console.log("用戶是管理員。");  // 調試信息
+          console.log("用戶是管理員");  // 調試信息
           adminStatusDiv.innerHTML = '您是管理員。';
         } else {
           // 用戶不是管理員
-          console.log("用戶不是管理員。");  // 調試信息
+          console.log("用戶不是管理員");  // 調試信息
           adminStatusDiv.innerHTML = '您不是管理員。';
         }
       } else {
-        console.log("未找到管理員狀態 div。");  // 調試信息
+        console.log("未找到管理員狀態 div");  // 調試信息
       }
     }).catch((error) => {
       console.error("檢查管理員狀態失敗：", error);  // 調試信息
+      const adminStatusDiv = document.getElementById('adminStatus');
+      adminStatusDiv.innerHTML = '您不是管理員';
     });
   });
 
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    header.addEventListener('click', function() {
+      header.style.opacity = '0';
+      document.body.classList.remove('no-scroll');  // Enable scrolling
+      setTimeout(() => {
+        header.remove();
+      }, 1000);  // Remove the header after 1 second
+    });
+  });
   </script>
 </body>
 </html>
