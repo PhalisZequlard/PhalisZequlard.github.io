@@ -104,6 +104,7 @@ body .Login > .sign > #googleLogoutBtn {
   border: none;
   width: 60px;
   min-width: fit-content;
+  font-weight: 500;
   color: black;
 }
 

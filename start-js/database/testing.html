@@ -278,17 +278,16 @@
     import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
-    // 使用Google帳號登入
+    // Google帳號登入介面
     $("#googleLoginBtn").click(function() {
-      signInWithPopup(auth, provider).catch((error) => {
-        console.error(error);
-      });
+      window.location.href = "testing_login.html";
     });
     // 登出功能
     $("#googleLogoutBtn").click(function() {
       signOut(auth).catch((error) => {
         console.error(error);
       });
+      window.location.href = "testing.html";
     });
 
     // 監聽身份驗證狀態的更改
