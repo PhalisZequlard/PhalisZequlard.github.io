@@ -151,6 +151,7 @@
         // 在10分鐘內重複訪問，直接移除 header
         const header = document.querySelector('header');
         header.remove();
+        document.body.classList.remove('no-scroll');
       } else {
         // 超過10分鐘或首次訪問，顯示 header 動畫
         const header = document.querySelector('header');
@@ -164,7 +165,7 @@
       }
 
       // 更新 lastVisit 時間
-      setCookie('lastVisit', currentTime, 2);  // X分鐘後過期
+      setCookie('lastVisit', currentTime, 2);  // 2分鐘後過期
     });
 
 
