@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="testing_style.css">
   <title>textData</title>
+  <!-- noLogin / loginOnly this two class has already been active -->
 </head>
 <header>
   <h2>WANT</h2>
@@ -100,10 +101,10 @@
   <!-- <button id="checkAdminStatus">檢查管理員狀態</button> -->
   <!-- <div id="adminStatus">test</div> -->
 
-  <div style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
+  <div class="loginOnly" style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
 
   <!-- <div></div> -->
-  <div class="msgTestingTable">
+  <div class="msgTestingTable loginOnly">
     <ul id="msgList"></ul>
     <div id="msgtable" style="display: flex; flex-direction: row;">
       <input placeholder="寫下個性留言" type="text" name="" id="input">
@@ -114,6 +115,7 @@
       </button>
     </div>
   </div>
+  <p class="noLogin" id="loginbutton" style="font-size: 15px;margin-bottom: 10px;">登入以獲得完整體驗</p>
   
 
 
@@ -297,6 +299,8 @@
         currentUsername = user.displayName || user.email;
         $("#googleLoginBtn").hide();
         $("#googleLogoutBtn").show();
+        $(".noLogin").hide();
+        $(".loginOnly").show();
         fetchMessages();
 
         try {
@@ -323,7 +327,9 @@
         currentUsername = null;
         $("#googleLoginBtn").show();
         $("#googleLogoutBtn").hide();
-        $(".adminOnly").remove();  // 用戶登出，刪除所有 class="adminOnly" 的元素
+        $(".adminOnly").remove();
+        $(".noLogin").show();
+        $(".loginOnly").remove();
       }
     });
 
