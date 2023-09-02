@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow: hidden;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 30vh;
+      width: 100vw;
+      background-color: rgb(40, 171, 77);
+      --font-height: fit-content;
+      --font-center: 18px;
+    }
+    header > div {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+    }
+    header > div > h1 {
+      position: relative;
+      top: calc(var(--font-center) * -1);
+      font-size: 4.7em;
+      font-weight: 900;
+      height: var(--font-height);
+      color: rgb(0, 0, 0);
+    }
+    header > div >  h2 {
+      position: relative;
+      top: var(--font-center);
+      font-size: 4em;
+      font-weight: 400;
+      height: var(--font-height);
+      color: rgb(0, 0, 0);
+    }
+    body >  a {
+      /* position: absolute; */
+      text-decoration: underline;
+      /* bottom: 20px; */
+      align-self: flex-start;
+      padding-left: 4px;
+      font-size: 0.5em;
+      font-weight: 400;
+      height: fit-content;
+      color: rgb(0, 0, 0);
+    }
+  </style>
+</head>
+<header>
+  <div>
+    <h2>WANT</h2>
+    <h1>EATS</h1>
+  </div>
+</header>
+<body>
+
+  <a href="testing_police.html">繼續使用代表你同使用條款</a>
+</body>
+</html>
