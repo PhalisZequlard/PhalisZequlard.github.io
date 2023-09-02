@@ -97,9 +97,6 @@
   </div>
   
 
-
-
-
   <!-- <button id="checkAdminStatus">檢查管理員狀態</button> -->
   <!-- <div id="adminStatus">test</div> -->
 
@@ -130,15 +127,46 @@
 
     // header
     document.addEventListener('DOMContentLoaded', function() {
-      const header = document.querySelector('header');
-      header.addEventListener('click', function() {
-        header.style.opacity = '0';
-        document.body.classList.remove('no-scroll');
-        setTimeout(() => {
-          header.remove();
-        }, 1000);
-      });
+      // 讀取 cookie
+      function getCookie(name) {
+        const value = "; " + document.cookie;
+        const parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+      }
+
+      // 設置 cookie
+      function setCookie(name, value, minutes) {
+        const expires = new Date(new Date().getTime() + minutes * 60 * 1000);
+        document.cookie = name + "=" + value + "; expires=" + expires.toUTCString() + "; path=/";
+      }
+
+      // 檢查是否有 lastVisit cookie
+      const lastVisit = getCookie('lastVisit');
+
+      // 獲取當前時間
+      const currentTime = new Date().getTime();
+
+      // 檢查是否在10分鐘內重複訪問
+      if (lastVisit && currentTime - lastVisit < 10 * 60 * 1000) {
+        // 在10分鐘內重複訪問，直接移除 header
+        const header = document.querySelector('header');
+        header.remove();
+      } else {
+        // 超過10分鐘或首次訪問，顯示 header 動畫
+        const header = document.querySelector('header');
+        header.addEventListener('click', function() {
+          header.style.opacity = '0';
+          document.body.classList.remove('no-scroll');
+          setTimeout(() => {
+            header.remove();
+          }, 1000);
+        });
+      }
+
+      // 更新 lastVisit 時間
+      setCookie('lastVisit', currentTime, 5);  // 5分鐘後過期
     });
+
 
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
