@@ -22,7 +22,7 @@
       min-height: 200px;
       width: 100vw;
       --font-height: fit-content;
-      --font-center: 18px;
+      --font-center: 10px;
     }
     header > div {
       position: fixed;
@@ -54,14 +54,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
-      gap: 10px;
+      justify-content: center;
       height: 100vh;
       width: 100vw;
       background-color: rgb(40, 171, 77);
     }
     body > div {
-      position: relative;
       bottom: 25px;
       display: flex;
       flex-direction: column;
@@ -71,11 +69,10 @@
     }
     body > div > h2 {
       font-size: 1.5em;
-      font-weight: 500;
+      font-weight: 600;
       width: 185px;
     }
     body > div > button {
-      position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -87,8 +84,12 @@
       border-radius: 8px;
       background-color: rgba(228, 228, 228, 0.5);
     }
+    body > div > button > h3 {
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #000;
+    }
     body > div > a {
-      position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
