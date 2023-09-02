@@ -115,7 +115,7 @@
       </button>
     </div>
   </div>
-  <p class="noLogin" id="loginbutton" style="font-size: 15px;margin-bottom: 10px;">登入以獲得完整體驗</p>
+  <p class="noLogin" id="loginbutton" style="font-size: 15px;margin-bottom: 10px;color: black;">登入以獲得完整體驗</p>
   
 
 
@@ -281,7 +281,7 @@
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
     // Google帳號登入介面
-    $("#googleLoginBtn").click(function() {
+    $("#loginbutton, #googleLoginBtn").click(function() {
       window.location.href = "testing_login.html";
     });
     // 登出功能
