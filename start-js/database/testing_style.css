@@ -192,6 +192,15 @@ body .Option .txtList > p:nth-child(4) {
   color: #000;
   text-align: center;
   width: var(--boxSize);
+  /* font-size: 4vw; */
+}
+@media screen and (max-width: 330px) {
+  body .Option .txtList > p:nth-child(1),
+  body .Option .txtList > p:nth-child(2),
+  body .Option .txtList > p:nth-child(3),
+  body .Option .txtList > p:nth-child(4) {
+    font-size: 4.5vw;
+  }
 }
 
 body .Restaurant {
