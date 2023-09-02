@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="testing_style.css">
   <title>textData</title>
 </head>
-<header id="main-header">
+<header>
   <h2>WANT</h2>
   <h1>EATS</h1>
   <a href="testing_police.html">繼續使用代表你同使用條款</a>
@@ -127,6 +127,20 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script type="module">
+
+    // header
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('header');
+      header.addEventListener('click', function() {
+        header.style.opacity = '0';
+        document.body.classList.remove('no-scroll');
+        setTimeout(() => {
+          header.remove();
+        }, 1000);
+      });
+    });
+
+
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
     const firebaseConfig = {
@@ -288,43 +302,33 @@
 
     // 檢查用戶是否是管理員 button
     document.getElementById("checkAdminStatus").addEventListener("click", function() {
-    // 檢查用戶是否是管理員
-    const adminRef = ref(database, `/admins/${auth.currentUser.uid}`);
-    get(adminRef).then((snapshot) => {
-      console.log("檢查管理員狀態...");  // 調試信息
-      const adminStatusDiv = document.getElementById('adminStatus');
-      if (adminStatusDiv) {
-        console.log("找到管理員狀態 div");  // 調試信息
-        if (snapshot.exists()) {
-          // 用戶是管理員
-          console.log("用戶是管理員");  // 調試信息
-          adminStatusDiv.innerHTML = '您是管理員。';
+      // 檢查用戶是否是管理員
+      const adminRef = ref(database, `/admins/${auth.currentUser.uid}`);
+      get(adminRef).then((snapshot) => {
+        console.log("檢查管理員狀態...");  // 調試信息
+        const adminStatusDiv = document.getElementById('adminStatus');
+        if (adminStatusDiv) {
+          console.log("找到管理員狀態 div");  // 調試信息
+          if (snapshot.exists()) {
+            // 用戶是管理員
+            console.log("用戶是管理員");  // 調試信息
+            adminStatusDiv.innerHTML = '您是管理員。';
+          } else {
+            // 用戶不是管理員
+            console.log("用戶不是管理員");  // 調試信息
+            adminStatusDiv.innerHTML = '您不是管理員。';
+          }
         } else {
-          // 用戶不是管理員
-          console.log("用戶不是管理員");  // 調試信息
-          adminStatusDiv.innerHTML = '您不是管理員。';
+          console.log("未找到管理員狀態 div");  // 調試信息
         }
-      } else {
-        console.log("未找到管理員狀態 div");  // 調試信息
-      }
-    }).catch((error) => {
-      console.error("檢查管理員狀態失敗：", error);  // 調試信息
-      const adminStatusDiv = document.getElementById('adminStatus');
-      adminStatusDiv.innerHTML = '您不是管理員';
+      }).catch((error) => {
+        console.error("檢查管理員狀態失敗：", error);  // 調試信息
+        const adminStatusDiv = document.getElementById('adminStatus');
+        adminStatusDiv.innerHTML = '您不是管理員';
+      });
     });
-  });
 
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('header');
-    header.addEventListener('click', function() {
-      header.style.opacity = '0';
-      document.body.classList.remove('no-scroll');
-      setTimeout(() => {
-        header.remove();
-      }, 1000);
-    });
-  });
   </script>
 </body>
 </html>

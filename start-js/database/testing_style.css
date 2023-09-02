@@ -27,7 +27,7 @@ header {
   opacity: 1;
   transition: opacity 1s ease;
 
-  display: none;
+  /* display: none; */
 }
 header > h1 {
   font-size: 4.7em;
@@ -50,14 +50,15 @@ header > a {
   font-weight: 400;
   height: fit-content;
   color: rgb(0, 0, 0);
+  margin-bottom: 10vh;
 }
  
 
 
 
-/* body.no-scroll {
+body.no-scroll {
   overflow-y: hidden;
-} */
+}
 body {
   display: flex;
   flex-direction: column;
