@@ -281,6 +281,8 @@
               text: msg
             });
             fetchMessages();
+            // 清空<input>元素
+            $("#input").val('');
             svgElementPath.addClass("green");
             setTimeout(() => {
               svgElementPath.removeClass("green");
