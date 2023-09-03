@@ -80,26 +80,31 @@
     <h2 class="adminOnly">新增店家</h2>
     <form class="adminOnly" id="restaurantForm">
       <label for="name">店家名稱</label>
-      <input placeholder="Restaurant Name" type="text" id="name" name="name">
+      <input placeholder="Restaurant Name" type="text" id="name" name="name" autocomplete="off">
 
       <label for="foodimg">圖片連結</label>
-      <input placeholder="Image url" type="text" id="foodimg" name="foodimg">
+      <input placeholder="Image url" type="text" id="foodimg" name="foodimg" autocomplete="off">
 
       <div>
         <label for="rate">網路評分</label>
-        <input placeholder="Score" type="text" id="rate" name="rate">
+        <input placeholder="Score" type="text" id="rate" name="rate" autocomplete="off">
 
         <label for="waitfor">等待時間</label>
-        <input placeholder="Time" type="text" id="waitfor" name="waitfor">
+        <input placeholder="Time" type="text" id="waitfor" name="waitfor" autocomplete="off">
       </div>
 
-      <button type="button" id="addRestaurant">新增店家</button>
+      <button type="button" id="addRestaurant">新增/更新店家</button>
     </form>
+
+    <!-- 新增一個下拉選單 -->
+    <select id="existingRestaurants" class="adminOnly">
+      <!-- 選項將由JavaScript動態生成 -->
+    </select>
+
+    <button type="button" id="fetchRestaurantInfo" class="adminOnly">獲取店家資訊</button>
+
   </div>
   
-
-  <!-- <button id="checkAdminStatus">檢查管理員狀態</button> -->
-  <!-- <div id="adminStatus">test</div> -->
 
   <div class="loginOnly" style="align-self: center;margin: 10px 0;">- 訊息測試中心 -</div>
 
@@ -107,7 +112,8 @@
   <div class="msgTestingTable loginOnly">
     <ul id="msgList"></ul>
     <div id="msgtable" style="display: flex; flex-direction: row;">
-      <input placeholder="寫下個性留言" type="text" name="" id="input">
+      <input placeholder="寫下個性留言" type="text" name="" id="input" autocomplete="off">
+      <span id="charCount">0/25</span>
       <button type="button" id="btn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="h-4 w-4 m-1 md:m-0" stroke-width="2">
           <path d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z" fill="currentColor"></path>
@@ -261,17 +267,68 @@
         }
       });
 
+
       $("#btn").click(async function() {
+        const svgElement = $("#btn > svg");
+        const svgElementPath = $("#btn > svg > path");
         if (currentUsername) {
           const userMsgRef = ref(database, `/user/${currentUsername}`);
           var msg = $("#input").val();
           console.log(msg);
-          await set(userMsgRef, {
-            text: msg
-          });
-          fetchMessages();
+
+          if (msg && msg.length <= 25) {  // 檢查訊息是否為空或超過25字
+            await set(userMsgRef, {
+              text: msg
+            });
+            fetchMessages();
+          } else {
+            svgElement.addClass("shake");
+            svgElementPath.addClass("red");
+            setTimeout(() => {
+              svgElement.removeClass("shake");
+            }, 300);
+            setTimeout(() => {
+              svgElementPath.removeClass("red");
+            }, 600);
+          }
         } else {
           console.error("User is not logged in");
+        }
+      });
+
+
+      // 動態生成下拉選單選項
+      async function populateRestaurantDropdown() {
+        const restaurantRef = ref(database, '/order/restaurant');
+        const snapshot = await get(restaurantRef);
+        const data = snapshot.val();
+        let options = '';
+        for (const name in data) {
+          options += `<option value="${name}">${name}</option>`;
+        }
+        $("#existingRestaurants").html(options);
+      }
+      // 獲取選定店家的資訊並填充到表單中
+      $("#fetchRestaurantInfo").click(async function() {
+        const selectedRestaurant = $("#existingRestaurants").val();
+        const restaurantRef = ref(database, `/order/restaurant/${selectedRestaurant}`);
+        const snapshot = await get(restaurantRef);
+        const data = snapshot.val();
+        $("#name").val(selectedRestaurant);
+        $("#foodimg").val(data.foodimg);
+        $("#rate").val(data.rate);
+        $("#waitfor").val(data.waitfor);
+      });
+      populateRestaurantDropdown();  // 初始化下拉選單
+
+
+      $("#input").on("input", function() {
+        const currentLength = $(this).val().length;
+        $("#charCount").text(`${currentLength}/25`);
+        if (currentLength > 25) {
+          $("#charCount").css("color", "rgb(215, 25, 25)");
+        } else {
+          $("#charCount").css("color", "black");
         }
       });
     });
@@ -331,35 +388,6 @@
         $(".noLogin").show();
         $(".loginOnly").remove();
       }
-    });
-
-
-    // 檢查用戶是否是管理員 button
-    document.getElementById("checkAdminStatus").addEventListener("click", function() {
-      // 檢查用戶是否是管理員
-      const adminRef = ref(database, `/admins/${auth.currentUser.uid}`);
-      get(adminRef).then((snapshot) => {
-        console.log("檢查管理員狀態...");  // 調試信息
-        const adminStatusDiv = document.getElementById('adminStatus');
-        if (adminStatusDiv) {
-          console.log("找到管理員狀態 div");  // 調試信息
-          if (snapshot.exists()) {
-            // 用戶是管理員
-            console.log("用戶是管理員");  // 調試信息
-            adminStatusDiv.innerHTML = '您是管理員。';
-          } else {
-            // 用戶不是管理員
-            console.log("用戶不是管理員");  // 調試信息
-            adminStatusDiv.innerHTML = '您不是管理員。';
-          }
-        } else {
-          console.log("未找到管理員狀態 div");  // 調試信息
-        }
-      }).catch((error) => {
-        console.error("檢查管理員狀態失敗：", error);  // 調試信息
-        const adminStatusDiv = document.getElementById('adminStatus');
-        adminStatusDiv.innerHTML = '您不是管理員';
-      });
     });
 
 
