@@ -219,7 +219,18 @@ body .Option .txtList > p:nth-child(4) {
     font-size: 4.5vw;
   }
 }
-
+body > .adminLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: var(--maxwidth);
+  border: 2px solid rgba(0, 0, 0, .05);
+  border-radius: 8px;
+  padding: 20px 0;
+  margin: 20px 0;
+  background-color: rgb(230, 230, 230);
+}
 body .Restaurant {
   display: flex;
   flex-direction: column;
