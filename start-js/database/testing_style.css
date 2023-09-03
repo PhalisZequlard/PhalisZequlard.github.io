@@ -67,7 +67,21 @@ body {
   overflow-x: hidden;
   --box1Gap: 20px;
 }
-
+body > .loginNotice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background-color: rgb(217, 132, 14);
+}
+body > .loginNotice > svg {
+  height: 100px;
+  width: 100px;
+}
+body > .loginNotice > p {
+  color: #000;
+}
 body .Login {
   display: flex;
   flex-direction: row;

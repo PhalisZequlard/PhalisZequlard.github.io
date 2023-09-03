@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="testing_style.css">
   <title>textData</title>
-  <!-- noLogin / loginOnly this two class has already been active -->
+  <!-- noLogin / loginOnly / adminOnly this three class has already been active -->
 </head>
 <header>
   <h2>WANT</h2>
@@ -14,6 +14,15 @@
 </header>
 <body class="no-scroll">
 
+  <div class="loginNotice noLogin">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- 圓角黑色菱形 -->
+      <rect x="50" y="50" rx="15" ry="15" width="100" height="100" fill="black" transform="rotate(45 100 100)"/>
+      <!-- 白色驚嘆號 -->
+      <text x="100" y="125" font-family="Verdana" font-size="75" fill="white" text-anchor="middle" transform="rotate(0 100 100)">!</text>
+    </svg>
+    <p>請登入以使用我們完整的服務內容, 透過註冊或繼續使用本網站, 您表示您已閱讀並理解並同意以上所有條款.</p>
+  </div>
   <div class="Login">
     <div>
       <p>外送：現在</p>
