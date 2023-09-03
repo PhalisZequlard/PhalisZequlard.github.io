@@ -281,6 +281,10 @@
               text: msg
             });
             fetchMessages();
+            svgElementPath.addClass("green");
+            setTimeout(() => {
+              svgElementPath.removeClass("green");
+            }, 800);
           } else {
             svgElement.addClass("shake");
             svgElementPath.addClass("red");

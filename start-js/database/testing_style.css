@@ -400,3 +400,10 @@ body > .msgTestingTable > #msgtable > span {
   0% { fill: red; }
   100% { fill: black; }
 }
+.green {
+  animation: fillgreen 0.8s ease-in-out;
+}
+@keyframes fillgreen {
+  0% { fill: rgb(0, 200, 0); }
+  100% { fill: black; }
+}
