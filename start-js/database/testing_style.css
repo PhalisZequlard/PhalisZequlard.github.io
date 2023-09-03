@@ -164,19 +164,23 @@ body .Option > .imgList div:nth-child(3) > .pic,
 body .Option > .imgList div:nth-child(4) > .pic {
   background-size: cover;
   background-position: center;
-  scale: 0.5;
+  --pic-scale: 0.5;
 }
 body .Option div:nth-child(1) > .pic {
   background-image: var(--pic1);
+  scale: var(--pic-scale);
 }
 body .Option div:nth-child(2) > .pic {
   background-image: var(--pic2);
+  scale: var(--pic-scale);
 }
 body .Option div:nth-child(3) > .pic {
   background-image: var(--pic3);
+  scale: var(--pic-scale);
 }
 body .Option div:nth-child(4) > .pic {
   background-image: var(--pic4);
+  scale: 0.4;
 }
 body .Option .txtList {
   display: flex;
@@ -321,9 +325,82 @@ body > .Restaurant > #restaurantForm > div > label {
   font-size: 100%;
 }
 
+body > .Orderplatform {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+}
+body > .Orderplatform > .img {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: rgb(233, 233, 233);
+  width: 100%;
+  height: 220px;
+}
+body > .Orderplatform > .img > div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
 
-
-
+body > .Orderplatform > .order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body > .Orderplatform > .order > .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  padding: 5%;
+  border: 2px solid rgba(0, 0, 0, .05);
+  border-radius: 8px;
+  background-color: rgb(21, 196, 70);
+}
+body > .Orderplatform > .order > .menu > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+body > .Orderplatform > .order > .menu > div:nth-child(1) > div:nth-child(1), 
+body > .Orderplatform > .order > .menu > div:nth-child(1) > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+} 
+body > .Orderplatform > .order > .menu > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: fit-content;
+  overflow-x: scroll;
+  border-radius: 8px;
+}
+body > .Orderplatform > .order > .menu > div:nth-child(2) > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 0 8px;
+  white-space: nowrap;
+}
 
 
 /* //KU */
