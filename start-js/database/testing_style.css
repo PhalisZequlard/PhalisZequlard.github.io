@@ -224,7 +224,29 @@ body .Restaurant > .notice > p {
   font-size: 0.8em;
   text-decoration: underline;
 }
-
+body .Restaurant > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+body .Restaurant > div > #existingRestaurants,
+body .Restaurant > div > #fetchRestaurantInfo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 50%;
+  background-color: rgb(40, 171, 77);
+  border: 2px solid rgba(0, 0, 0, .05);
+  border-radius: 8px;
+  padding: 0 8px;
+}
+body .Restaurant > #restaurantContainer {
+  display: flex;
+  flex-direction: column;
+}
 body .Restaurant > #restaurantContainer > .box {
   display: flex;
   flex-direction: column;

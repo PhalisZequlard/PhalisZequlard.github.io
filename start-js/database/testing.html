@@ -77,7 +77,13 @@
     <!-- spacer -->
     <div style="height: 5px;width: 100vw;background-color: rgb(230, 230, 230);align-self: center;margin: 10px 0;"></div>
     
-    <h2 class="adminOnly">新增店家</h2>
+    <!-- 新增一個下拉選單 -->
+
+    <div class="adminOnly">
+      <!-- <h2>新增店家</h2> -->
+      <select id="existingRestaurants" class="adminOnly"></select>
+      <button type="button" id="fetchRestaurantInfo" class="adminOnly">獲取店家資訊</button>
+    </div>
     <form class="adminOnly" id="restaurantForm">
       <label for="name">店家名稱</label>
       <input placeholder="Restaurant Name" type="text" id="name" name="name" autocomplete="off">
@@ -96,12 +102,6 @@
       <button type="button" id="addRestaurant">新增/更新店家</button>
     </form>
 
-    <!-- 新增一個下拉選單 -->
-    <select id="existingRestaurants" class="adminOnly">
-      <!-- 選項將由JavaScript動態生成 -->
-    </select>
-
-    <button type="button" id="fetchRestaurantInfo" class="adminOnly">獲取店家資訊</button>
 
   </div>
   
