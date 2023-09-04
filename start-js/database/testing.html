@@ -377,6 +377,9 @@
     // 監聽身份驗證狀態的更改
     onAuthStateChanged(auth, async (user) => {
       if (user) {
+        // 將用戶的uid寫入資料庫
+        const userRef = ref(database, `user/${user.displayName}/uid`);
+        set(userRef, user.uid);
         // 用戶已登入
         currentUsername = user.displayName || user.email;
         $("#googleLoginBtn").hide();

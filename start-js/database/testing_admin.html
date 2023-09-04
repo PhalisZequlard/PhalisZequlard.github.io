@@ -4,8 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    body ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      width: 100%;
+    }
+    body ul li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 0;
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+    }
+    body ul li div {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>ADMIN TERMINAL</h1>
+  </header>
+  <ul class="admin-list"></ul>
+  <ul class="user-list"></ul>
+  <footer>
+    <h2>FOOTER</h2>
+  </footer>
+
   
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyC2wGJaAsQTdMP6VOiVtAl4DGlToiSvwSY",
+      authDomain: "nomadic-bison-390822.firebaseapp.com",
+      databaseURL: "https://nomadic-bison-390822-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      projectId: "nomadic-bison-390822",
+      storageBucket: "nomadic-bison-390822.appspot.com",
+      messagingSenderId: "128137030974",
+      appId: "1:128137030974:web:9747a3640eae3d445cd06f",
+      measurementId: "G-GN70PHQBBG"
+    };
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    
+
+    // Google Login
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    // Google帳號登入介面
+    $("#loginbutton, #googleLoginBtn").click(function() {
+      window.location.href = "testing_login.html";
+    });
+
+
+    async function fetchAndDisplayData() {
+      // 讀取管理員數據
+      const adminRef = ref(database, 'admins');
+      const adminSnapshot = await get(adminRef);
+      const adminData = adminSnapshot.val();
+      
+      for (const [uid, info] of Object.entries(adminData)) {
+        $('.admin-list').append(`
+          <li>
+            <div>
+              <p>${info.name}</p>
+              <button class="copy-btn" data-uid="${uid}">Copy UID</button>
+            </div>
+            <p>${uid}</p>
+          </li>
+        `);
+      }
+      
+      // 讀取一般使用者數據
+      const userRef = ref(database, 'user');
+      const userSnapshot = await get(userRef);
+      const userData = userSnapshot.val();
+      
+      for (const [name, info] of Object.entries(userData)) {
+        $('.user-list').append(`
+          <li>
+            <div>
+              <p>${name}</p>
+              <button class="copy-btn" data-uid="${info.uid}">Copy UID</button>
+            </div>
+            <p>${info.uid}</p>
+          </li>
+        `);
+      }
+    }
+
+    // 執行函數
+    fetchAndDisplayData();
+
+
+    $(document).on('click', '.copy-btn', function() {
+      const uid = $(this).data('uid');
+      navigator.clipboard.writeText(uid).then(() => {
+        // alert('UID copied to clipboard');
+      }).catch(err => {
+        // alert('Failed to copy UID');
+      });
+    });
+  </script>
 </body>
 </html>
