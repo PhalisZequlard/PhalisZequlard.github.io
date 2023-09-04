@@ -33,13 +33,32 @@
       justify-content: flex-start;
       align-items: center;
     }
+    #admin-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding: 10px 0;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>ADMIN TERMINAL</h1>
   </header>
+
+  <form id="admin-form">
+    <label for="admin-name">Admin Name:</label>
+    <input type="text" id="admin-name" name="admin-name">
+    <label for="admin-uid">Admin UID:</label>
+    <input type="text" id="admin-uid" name="admin-uid">
+    <button type="submit" id="add-admin-btn">Add Admin</button>
+    <button type="button" id="remove-admin-btn">Remove Admin</button>
+  </form>
+
+  <h3>admin</h3>
   <ul class="admin-list"></ul>
+  <h3>user</h3>
   <ul class="user-list"></ul>
   <footer>
     <h2>FOOTER</h2>
@@ -122,6 +141,22 @@
         // alert('Failed to copy UID');
       });
     });
+
+    // 添加和移除管理員
+    $('#admin-form').submit(async function(event) {
+      event.preventDefault();
+      const adminName = $('#admin-name').val();
+      const adminUID = $('#admin-uid').val();
+      
+      // 寫入新的管理員數據到Firebase
+      const newAdminRef = ref(database, `admins/${adminUID}`);
+      await set(newAdminRef, { name: adminName });
+
+      // 更新頁面上的管理員列表
+      fetchAndDisplayData();
+    });
+    
+
   </script>
 </body>
 </html>
