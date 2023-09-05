@@ -166,6 +166,17 @@
 
       // 更新頁面上的管理員列表
       fetchAndDisplayData();
+      window.location.href = "testing_admin.html";
+    });
+
+    // 添加移除管理員功能
+    $('#remove-admin-btn').click(async function() {
+      const adminUID = $('#admin-uid').val();
+      const adminRef = ref(database, `admins/${adminUID}`);
+      await set(adminRef, null); // 移除Firebase數據庫中的該管理員
+
+      // 更新頁面上的管理員列表
+      fetchAndDisplayData();
     });
     
 
