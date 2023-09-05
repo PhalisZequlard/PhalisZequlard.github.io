@@ -39,6 +39,7 @@
       align-items: flex-start;
       width: 100%;
       padding: 10px 0;
+      gap: 5px;
     }
   </style>
 </head>
@@ -104,6 +105,7 @@
           <li>
             <div>
               <p>${info.name}</p>
+              <button class="copy-name-btn" data-name="${info.name}">Copy Name</button>
               <button class="copy-btn" data-uid="${uid}">Copy UID</button>
             </div>
             <p>${uid}</p>
@@ -121,6 +123,7 @@
           <li>
             <div>
               <p>${name}</p>
+              <button class="copy-name-btn" data-name="${name}">Copy Name</button>
               <button class="copy-btn" data-uid="${info.uid}">Copy UID</button>
             </div>
             <p>${info.uid}</p>
@@ -139,6 +142,15 @@
         // alert('UID copied to clipboard');
       }).catch(err => {
         // alert('Failed to copy UID');
+      });
+    });
+
+    $(document).on('click', '.copy-name-btn', function() {
+      const name = $(this).data('name');
+      navigator.clipboard.writeText(name).then(() => {
+        // alert('Name copied to clipboard');
+      }).catch(err => {
+        // alert('Failed to copy name');
       });
     });
 
