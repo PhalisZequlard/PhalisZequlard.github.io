@@ -287,11 +287,12 @@
       });
 
 
+      // 新增訊息
       $("#btn").click(async function() {
         const svgElement = $("#btn > svg");
         const svgElementPath = $("#btn > svg > path");
         if (currentUsername) {
-          const userMsgRef = ref(database, `/user/${currentUsername}`);
+          const userMsgRef = ref(database, `/user/${currentUsername}/msg/loby`);
           var msg = $("#input").val();
           console.log(msg);
 
