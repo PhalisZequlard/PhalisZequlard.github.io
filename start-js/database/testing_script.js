@@ -67,12 +67,17 @@ const fetchMessages = async () => {
       const messages = messagesSnapshot.val();
       $("#msgList").empty();
       for (const username in messages) {
-        $("#msgList").append(`
-          <li>
-            <h4>${username}</h4>
-            <p>${messages[username].msg.loby.text}</p>
-          </li>
-        `);
+        // 檢查msg、loby和text欄位是否存在
+        if (messages[username].msg && messages[username].msg.loby && messages[username].msg.loby.text) {
+          $("#msgList").append(`
+            <li>
+              <h4>${username}</h4>
+              <p>${messages[username].msg.loby.text}</p>
+            </li>
+          `);
+        } else {
+          console.log(`Skipping user ${username} because they have no messages.`);
+        }
       }
     } else {
       console.log("No messages found");
@@ -81,6 +86,7 @@ const fetchMessages = async () => {
     console.error("Failed to fetch messages:", error);
   }
 };
+
 fetchMessages();
 
 const restaurantRef = ref(database, "/order/restaurant/");
