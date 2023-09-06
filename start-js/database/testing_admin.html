@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
@@ -9,30 +9,44 @@
     * {
       margin: 0;
       padding: 0;
+      --box-size: 90%;
     }
     ::-webkit-scrollbar {
       display: none;
     }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     body ul {
       display: flex;
       flex-direction: column;
+      align-items: center;
       list-style: none;
-      width: 100%;
+      width: var(--box-size);
+
     }
     body ul li {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       padding: 10px 0;
+      /* border-bottom: 1px solid #ccc; */
       width: 100%;
-      border-bottom: 1px solid #ccc;
+    }
+    body ul li p {
+      width: 100%;
     }
     body ul li div {
       display: flex;
       width: 100%;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
+      background-color: #2D3943;
+      color: white;
+      padding: 10px 12px;
     }
   </style>
 </head>
@@ -90,7 +104,7 @@
           <li>
             <div>
               <p>${info.name}</p>
-              <button class="demote-admin-btn" data-uid="${uid}">Demote to User</button>
+              <button class="demote-admin-btn" data-uid="${uid}">Demote</button>
             </div>
             <p>${uid}</p>
           </li>
@@ -103,15 +117,18 @@
       const userData = userSnapshot.val();
       
       for (const [name, info] of Object.entries(userData)) {
-        $('.user-list').append(`
-          <li>
-            <div>
-              <p>${name}</p>
-              <button class="promote-user-btn" data-uid="${info.uid}">Promote to Admin</button>
-            </div>
-            <p>${info.uid}</p>
-          </li>
-        `);
+        // 在添加到使用者列表前，先確認他們不是管理員
+        if (!adminData.hasOwnProperty(info.uid)) {
+          $('.user-list').append(`
+            <li>
+              <div>
+                <p>${name}</p>
+                <button class="promote-user-btn" data-uid="${info.uid}">Promote</button>
+              </div>
+              <p>${info.uid}</p>
+            </li>
+          `);
+        }
       }
     }
 
