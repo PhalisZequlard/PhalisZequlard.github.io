@@ -48,6 +48,40 @@
       color: white;
       padding: 10px 12px;
     }
+    body .user-list li div button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      cursor: pointer;
+      background-color: #1fd78d;
+      border-radius: 3px;
+      border: none;
+      padding: 3px 5px;
+    }
+    body .user-list li div button svg {
+      fill: white;
+      height: 100%;
+      width: 100%;
+    }
+    body .admin-list li div button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      cursor: pointer;
+      background-color: #F62451;
+      border-radius: 3px;
+      border: none;
+      padding: 3px 5px;
+    }
+    body .admin-list li div button svg path {
+      fill: white;
+      height: 100%;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -104,11 +138,14 @@
           <li>
             <div>
               <p>${info.name}</p>
-              <button class="demote-admin-btn" data-uid="${uid}">Demote</button>
+              <button class="demote-admin-btn" data-uid="${uid}">
+                <svg width="800px" height="800px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.937 4.5H11.9362H8.0632C8.02115 4.33649 8.00031 4.16864 8.00031 4.00049C8.00031 2.89728 8.8974 1.99976 10.0001 1.99976C11.1028 1.99976 11.9999 2.89728 11.9999 4.00049C11.9999 4.16937 11.9788 4.33716 11.9372 4.49927L11.937 4.5Z" fill="#000000"/><path d="M4.5 5.5C3.94772 5.5 3.5 5.05228 3.5 4.5C3.5 3.94772 3.94772 3.5 4.5 3.5H15.5C16.0523 3.5 16.5 3.94772 16.5 4.5C16.5 5.05228 16.0523 5.5 15.5 5.5H4.5Z" fill="#000000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 18.5C15.0523 18.5 15.5 18.0523 15.5 17.5V7C15.5 6.44772 15.0523 6 14.5 6H5.5C4.94772 6 4.5 6.44772 4.5 7V17.5C4.5 18.0523 4.94772 18.5 5.5 18.5H14.5ZM12.5 8.5C12.5 8.22386 12.7239 8 13 8C13.2761 8 13.5 8.22386 13.5 8.5V15.5C13.5 15.7761 13.2761 16 13 16C12.7239 16 12.5 15.7761 12.5 15.5V8.5ZM10 8C9.72386 8 9.5 8.22386 9.5 8.5V15.5C9.5 15.7761 9.72386 16 10 16C10.2761 16 10.5 15.7761 10.5 15.5V8.5C10.5 8.22386 10.2761 8 10 8ZM6.5 8.5C6.5 8.22386 6.72386 8 7 8C7.27614 8 7.5 8.22386 7.5 8.5V15.5C7.5 15.7761 7.27614 16 7 16C6.72386 16 6.5 15.7761 6.5 15.5V8.5Z" fill="#000000"/></svg>
+              </button>
             </div>
-            <p>${uid}</p>
+
           </li>
         `);
+            // <p>${uid}</p>
       }
       
       // 讀取一般使用者數據
@@ -123,11 +160,14 @@
             <li>
               <div>
                 <p>${name}</p>
-                <button class="promote-user-btn" data-uid="${info.uid}">Promote</button>
+                <button class="promote-user-btn" data-uid="${info.uid}">
+                  <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22ZM12 8.25C12.4142 8.25 12.75 8.58579 12.75 9V11.25H15C15.4142 11.25 15.75 11.5858 15.75 12C15.75 12.4142 15.4142 12.75 15 12.75H12.75L12.75 15C12.75 15.4142 12.4142 15.75 12 15.75C11.5858 15.75 11.25 15.4142 11.25 15V12.75H9C8.58579 12.75 8.25 12.4142 8.25 12C8.25 11.5858 8.58579 11.25 9 11.25H11.25L11.25 9C11.25 8.58579 11.5858 8.25 12 8.25Z"/></svg>
+                </button>
               </div>
-              <p>${info.uid}</p>
+
             </li>
           `);
+              // <p>${info.uid}</p>
         }
       }
     }
@@ -172,6 +212,7 @@
     });
 
 
+    // 檢查使用者是否為管理員, 若不是則導回登入頁面
     async function checkAdminStatus(uid) {
       try {
         const adminRef = ref(database, `admins/${uid}`);
