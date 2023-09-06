@@ -33,14 +33,6 @@
       justify-content: flex-start;
       align-items: center;
     }
-    #admin-form {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      padding: 10px 0;
-      gap: 5px;
-    }
   </style>
 </head>
 <body>
@@ -48,23 +40,15 @@
     <h1>ADMIN TERMINAL</h1>
   </header>
 
-  <form id="admin-form">
-    <label for="admin-name">Admin Name:</label>
-    <input type="text" id="admin-name" name="admin-name">
-    <label for="admin-uid">Admin UID:</label>
-    <input type="text" id="admin-uid" name="admin-uid">
-    <button type="submit" id="add-admin-btn">Add Admin</button>
-    <button type="button" id="remove-admin-btn">Remove Admin</button>
-  </form>
-
-  <h3>admin</h3>
+  <h3>Admins</h3>
   <ul class="admin-list"></ul>
-  <h3>user</h3>
+  
+  <h3>Users</h3>
   <ul class="user-list"></ul>
+
   <footer>
     <h2>FOOTER</h2>
   </footer>
-
   
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script type="module">
@@ -105,8 +89,7 @@
           <li>
             <div>
               <p>${info.name}</p>
-              <button class="copy-name-btn" data-name="${info.name}">Copy Name</button>
-              <button class="copy-btn" data-uid="${uid}">Copy UID</button>
+              <button class="demote-admin-btn" data-uid="${uid}">Demote to User</button>
             </div>
             <p>${uid}</p>
           </li>
@@ -123,8 +106,7 @@
           <li>
             <div>
               <p>${name}</p>
-              <button class="copy-name-btn" data-name="${name}">Copy Name</button>
-              <button class="copy-btn" data-uid="${info.uid}">Copy UID</button>
+              <button class="promote-user-btn" data-uid="${info.uid}">Promote to Admin</button>
             </div>
             <p>${info.uid}</p>
           </li>
@@ -135,50 +117,64 @@
     // 執行函數
     fetchAndDisplayData();
 
-
-    $(document).on('click', '.copy-btn', function() {
+    // Demote admin to user
+    $(document).on('click', '.demote-admin-btn', async function() {
       const uid = $(this).data('uid');
-      navigator.clipboard.writeText(uid).then(() => {
-        // alert('UID copied to clipboard');
-      }).catch(err => {
-        // alert('Failed to copy UID');
-      });
-    });
-
-    $(document).on('click', '.copy-name-btn', function() {
-      const name = $(this).data('name');
-      navigator.clipboard.writeText(name).then(() => {
-        // alert('Name copied to clipboard');
-      }).catch(err => {
-        // alert('Failed to copy name');
-      });
-    });
-
-    // 添加和移除管理員
-    $('#admin-form').submit(async function(event) {
-      event.preventDefault();
-      const adminName = $('#admin-name').val();
-      const adminUID = $('#admin-uid').val();
-      
-      // 寫入新的管理員數據到Firebase
-      const newAdminRef = ref(database, `admins/${adminUID}`);
-      await set(newAdminRef, { name: adminName });
-
-      // 更新頁面上的管理員列表
+      const adminRef = ref(database, `admins/${uid}`);
+      await set(adminRef, null);
       fetchAndDisplayData();
       window.location.href = "testing_admin.html";
     });
 
-    // 添加移除管理員功能
-    $('#remove-admin-btn').click(async function() {
-      const adminUID = $('#admin-uid').val();
-      const adminRef = ref(database, `admins/${adminUID}`);
-      await set(adminRef, null); // 移除Firebase數據庫中的該管理員
+    // Promote user to admin
+    $(document).on('click', '.promote-user-btn', async function() {
+      const uid = $(this).data('uid');
+      
+      // 從使用者數據中取得名稱
+      const userRef = ref(database, `user`);
+      const snapshot = await get(userRef);
+      let name = "";
+      Object.entries(snapshot.val()).forEach(([key, value]) => {
+        if (value.uid === uid) {
+          name = key;
+        }
+      });
 
-      // 更新頁面上的管理員列表
+      if(name === "") {
+        console.error("No matching user found for the given UID");
+        return;
+      }
+
+      // 將使用者升級為管理員
+      const newAdminRef = ref(database, `admins/${uid}`);
+      await set(newAdminRef, { name: [name] });
+      
       fetchAndDisplayData();
+      window.location.href = "testing_admin.html";
     });
-    
+
+
+    async function checkAdminStatus(uid) {
+      try {
+        const adminRef = ref(database, `admins/${uid}`);
+        const snapshot = await get(adminRef);
+        if (!snapshot.exists()) {
+          console.log("Not an admin, redirecting...");
+          window.location.href = "testing.html";
+        }
+      } catch (error) {
+        console.error("Error checking admin status:", error);
+        window.location.href = "testing.html";
+      }
+    }
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        await checkAdminStatus(uid);
+      } else {
+        window.location.href = "testing.html";
+      }
+    });
 
   </script>
 </body>
