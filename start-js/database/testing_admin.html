@@ -33,12 +33,12 @@
     }
     header > div > svg {
       fill: white;
-      height: 30px;
-      width: 30px;
-      /* margin: 10px 12px; */
+      height: 33px;
+      width: 33px;
     }
     header > div > h1 {
       color: white;
+      font-size: 31px;
     }
     body {
       display: flex;
@@ -162,6 +162,40 @@
       color: white;
       text-decoration: none;
       gap: 8px;
+    }
+    @media screen and (max-width: 500px) {
+      footer div {
+        font-size: 18px;
+      }
+      footer a svg {
+        height: 25px;
+        width: 25px;
+      }
+    }
+    @media screen and (max-width: 430px) {
+      footer div {
+        font-size: 16px;
+      }
+      footer a svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+    @media screen and (max-width: 385px) {
+      header > div > svg {
+        height: 30px;
+        width: 30px;
+      }
+      header > div > h1 {
+        font-size: 27px;
+      }
+      footer div {
+        font-size: 13px;
+      }
+      footer a svg {
+        height: 22px;
+        width: 22px;
+      }
     }
   </style>
 </head>
