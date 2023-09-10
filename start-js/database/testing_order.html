@@ -56,12 +56,27 @@
       </form>
     </div>
   </div>
-  <script>
-    const restaurantName = getCookie("selectedRestaurantName");
-    console.log("All cookies:", document.cookie);
-    console.log("restaurantName from cookie:", restaurantName);
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script type="module">
 
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
+    // 初始化 Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyC2wGJaAsQTdMP6VOiVtAl4DGlToiSvwSY",
+      authDomain: "nomadic-bison-390822.firebaseapp.com",
+      databaseURL: "https://nomadic-bison-390822-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      projectId: "nomadic-bison-390822",
+      storageBucket: "nomadic-bison-390822.appspot.com",
+      messagingSenderId: "128137030974",
+      appId: "1:128137030974:web:9747a3640eae3d445cd06f",
+      measurementId: "G-GN70PHQBBG"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // 讀取 cookie 的函數
     function getCookie(name) {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
@@ -69,17 +84,34 @@
       return null;
     }
 
+    // DOM 加載完成後的事件處理
     document.addEventListener("DOMContentLoaded", function() {
-      // 讀取Cookie
       const restaurantName = getCookie("selectedRestaurantName");
-      
-      // 更新頁面元素
+
+      // 更新頁面標題
       if (restaurantName !== null) {
         document.querySelector(".order > h1").innerText = restaurantName;
       }
+
+      // 從 Firebase 讀取對應餐廳的圖片 URL
+      const dbRef = ref(db, `/restaurant/${restaurantName}`);
+
+      // 抓取數據
+      get(dbRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          if (data && data.foodimg) {
+            document.querySelector(".Orderplatform > .img").style.backgroundImage = `url('${data.foodimg}')`;
+          } else {
+            console.log("No data found or 'foodimg' field is missing.");
+          }
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(`Failed to fetch data: ${error}`);
+      });
     });
-
-
 
   </script>
 </body>
