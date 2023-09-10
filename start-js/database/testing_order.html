@@ -10,7 +10,7 @@
   <div class="Orderplatform">
 
     <div class="img">
-      <div>close</div>
+      <div><a href="testing.html">close</a></div>
       <div>
         <div>search</div>
         <div>more</div>
@@ -57,143 +57,28 @@
     </div>
   </div>
   <script>
-    $(document).on('click', '.box', function() {
-      const restaurantName = $(this).find('h4').text();
-      const rate = $(this).find('.txt p:last-child').text();
-      const waitfor = $(this).find('.txt p:first-child').text().split('・')[1];
-      const foodimg = $(this).find('.img').css('background-image');
+    const restaurantName = getCookie("selectedRestaurantName");
+    console.log("All cookies:", document.cookie);
+    console.log("restaurantName from cookie:", restaurantName);
 
-      // 更新.Orderplatform的資訊
-      $('.Orderplatform .img').css('background-image', foodimg);
-      $('.Orderplatform h1').text(restaurantName);
 
-      // 顯示.Orderplatform
-      $('.Orderplatform').show();
-    });
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
 
-    $(document).on('click', '.Orderplatform .img > div:first-child', function() {
-      $('.Orderplatform').hide();
-    });
-
-    $("#addFoodItem").click(async function() {
-      const menuName = $("#menuName").val();
-      const foodCost = $("#foodCost").val();
-      const restaurantName = $(".Orderplatform h1").text(); // 從.Orderplatform獲取當前餐廳名稱
-
-      if (menuName && foodCost) {
-        const newFoodItemRef = ref(database, `/order/restaurant/${restaurantName}/order/${menuName}`);
-        await set(newFoodItemRef, {
-          foodCost: foodCost,
-          totalCost: 0,
-          count: 0
-        });
-      } else {
-        alert("所有欄位都是必填的！");
+    document.addEventListener("DOMContentLoaded", function() {
+      // 讀取Cookie
+      const restaurantName = getCookie("selectedRestaurantName");
+      
+      // 更新頁面元素
+      if (restaurantName !== null) {
+        document.querySelector(".order > h1").innerText = restaurantName;
       }
     });
 
-    const fetchMenuItems = async (restaurantName) => {
-      const menuRef = ref(database, `/order/restaurant/${restaurantName}/order`);
-      const menuSnapshot = await get(menuRef);
-      const menuItems = menuSnapshot.val();
-
-      // 清空現有的餐點列表
-      $(".Orderplatform .menu > div:first-child").empty();
-
-      for (const menuItem in menuItems) {
-        const foodCost = menuItems[menuItem].foodCost;
-        const totalCost = menuItems[menuItem].totalCost;
-        const count = menuItems[menuItem].count;
-
-        const menuItemHTML = `
-          <div>
-            <div>
-              <h3>${menuItem}</h3>
-              <div>${foodCost}</div>
-            </div>
-            <div>
-              <div>${totalCost}</div>
-              <div>
-                <button class="decrease">-</button>
-                ${count}
-                <button class="increase">+</button>
-              </div>
-            </div>
-          </div>
-        `;
-
-        $(".Orderplatform .menu > div:first-child").append(menuItemHTML);
-      }
-      fetchParticipants(restaurantName);
-    };
-
-    $(".Orderplatform .menu > div:first-child").on("click", ".increase", async function() {
-      // 增加數量的代碼
-    });
-
-    $(".Orderplatform .menu > div:first-child").on("click", ".decrease", async function() {
-      // 減少數量的代碼
-    });
-
-    $(".Orderplatform .menu > div:first-child").on("click", ".increase", async function() {
-      const menuItemDiv = $(this).closest("div").prev("div");
-      const menuItemName = menuItemDiv.find("h3").text();
-      const restaurantName = $(".Orderplatform h1").text();
-
-      const menuItemRef = ref(database, `/order/restaurant/${restaurantName}/order/${menuItemName}`);
-      const menuItemSnapshot = await get(menuItemRef);
-      const menuItemData = menuItemSnapshot.val();
-
-      const newCount = menuItemData.count + 1;
-      const newTotalCost = newCount * menuItemData.foodCost;
-
-      await set(menuItemRef, {
-        ...menuItemData,
-        count: newCount,
-        totalCost: newTotalCost
-      });
-
-      fetchMenuItems(restaurantName);
-    });
-
-    // 同樣的，你也可以為減少按鈕添加相似的代碼。
-
-    const fetchParticipants = async (restaurantName) => {
-      const participantsRef = ref(database, `/order/restaurant/${restaurantName}/participants`);
-      const participantsSnapshot = await get(participantsRef);
-      const participants = participantsSnapshot.val();
-
-      $(".Orderplatform .menu > div:last-child").empty();
-
-      for (const participantName in participants) {
-        $(".Orderplatform .menu > div:last-child").append(`<p>${participantName}</p>`);
-      }
-    };
-
-
-    $(".box").click(function() {
-      const restaurantName = $(this).find("h4").text();
-      $(".Orderplatform h1").text(restaurantName);
-      fetchMenuItems(restaurantName);
-      fetchParticipants(restaurantName);  // 新增這一行
-      $(".Orderplatform").show();
-    });
-
-    $("#addMenuItem").click(async function() {
-      const restaurantName = $(".Orderplatform h1").text();
-      const menuName = $("#menuName").val();
-      const foodCost = $("#foodCost").val();
-
-      if (menuName && foodCost) {
-        const newMenuItemRef = ref(database, `/order/restaurant/${restaurantName}/menu/${menuName}`);
-        await set(newMenuItemRef, {
-          cost: foodCost
-        });
-        fetchMenuItems(restaurantName);
-      } else {
-        alert("所有欄位都是必填的！");
-      }
-    });
 
 
   </script>

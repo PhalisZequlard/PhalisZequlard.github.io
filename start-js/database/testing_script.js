@@ -1,3 +1,10 @@
+
+// 設置 cookie
+function setCookie(name, value, minutes) {
+  const expires = new Date(new Date().getTime() + minutes * 60 * 1000);
+  document.cookie = name + "=" + value + "; expires=" + expires.toUTCString() + "; path=/";
+}
+
 // header
 document.addEventListener('DOMContentLoaded', function() {
   // 讀取 cookie
@@ -5,12 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const value = "; " + document.cookie;
     const parts = value.split("; " + name + "=");
     if (parts.length === 2) return parts.pop().split(";").shift();
-  }
-
-  // 設置 cookie
-  function setCookie(name, value, minutes) {
-    const expires = new Date(new Date().getTime() + minutes * 60 * 1000);
-    document.cookie = name + "=" + value + "; expires=" + expires.toUTCString() + "; path=/";
   }
 
   // 檢查是否有 lastVisit cookie
@@ -76,7 +77,7 @@ const fetchMessages = async () => {
             </li>
           `);
         } else {
-          console.log(`Skipping user ${username} because they have no messages.`);
+          console.log(`user: ${username} have no messages.`);
         }
       }
     } else {
@@ -89,7 +90,7 @@ const fetchMessages = async () => {
 
 fetchMessages();
 
-const restaurantRef = ref(database, "/order/restaurant/");
+const restaurantRef = ref(database, "/restaurant/");
 const fetchRestaurants = async () => {
   const restaurantSnapshot = await get(restaurantRef);
   const restaurants = restaurantSnapshot.val();
@@ -110,7 +111,22 @@ const fetchRestaurants = async () => {
         </div>
       </div>
     `;
-    $("#restaurantContainer").append(restaurantBox);
+    // $("#restaurantContainer").append(restaurantBox);  
+
+
+    // 創建一個 jQuery 物件
+    const $restaurantBox = $(restaurantBox);
+    // 添加點擊事件監聽器
+    $restaurantBox.on("click", function() {
+      console.log("Setting cookies for restaurant:", restaurantName); // 調試
+      setCookie("selectedRestaurantName", restaurantName, 60);  // 儲存60分鐘
+      // setCookie("selectedFoodImg", foodimg, 60);  
+      // setCookie("selectedRate", rate, 60);        
+      // setCookie("selectedWaitFor", waitfor, 60);  
+      window.location.href = "testing_order.html";
+    });
+    // 添加到容器
+    $("#restaurantContainer").append($restaurantBox);
   }
 };
 
@@ -126,7 +142,7 @@ $(document).ready(function(){
     const waitfor = $("#waitfor").val();
 
     if (name && rate && waitfor) {
-      const newRestaurantRef = ref(database, `/order/restaurant/${name}`);
+      const newRestaurantRef = ref(database, `/restaurant/${name}`);
       await set(newRestaurantRef, {
         foodimg: foodimg,
         rate: rate,
@@ -177,7 +193,7 @@ $(document).ready(function(){
 
   // 動態生成下拉選單選項
   async function populateRestaurantDropdown() {
-    const restaurantRef = ref(database, '/order/restaurant');
+    const restaurantRef = ref(database, '/restaurant');
     const snapshot = await get(restaurantRef);
     const data = snapshot.val();
     let options = '';
@@ -189,7 +205,7 @@ $(document).ready(function(){
   // 獲取選定店家的資訊並填充到表單中
   $("#fetchRestaurantInfo").click(async function() {
     const selectedRestaurant = $("#existingRestaurants").val();
-    const restaurantRef = ref(database, `/order/restaurant/${selectedRestaurant}`);
+    const restaurantRef = ref(database, `/restaurant/${selectedRestaurant}`);
     const snapshot = await get(restaurantRef);
     const data = snapshot.val();
     $("#name").val(selectedRestaurant);
