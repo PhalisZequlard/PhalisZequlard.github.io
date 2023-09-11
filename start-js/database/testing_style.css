@@ -6,6 +6,12 @@
 ::-webkit-scrollbar {
   display: none;
 }
+select {
+  -webkit-appearance: none;  /* Chrome 和 Safari */
+  appearance: none;          /* 其他瀏覽器 */
+  text-align: center;
+}
+
 :root {
   --maxwidth: 90vw;
   --uberGreen: rgb(21, 196, 70);
@@ -266,13 +272,15 @@ body .Restaurant > div > #fetchRestaurantInfo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
+  height: 40px;
   width: 50%;
   background-color: var(--uberGreen);
   border: 2px solid rgba(0, 0, 0, .05);
   border-radius: 8px;
   padding: 0 8px;
   color: #000;
+  font-weight: 500;
+  font-size: 15px;
 }
 body .Restaurant > #restaurantContainer {
   display: flex;
@@ -311,16 +319,17 @@ body > .Restaurant > #restaurantForm {
   gap: 8px;
   border: 1px solid rgba(0, 0, 0, .05);
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 25px 20px 25px;
   background-color: var(--uberGreen);
   font-weight: 500;
 }
 body > .Restaurant > #restaurantForm input {
   position: relative;
-  height: 22px;
+  height: 27px;
   border-radius: 7px;
   border: 1px solid rgba(0, 0, 0, .05);
-  padding: 0 0 0 5px;
+  padding: 0 0 0 10px;
+  font-size: 15px;
   outline: none;
   transition: border .2s ease;
   margin: 1.5px 0;
@@ -330,7 +339,7 @@ body > .Restaurant > #restaurantForm input:focus {
 }
 body > .Restaurant > #restaurantForm > button {
   color: black;
-  height: 22px;
+  height: 27px;
   border: 1px solid rgba(0, 0, 0, .05);
   border-radius: 7px;
   background-color: rgb(255, 255, 255);
@@ -503,8 +512,8 @@ body > .msgTestingTable > #msgList > li {
   color: rgb(0, 0, 0);
   /* border: 1.5px solid rgba(0, 0, 0, .05); */
   /* background-image: linear-gradient(30deg, rgb(115, 45, 255), rgb(33, 203, 255)); */
-  background-image: linear-gradient(30deg, rgb(42, 207, 102), rgb(42, 207, 102), rgb(42, 207, 102), rgb(68, 215, 0));
-  /* background-color: #333; */
+  /* background-image: linear-gradient(30deg, rgb(42, 207, 102), rgb(42, 207, 102), rgb(42, 207, 102)); */
+  background-color: var(--uberGreen);
   border-radius: 10px;
   padding: 6px 0px 6px 10px;
 }
