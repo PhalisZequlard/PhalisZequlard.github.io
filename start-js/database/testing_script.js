@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // 更新 lastVisit 時間
-  setCookie('lastVisit', currentTime, 1);  // 5分鐘後過期
+  setCookie('lastVisit', currentTime, 1);  // 1分鐘後過期
 });
 
 
