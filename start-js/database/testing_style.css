@@ -503,7 +503,7 @@ body > .msgTestingTable > #msgList > li {
   color: rgb(0, 0, 0);
   /* border: 1.5px solid rgba(0, 0, 0, .05); */
   /* background-image: linear-gradient(30deg, rgb(115, 45, 255), rgb(33, 203, 255)); */
-  background-image: linear-gradient(30deg, rgb(42, 207, 102), rgb(42, 207, 102), rgb(92, 252, 18));
+  background-image: linear-gradient(30deg, rgb(42, 207, 102), rgb(42, 207, 102), rgb(42, 207, 102), rgb(68, 215, 0));
   /* background-color: #333; */
   border-radius: 10px;
   padding: 6px 0px 6px 10px;
