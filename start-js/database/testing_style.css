@@ -388,10 +388,30 @@ body > .Orderplatform > .img::before {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
 }
+body > .Orderplatform > .img a {
+  background-color: white;
+  border-radius: 100px;
+  --size: 40px;
+  height: var(--size);
+  width: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body > .Orderplatform > .img > div > a > svg {
+  --size: 50%;
+  width: var(--size);
+  height: var(--size);
+}
 body > .Orderplatform > .img > div {
+  margin: 18px;
   display: flex;
   flex-direction: row;
   gap: 5px;
+}
+body > .Orderplatform > .img div:nth-child(2) div:nth-child(1) svg, 
+body > .Orderplatform > .img div:nth-child(2) div:nth-child(2) svg  {
+  scale: 0.6;
 }
 
 body > .Orderplatform > .order {
