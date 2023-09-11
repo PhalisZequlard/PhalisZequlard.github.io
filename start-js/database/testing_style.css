@@ -27,7 +27,7 @@ header {
 
   opacity: 1;
   transition: opacity 1s ease;
-
+  
   /* display: none; */
 }
 header > h1 {
@@ -51,7 +51,7 @@ header > a {
   font-weight: 400;
   height: fit-content;
   color: rgb(0, 0, 0);
-  margin-bottom: 10vh;
+  margin-bottom: 7%;
 }
  
 
