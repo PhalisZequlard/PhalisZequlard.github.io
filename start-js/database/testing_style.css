@@ -363,15 +363,30 @@ body > .Orderplatform {
   background-color: rgb(255, 255, 255);
 }
 body > .Orderplatform > .img {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  /* background: url(); */
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 220px;
+}
+body > .Orderplatform > .img::before {
+  font-size: 30px;
+  font-weight: 900;
+  content: "IMG not found :(";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 body > .Orderplatform > .img > div {
   display: flex;
