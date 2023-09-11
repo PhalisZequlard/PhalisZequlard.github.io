@@ -419,6 +419,12 @@ body > .Orderplatform > .order {
   flex-direction: column;
   align-items: center;
 }
+body > .Orderplatform > .order > h1 {
+  font-size: 1.9em;
+  font-weight: 500;
+  margin: 15px 0;
+  width: var(--maxwidth);
+}
 body > .Orderplatform > .order > .menu {
   display: flex;
   flex-direction: column;
