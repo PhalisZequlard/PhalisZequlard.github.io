@@ -442,12 +442,16 @@ body > .Orderplatform > .order > .menu {
   border-radius: 8px;
   background-color: rgb(21, 196, 70);
 }
+body > .Orderplatform > .order > .menu h3 {
+  font-size: 1.4em;
+  font-weight: 900;
+}
 body > .Orderplatform > .order > .menu > div:nth-child(1) {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 body > .Orderplatform > .order > .menu > div:nth-child(1) > div:nth-child(1), 
 body > .Orderplatform > .order > .menu > div:nth-child(1) > div:nth-child(2) {
@@ -475,6 +479,7 @@ body > .Orderplatform > .order > .menu > div:nth-child(2) > p {
   background-color: rgb(255, 255, 255);
   padding: 0 8px;
   white-space: nowrap;
+  font-weight: 500;
 }
 body > .Orderplatform > .add > form{
   display: flex;
