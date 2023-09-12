@@ -442,6 +442,11 @@ body > .Orderplatform > .order > .menu {
   border-radius: 8px;
   background-color: rgb(21, 196, 70);
 }
+body > .Orderplatform > .order > .menu .addlist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 body > .Orderplatform > .order > .menu h3 {
   font-size: 1.4em;
   font-weight: 900;
