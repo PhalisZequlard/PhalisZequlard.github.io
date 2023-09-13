@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  --color-background: #1c2128;
+  --color-list: #22272e;
+  --color-lightgray: #444c56;
+  --color-font: #ADBAC7;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  background-color: var(--color-background);
+  font-family: 'Cascadia Mono Light', '微軟正黑體', sans-serif;
+  color: var(--color-font);
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #444c56;
+}
+header > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}

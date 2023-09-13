@@ -437,15 +437,41 @@ body > .Orderplatform > .order > .menu {
   flex-direction: column;
   align-items: center;
   width: 80%;
-  padding: 5%;
+  padding: 10px 5% 18px 5%;
   border: 2px solid rgba(0, 0, 0, .05);
   border-radius: 8px;
   background-color: rgb(21, 196, 70);
 }
 body > .Orderplatform > .order > .menu .addlist {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
+  gap: 5px;
+}
+body > .Orderplatform > .order > .menu .addlist > button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 100px;
+  --box-size: 20px;
+  height: var(--box-size);
+  width: var(--box-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.2em;
+}
+body > .Orderplatform > .order > .menu .addlist > .add::before, 
+body > .Orderplatform > .order > .menu .addlist > .minus::before {
+  position: relative;
+  bottom: 1.2px;
+}
+body > .Orderplatform > .order > .menu .addlist > .add::before {
+  content: "+";
+}
+body > .Orderplatform > .order > .menu .addlist > .minus::before {
+  content: "-";
 }
 body > .Orderplatform > .order > .menu h3 {
   font-size: 1.4em;
@@ -456,7 +482,7 @@ body > .Orderplatform > .order > .menu > div:nth-child(1) {
   flex-direction: column;
   width: 100%;
   gap: 2px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 body > .Orderplatform > .order > .menu > div:nth-child(1) > div:nth-child(1), 
 body > .Orderplatform > .order > .menu > div:nth-child(1) > div:nth-child(2) {
