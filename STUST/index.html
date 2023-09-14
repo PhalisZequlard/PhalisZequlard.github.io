@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MAIN: index</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    function linkToWork(newSrc) {
+      document.querySelector('.ashow').src = newSrc;
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -13,56 +18,39 @@
         <img src="img/floder.svg" alt="FILE_SVG">
       </button>
       <img src="img/icon_github.png" alt="ICON_MY">
-      <h3>視窗程式設計</h3>
+      <h2>視窗程式設計</h2>
     </div>
-    <h3>5B0G0009｜姚映辰 (資工三甲)</h3>
+    <h2>5B0G0009｜姚映辰 (資工三甲)</h2>
   </header>
   <main>
-    <div>
-      <h2>視窗程式設計1</h2>
+
+    <!-- list -->
+    <div class="list">
+      <h2>LinkTo other note</h2>
+      <button onclick="linkToWork('note/hw_01.html')"><h3>HomeWork_01</h3></button>
+      <button onclick="linkToWork('note/hw_02.html')"><h3>HomeWork_02</h3></button>
+      <button onclick="linkToWork('note/hw_03.html')"><h3>HomeWork_03</h3></button>
     </div>
-    <div>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
-      <h2>視窗程式設計2</h2>
+
+    <div class="plat">
+      <!-- main -->
+      <iframe class="ashow" src="note/hw_01.html" frameborder="0"></iframe>
+      <!-- other -->
+      <div class="other">
+        <div class="aboutWeb">
+          <h2>SPEEDNOTE+</h2>
+          <h4>Update note here</h4>
+          <h4>Powered by Zequlard</h4>
+          <h5>update every class</h5>
+        </div>
+        <div>
+          <h3>Welcome to speednote</h3>
+          <p>this is where I will upload my code and resalt, everyone can take a look init. If you are interest about me, don't forget to press the button, link to my profile.</p>
+        </div>
+      </div>
+
     </div>
+
   </main>
 </body>
 </html>
