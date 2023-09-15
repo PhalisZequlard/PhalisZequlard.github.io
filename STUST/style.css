@@ -28,6 +28,7 @@ iframe {
   background-size: cover;
   height: 100%;
   width: 100%;
+  border-radius: 15px;
 }
 .pdflink a {
   width: 100%;
