@@ -5,9 +5,29 @@
   --color-list: #22272e;
   --color-lightgray: #444c56;
   --color-font: #ADBAC7;
+  --color-btn-bg: #373e47;
 }
 ::-webkit-scrollbar {
   display: none;
+}
+.profileBtn {
+  margin-left: 20px;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: var(--color-btn-bg);
+  border: 1px solid var(--color-lightgray);
+  color: var(--color-font);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+.profileBtn:hover {
+  background-color: #505965;
+  border: 1px solid #8d9fb5;
+  color: #cecece;
 }
 iframe {
   position: relative;
