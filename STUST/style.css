@@ -17,6 +17,29 @@ iframe {
   width: 100%;
   max-width: 873px;
 }
+.pdf img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  filter: brightness(0.7);
+}
+.console img {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.pdflink a {
+  width: 100%;
+  font-weight: 900;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  color: var(--color-font);
+  margin-left: 20px;
+}
+.pdflink a:hover {
+  color: #eeeeee;
+}
 body {
   background-color: var(--color-background);
   font-family: 'Cascadia Mono Light', '微軟正黑體', sans-serif;
