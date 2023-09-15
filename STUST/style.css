@@ -205,7 +205,7 @@ main .plat > .other .aboutWeb h2 {
 }
 main .plat > .other .aboutWeb h5 {
   font-weight: 400;
-  color: var(--color-font);
+  color: rgba(255, 255, 255, 0.67);
 }
 main .plat > .other .aboutWeb h2, 
 main .plat > .other .aboutWeb h4, 
