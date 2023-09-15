@@ -267,9 +267,32 @@ main .plat h5 {
   padding-right: var(--padding-size);
   padding-left: var(--padding-size);
 }
-@media screen and (max-width: 680px) {
+
+@media screen and (max-width: 500px) {
   header > h2 {
     display: none;
+  }
+  header > div > h2 {
+    font-size: 15px;
+  }
+  header > div > img {
+    display: none;
+  }
+}
+@media screen and (max-width: 680px) {
+  header > h2 {
+    font-size: 15px;
+  }
+  header > div > h2 {
+    font-size: 20px;
+  }
+  header > div img {
+    width: 35px;
+    height: 35px;
+  }
+  header > div button, 
+  header > div button img {
+    scale: 0.8;
   }
 }
 @media screen and (max-width: 768px) {
