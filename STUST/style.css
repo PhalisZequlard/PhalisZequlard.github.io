@@ -267,7 +267,11 @@ main .plat h5 {
   padding-right: var(--padding-size);
   padding-left: var(--padding-size);
 }
-
+@media screen and (max-width: 680px) {
+  header > h2 {
+    display: none;
+  }
+}
 @media screen and (max-width: 768px) {
   main .list {
     display: none;
