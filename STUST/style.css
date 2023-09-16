@@ -1,6 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+}
+:root {
   --color-background: #1c2128;
   --color-list: #22272e;
   --color-lighter-list: #2d333b;
