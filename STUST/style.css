@@ -3,6 +3,7 @@
   padding: 0;
   --color-background: #1c2128;
   --color-list: #22272e;
+  --color-lighter-list: #2d333b;
   --color-lightgray: #444c56;
   --color-font: #ADBAC7;
   --color-btn-bg: #373e47;
@@ -60,6 +61,18 @@ iframe {
 }
 .pdflink a:hover {
   color: #eeeeee;
+}
+main .plat > .show .pdflink div {
+  position: relative;
+  right: 0.5px;
+  border: none;
+  width: 93.5%;
+  align-self: center;
+  background-color: #2d333b;
+}
+main .plat > .show .pdflink div:hover {
+  /* border: 1px solid #5d6977; */
+  border: none;
 }
 body {
   background-color: var(--color-background);
