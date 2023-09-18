@@ -41,8 +41,7 @@
 iframe {
   position: relative;
   top: 17px;
-  overflow: scroll;
-  height: calc(100vh - 69px);
+  height: 100%;
   width: 100%;
   max-width: 873px;
 }
@@ -86,7 +85,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-font);
   height: 100%;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 header {
   display: flex;
@@ -142,7 +141,7 @@ main .list {
   background-color: var(--color-list);
   overflow-y: scroll;
   border-right: 1px solid var(--color-lightgray);
-  height: calc(100vh - 69px);
+  /* height: calc(100vh - 69px); */
   --list-posi-top: 17px;
 }
 main .list h2 {
@@ -206,12 +205,11 @@ main .plat {
   overflow-y: scroll;
   gap: 20px;
   padding: 0 20px;
-  height: calc(100vh - 40px);
+  /* height: calc(100vh - 40px); */
   width: 100%;
 }
 main .plat > .show, 
 main .plat > .other {
-  height: fit-content;
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -243,10 +241,15 @@ main .plat > .other div:hover {
   border: 1px solid #738293;
 } 
 main .plat > .show {
+  height: fit-content;
   width: 100%;
   max-width: 871px;
 }
 main .plat > .other {
+  display: flex;
+  height: calc(100vh + 69px);
+  justify-content: flex-start;
+
   width: 356px;
   min-width: 356px;
   max-width: 356px;
@@ -256,6 +259,7 @@ main .plat > .other .aboutWeb {
   position: relative;
   width: 100%;
   height: 150px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
