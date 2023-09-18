@@ -308,6 +308,26 @@ main .plat h5 {
   padding-left: var(--padding-size);
 }
 
+
+/* .greenline {
+  width: 235px;
+  height: 5.5px;
+  border-radius: 100px;
+  background-color: green;
+}
+.CSharp {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.greencircle {
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+  background-color: green;
+} */
+
 @media screen and (max-width: 500px) {
   header > h2 {
     display: none;
