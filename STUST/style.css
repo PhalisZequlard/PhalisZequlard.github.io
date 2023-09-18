@@ -42,7 +42,7 @@ iframe {
   position: relative;
   top: 17px;
   overflow: scroll;
-  height: 100vh;
+  height: calc(100vh - 69px);
   width: 100%;
   max-width: 873px;
 }
