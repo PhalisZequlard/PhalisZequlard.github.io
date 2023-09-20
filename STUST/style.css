@@ -36,8 +36,9 @@
 .profileBtn:hover {
   background-color: #505965;
   border: 1px solid #8d9fb5;
-  color: #cecece;
+  color: #cecece; 
 }
+
 iframe {
   position: relative;
   top: 17px;
